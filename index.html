@@ -54,40 +54,86 @@
         /* ===== HERO ===== */
         .hero {
             position: relative;
-            padding: 4rem 2rem 3rem;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            background: linear-gradient(135deg, #1a3a4a 0%, #2d6a7a 30%, #4a9bb0 60%, #7ec8db 100%);
+            background:
+                linear-gradient(180deg,
+                    rgba(26,58,74,0.3) 0%,
+                    rgba(26,58,74,0.1) 40%,
+                    rgba(74,155,176,0.15) 70%,
+                    rgba(240,230,214,0.6) 100%
+                ),
+                linear-gradient(135deg, #2d6a7a 0%, #4a9bb0 30%, #7ec8db 50%, #b8dce6 70%, #f0e6d6 100%);
+            padding: 2rem;
             overflow: hidden;
         }
-        .hero::after {
+        .hero::before {
             content: '';
             position: absolute;
-            bottom: -2px; left: 0; right: 0; height: 60px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60'%3E%3Cpath fill='%23faf6f0' d='M0,30 C360,60 720,0 1080,30 C1260,45 1380,40 1440,35 L1440,60 L0,60Z'/%3E%3C/svg%3E") no-repeat bottom center;
-            background-size: cover;
+            bottom: 0; left: 0; right: 0; height: 200px;
+            background: linear-gradient(to top, var(--sand-pale), transparent);
+            z-index: 1;
         }
+        .hero-waves {
+            position: absolute;
+            bottom: 0; left: 0; right: 0; height: 120px;
+            z-index: 0; overflow: hidden;
+        }
+        .wave {
+            position: absolute;
+            bottom: 0; left: -5%; width: 110%; height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='%23faf6f0' d='M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z'/%3E%3C/svg%3E") repeat-x;
+            background-size: 1440px 120px;
+            animation: wave 8s linear infinite;
+        }
+        .wave:nth-child(2) {
+            opacity: 0.5; animation-delay: -2s;
+            animation-duration: 10s; bottom: -5px;
+        }
+        .wave:nth-child(3) {
+            opacity: 0.3; animation-delay: -4s;
+            animation-duration: 12s; bottom: -10px;
+        }
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .hero-content { position: relative; z-index: 2; }
         .hero-badge {
             display: inline-flex; align-items: center; gap: 8px;
-            padding: 6px 18px; background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.25);
-            border-radius: 100px; color: #fff; font-size: 0.78rem;
-            font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem;
+            padding: 8px 20px; background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 100px; color: #fff; font-size: 0.8rem;
+            font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.5rem;
         }
         .hero h1 {
-            font-size: clamp(2rem, 6vw, 3.5rem); color: #fff;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.15); margin-bottom: 0.25rem;
+            font-size: clamp(2.5rem, 7vw, 5rem); color: #fff;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.15); margin-bottom: 0.4rem; font-weight: 700;
         }
         .hero h1 em { font-style: italic; font-weight: 400; }
         .hero-sub {
-            font-size: clamp(0.9rem, 2vw, 1.1rem); color: rgba(255,255,255,0.85);
-            font-weight: 300; margin-bottom: 1.5rem;
+            font-size: clamp(0.95rem, 2.5vw, 1.25rem); color: rgba(255,255,255,0.9);
+            font-weight: 300; margin-bottom: 2rem; letter-spacing: 0.02em;
         }
         .hero-dates {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 10px 22px; background: #fff; border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg); color: var(--sea-deep); font-weight: 500; font-size: 0.9rem;
+            display: inline-flex; align-items: center; gap: 12px;
+            padding: 12px 26px; background: #fff; border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg); color: var(--sea-deep); font-weight: 500; font-size: 0.95rem;
         }
         .hero-dates i { color: var(--terracotta); }
+        .scroll-indicator {
+            position: absolute; bottom: 40px; z-index: 3;
+            animation: bounce 2s ease-in-out infinite;
+            color: var(--sea-deep); opacity: 0.5;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
 
         /* ===== TAB NAV ===== */
         .tab-nav {
@@ -412,10 +458,20 @@
 <body>
 
 <section class="hero">
-    <div class="hero-badge"><i data-lucide="plane" style="width:13px;height:13px"></i> Plan de viaje</div>
-    <h1>Quackys en <em>Menorca</em></h1>
-    <p class="hero-sub">Calas, atardeceres y gastronomía mediterránea</p>
-    <div class="hero-dates"><i data-lucide="calendar-days" style="width:16px;height:16px"></i> 20 — 25 de Junio 2026</div>
+    <div class="hero-waves">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+    <div class="hero-content">
+        <div class="hero-badge"><i data-lucide="plane" style="width:14px;height:14px"></i> Plan de viaje</div>
+        <h1>Quackys en <em>Menorca</em></h1>
+        <p class="hero-sub">Calas, atardeceres y gastronomía mediterránea</p>
+        <div class="hero-dates"><i data-lucide="calendar-days" style="width:18px;height:18px"></i> 20 — 25 de Junio 2026</div>
+    </div>
+    <div class="scroll-indicator">
+        <i data-lucide="chevrons-down" style="width:24px;height:24px"></i>
+    </div>
 </section>
 
 <nav class="tab-nav">
