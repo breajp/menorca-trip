@@ -445,6 +445,74 @@
         .gl-dot.drinks { background: #e8daf0; border: 1px solid #d4c0e0; }
         .gl-dot.hotel { background: #f0e6d6; border: 1px solid #ddd4c2; }
 
+        /* ===== MAP ===== */
+        .map-container {
+            background: var(--white); border-radius: var(--radius-lg);
+            border: 1px solid var(--border); box-shadow: var(--shadow-md);
+            padding: 1.5rem; overflow: hidden;
+        }
+        .map-svg { width: 100%; height: auto; display: block; }
+        .map-svg .island {
+            transition: filter 0.3s ease;
+        }
+        .map-svg .day-route {
+            fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+            transition: opacity 0.35s ease, stroke-width 0.3s ease;
+        }
+        .map-svg .day-route.boat-route {
+            stroke-dasharray: 6 4;
+        }
+        .map-svg .map-dot {
+            transition: r 0.2s ease, opacity 0.35s ease;
+            cursor: pointer;
+        }
+        .map-svg .map-dot:hover { filter: brightness(0.85); }
+        .map-svg .map-label {
+            font-family: 'Inter', sans-serif; font-size: 7px; font-weight: 600;
+            fill: var(--text-secondary); pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+        .map-svg .map-label-bg {
+            fill: rgba(255,255,255,0.85); rx: 3; transition: opacity 0.35s ease;
+        }
+        .map-svg .landmark-label {
+            font-family: 'Inter', sans-serif; font-size: 8.5px; font-weight: 700;
+            fill: var(--sea-deep); letter-spacing: 0.03em;
+        }
+        .map-svg .hotel-marker {
+            font-family: 'Inter', sans-serif; font-size: 6.5px; font-weight: 700;
+            fill: var(--terracotta);
+        }
+        /* Day highlighting on legend hover */
+        .map-panel[data-highlight] .day-group { opacity: 0.12; }
+        .map-panel[data-highlight="1"] .day-group.d1,
+        .map-panel[data-highlight="2"] .day-group.d2,
+        .map-panel[data-highlight="3"] .day-group.d3,
+        .map-panel[data-highlight="4"] .day-group.d4,
+        .map-panel[data-highlight="5"] .day-group.d5 { opacity: 1; }
+        .map-panel[data-highlight] .day-group .day-route { stroke-width: 3.5; }
+        .map-panel[data-highlight] .day-group .map-dot { r: 6; }
+        .day-group { transition: opacity 0.35s ease; }
+        .map-legend {
+            display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem;
+            justify-content: center;
+        }
+        .ml-item {
+            display: flex; align-items: center; gap: 5px;
+            padding: 6px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer; transition: all 0.2s ease;
+            border: 2px solid transparent; background: var(--sand-light); color: var(--text-secondary);
+        }
+        .ml-item:hover { transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+        .ml-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+        .ml-item[data-d="1"] .ml-dot { background: #4a9bb0; }
+        .ml-item[data-d="2"] .ml-dot { background: #c4694a; }
+        .ml-item[data-d="3"] .ml-dot { background: #1a5a8a; }
+        .ml-item[data-d="4"] .ml-dot { background: #6b7c4e; }
+        .ml-item[data-d="5"] .ml-dot { background: #8b5a9a; }
+        .ml-item.active { background: var(--sea-deep); color: #fff; }
+
         @media (max-width: 640px) {
             .panels-container { padding: 1rem 0.75rem 2rem; }
             .boat-grid { grid-template-columns: 1fr; }
@@ -478,6 +546,7 @@
     <div class="tab-nav-inner">
         <button class="tab-btn active" data-tab="overview"><i data-lucide="layout-grid" class="tab-icon"></i><span class="tab-day">Inicio</span></button>
         <button class="tab-btn" data-tab="gantt"><i data-lucide="gantt-chart" class="tab-icon"></i><span class="tab-day">Vista</span></button>
+        <button class="tab-btn" data-tab="mapa"><i data-lucide="map" class="tab-icon"></i><span class="tab-day">Mapa</span></button>
         <button class="tab-btn" data-tab="day1"><i data-lucide="sun" class="tab-icon"></i><span class="tab-day">Día 1</span></button>
         <button class="tab-btn" data-tab="day2"><i data-lucide="waves" class="tab-icon"></i><span class="tab-day">Día 2</span></button>
         <button class="tab-btn" data-tab="day3"><i data-lucide="sailboat" class="tab-icon"></i><span class="tab-day">Día 3</span></button>
@@ -668,6 +737,123 @@
         <div class="gl-item"><div class="gl-dot travel"></div> Desplazamiento</div>
         <div class="gl-item"><div class="gl-dot hotel"></div> Hotel</div>
     </div>
+</div>
+
+<!-- ===== MAPA ===== -->
+<div class="panel" id="mapa">
+    <div class="day-head">
+        <h2>Mapa del viaje</h2>
+        <p>Pasá el mouse por cada día para ver la ruta — tocá un punto para ir al detalle</p>
+    </div>
+    <div class="map-container map-panel" id="mapPanel">
+        <svg viewBox="0 0 520 210" class="map-svg" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="seaGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#d4eef6"/>
+                    <stop offset="100%" stop-color="#e8f4f8"/>
+                </linearGradient>
+                <linearGradient id="islandGrad" x1="0" y1="0" x2="0.3" y2="1">
+                    <stop offset="0%" stop-color="#f0e6d6"/>
+                    <stop offset="40%" stop-color="#e8dcc8"/>
+                    <stop offset="100%" stop-color="#ddd0b8"/>
+                </linearGradient>
+                <filter id="iShadow" x="-3%" y="-3%" width="106%" height="112%">
+                    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1a3a4a" flood-opacity="0.12"/>
+                </filter>
+            </defs>
+            <!-- Sea -->
+            <rect width="520" height="210" rx="12" fill="url(#seaGrad)"/>
+            <!-- Subtle grid -->
+            <line x1="0" y1="105" x2="520" y2="105" stroke="#c8dee8" stroke-width="0.3" stroke-dasharray="4 6"/>
+            <line x1="260" y1="0" x2="260" y2="210" stroke="#c8dee8" stroke-width="0.3" stroke-dasharray="4 6"/>
+            <!-- Island -->
+            <path class="island" d="M 34,90 C 32,70 52,46 92,36 C 132,26 176,16 224,10 C 260,6 300,8 338,17 C 368,24 396,34 420,42 C 442,48 457,54 467,66 C 477,78 484,94 484,108 C 484,122 477,138 463,150 C 449,162 432,170 408,176 C 384,182 354,186 320,187 C 286,188 254,187 222,184 C 190,181 158,177 128,172 C 98,167 72,160 52,150 C 36,142 28,130 27,116 C 26,104 28,96 34,90 Z" fill="url(#islandGrad)" stroke="#c4a882" stroke-width="1.2" filter="url(#iShadow)"/>
+            <!-- Mahón harbor inlet -->
+            <path d="M 484,100 C 476,102 470,104 466,106 C 462,108 460,112 464,114 C 468,116 474,114 480,112 C 484,110 486,106 484,100 Z" fill="url(#seaGrad)" stroke="#c4a882" stroke-width="0.8"/>
+            <!-- Landmark labels -->
+            <text x="30" y="88" class="landmark-label" text-anchor="start">Ciutadella</text>
+            <text x="460" y="96" class="landmark-label" text-anchor="end">Mahón</text>
+            <text x="462" y="128" class="hotel-marker">★ HOTEL</text>
+            <text x="424" y="80" class="landmark-label" style="font-size:7px;font-weight:500;fill:#7a8c92" text-anchor="middle">Aeropuerto</text>
+            <!-- Compass -->
+            <g transform="translate(488,22)">
+                <circle r="12" fill="rgba(255,255,255,0.7)" stroke="#c4a882" stroke-width="0.8"/>
+                <text y="-2" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:7px;font-weight:700;fill:#1a3a4a">N</text>
+                <line x1="0" y1="0" x2="0" y2="-7" stroke="#c4694a" stroke-width="1.5"/>
+                <line x1="0" y1="0" x2="0" y2="5" stroke="#aaa" stroke-width="1"/>
+            </g>
+
+            <!-- ===== DAY 1 — Sea Blue ===== -->
+            <g class="day-group d1">
+                <polyline class="day-route" stroke="#4a9bb0" points="425,84 462,118 468,140 458,106 456,98"/>
+                <circle class="map-dot" cx="425" cy="84" r="4" fill="#4a9bb0" onclick="goTab('day1')"><title>Aeropuerto</title></circle>
+                <circle class="map-dot" cx="462" cy="118" r="5" fill="#4a9bb0" stroke="#fff" stroke-width="1.5" onclick="goTab('day1')"><title>Hotel Barceló Hamilton</title></circle>
+                <circle class="map-dot" cx="468" cy="140" r="4" fill="#4a9bb0" onclick="goTab('day1')"><title>Cala Rafalet</title></circle>
+                <circle class="map-dot" cx="458" cy="106" r="4" fill="#4a9bb0" onclick="goTab('day1')"><title>Mirador Costa des General</title></circle>
+                <circle class="map-dot" cx="456" cy="98" r="4" fill="#4a9bb0" onclick="goTab('day1')"><title>Ses Forquilles (Mahón)</title></circle>
+            </g>
+
+            <!-- ===== DAY 2 — Terracotta ===== -->
+            <g class="day-group d2">
+                <polyline class="day-route" stroke="#c4694a" points="462,118 215,182 198,178 170,180 320,168 285,105"/>
+                <circle class="map-dot" cx="215" cy="182" r="4.5" fill="#c4694a" onclick="goTab('day2')"><title>Cala Mitjana + Mitjaneta</title></circle>
+                <circle class="map-dot" cx="198" cy="178" r="3.5" fill="#c4694a" onclick="goTab('day2')"><title>Smoix (Cala Galdana)</title></circle>
+                <circle class="map-dot" cx="170" cy="180" r="4.5" fill="#c4694a" onclick="goTab('day2')"><title>Cala Macarella + Macarelleta</title></circle>
+                <circle class="map-dot" cx="320" cy="168" r="5" fill="#c4694a" stroke="#fff" stroke-width="1.5" onclick="goTab('day2')"><title>Cova d'en Xoroi ★ sunset</title></circle>
+                <circle class="map-dot" cx="285" cy="105" r="3.5" fill="#c4694a" onclick="goTab('day2')"><title>Can Jaumot (Alaior)</title></circle>
+            </g>
+
+            <!-- ===== DAY 3 — Navy (Lancha) ===== -->
+            <g class="day-group d3">
+                <!-- driving to port -->
+                <polyline class="day-route" stroke="#1a5a8a" points="462,118 58,162"/>
+                <!-- boat route -->
+                <polyline class="day-route boat-route" stroke="#1a5a8a" points="58,162 135,176 150,178 170,180 232,182 215,182 252,183"/>
+                <!-- driving to dinner -->
+                <polyline class="day-route" stroke="#1a5a8a" points="58,162 290,115"/>
+                <circle class="map-dot" cx="58" cy="162" r="4.5" fill="#1a5a8a" onclick="goTab('day3')"><title>Cala en Bosc (lancha)</title></circle>
+                <circle class="map-dot" cx="135" cy="176" r="3.5" fill="#1a5a8a" onclick="goTab('day3')"><title>Cala en Turqueta</title></circle>
+                <circle class="map-dot" cx="150" cy="178" r="3" fill="#1a5a8a" onclick="goTab('day3')"><title>Cala des Talaier</title></circle>
+                <circle class="map-dot" cx="170" cy="180" r="3" fill="#1a5a8a" onclick="goTab('day3')"><title>Cala Macarella (desde el mar)</title></circle>
+                <circle class="map-dot" cx="232" cy="182" r="3" fill="#1a5a8a" onclick="goTab('day3')"><title>Cala Trebalúger</title></circle>
+                <circle class="map-dot" cx="252" cy="183" r="3" fill="#1a5a8a" onclick="goTab('day3')"><title>Cala Escorxada</title></circle>
+                <circle class="map-dot" cx="290" cy="115" r="5" fill="#1a5a8a" stroke="#fff" stroke-width="1.5" onclick="goTab('day3')"><title>Fontenille Menorca ★ cena</title></circle>
+            </g>
+
+            <!-- ===== DAY 4 — Olive ===== -->
+            <g class="day-group d4">
+                <polyline class="day-route" stroke="#6b7c4e" points="462,118 40,90 205,18 450,66"/>
+                <circle class="map-dot" cx="40" cy="90" r="4.5" fill="#6b7c4e" onclick="goTab('day4')"><title>Ciutadella</title></circle>
+                <circle class="map-dot" cx="205" cy="18" r="4.5" fill="#6b7c4e" onclick="goTab('day4')"><title>Cala Pregonda</title></circle>
+                <circle class="map-dot" cx="450" cy="66" r="5" fill="#6b7c4e" stroke="#fff" stroke-width="1.5" onclick="goTab('day4')"><title>Cap Roig ★ sunset</title></circle>
+                <circle class="map-dot" cx="445" cy="72" r="3.5" fill="#6b7c4e" onclick="goTab('day4')"><title>Sa Mesquida</title></circle>
+            </g>
+
+            <!-- ===== DAY 5 — Purple ===== -->
+            <g class="day-group d5">
+                <polyline class="day-route" stroke="#8b5a9a" points="462,118 416,44 398,58 270,14 456,98"/>
+                <circle class="map-dot" cx="416" cy="44" r="4.5" fill="#8b5a9a" onclick="goTab('day5')"><title>Cala Tortuga</title></circle>
+                <circle class="map-dot" cx="398" cy="58" r="3.5" fill="#8b5a9a" onclick="goTab('day5')"><title>Es Grau</title></circle>
+                <circle class="map-dot" cx="270" cy="14" r="4.5" fill="#8b5a9a" onclick="goTab('day5')"><title>Cala Cavalleria</title></circle>
+                <circle class="map-dot" cx="452" cy="94" r="3.5" fill="#8b5a9a" onclick="goTab('day5')"><title>Gin Xoriguer</title></circle>
+                <circle class="map-dot" cx="456" cy="98" r="5" fill="#8b5a9a" stroke="#fff" stroke-width="1.5" onclick="goTab('day5')"><title>La Minerva ★ caldereta</title></circle>
+            </g>
+
+            <!-- Hotel marker (always on top) -->
+            <circle cx="462" cy="118" r="6" fill="none" stroke="var(--terracotta)" stroke-width="2" stroke-dasharray="3 2"/>
+        </svg>
+    </div>
+    <div class="map-legend" id="mapLegend">
+        <div class="ml-item" data-d="1" onmouseenter="hlDay(1)" onmouseleave="hlDay(0)" onclick="goTab('day1')"><div class="ml-dot"></div> Día 1 · Llegada</div>
+        <div class="ml-item" data-d="2" onmouseenter="hlDay(2)" onmouseleave="hlDay(0)" onclick="goTab('day2')"><div class="ml-dot"></div> Día 2 · Calas + Xoroi</div>
+        <div class="ml-item" data-d="3" onmouseenter="hlDay(3)" onmouseleave="hlDay(0)" onclick="goTab('day3')"><div class="ml-dot"></div> Día 3 · Lancha</div>
+        <div class="ml-item" data-d="4" onmouseenter="hlDay(4)" onmouseleave="hlDay(0)" onclick="goTab('day4')"><div class="ml-dot"></div> Día 4 · Pregonda + Cap Roig</div>
+        <div class="ml-item" data-d="5" onmouseenter="hlDay(5)" onmouseleave="hlDay(0)" onclick="goTab('day5')"><div class="ml-dot"></div> Día 5 · Caldereta</div>
+    </div>
+    <p style="text-align:center;font-size:0.75rem;color:var(--text-muted);margin-top:0.75rem">
+        <i data-lucide="info" style="width:12px;height:12px;display:inline;vertical-align:middle"></i>
+        Línea punteada = ruta en lancha · ★ = momentos estrella · Tocá los puntos para ir al día
+    </p>
 </div>
 
 <!-- ===== DÍA 1 ===== -->
@@ -1027,9 +1213,20 @@
         activeBtn.classList.add('active');
         activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         const container = document.querySelector('.panels-container');
-        container.classList.toggle('wide', tabId === 'gantt');
+        container.classList.toggle('wide', tabId === 'gantt' || tabId === 'mapa');
         window.scrollTo({ top: document.querySelector('.tab-nav').offsetTop, behavior: 'smooth' });
         lucide.createIcons();
+    }
+
+    function hlDay(d) {
+        const panel = document.getElementById('mapPanel');
+        if (d === 0) {
+            panel.removeAttribute('data-highlight');
+            document.querySelectorAll('.ml-item').forEach(i => i.classList.remove('active'));
+        } else {
+            panel.setAttribute('data-highlight', d);
+            document.querySelectorAll('.ml-item').forEach(i => i.classList.toggle('active', i.dataset.d == d));
+        }
     }
 
     document.querySelectorAll('.tab-btn').forEach(btn => {
