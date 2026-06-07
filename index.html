@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menorca · 20–25 Junio 2026</title>
-    <meta name="description" content="Plan de viaje día a día para Menorca. Calas, atardeceres, gastronomía y lancha.">
+    <title>Plan de Viaje Quackys · Menorca 2026</title>
+    <meta name="description" content="Plan de viaje día a día para Menorca. Calas, atardeceres y gastronomía.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* ========== DESIGN TOKENS ========== */
         :root {
             --sea-deep: #1a3a4a;
             --sea-mid: #2d6a7a;
@@ -24,7 +23,6 @@
             --terracotta: #c4694a;
             --terracotta-light: #e8956e;
             --olive: #6b7c4e;
-            --olive-light: #8fa068;
             --white: #ffffff;
             --text-primary: #1a2a2e;
             --text-secondary: #4a5c62;
@@ -33,18 +31,13 @@
             --shadow-sm: 0 1px 3px rgba(26,58,74,0.06);
             --shadow-md: 0 4px 12px rgba(26,58,74,0.08);
             --shadow-lg: 0 8px 30px rgba(26,58,74,0.12);
-            --shadow-xl: 0 20px 60px rgba(26,58,74,0.15);
             --radius-sm: 8px;
             --radius-md: 12px;
             --radius-lg: 20px;
             --radius-xl: 28px;
         }
-
-        /* ========== RESET & BASE ========== */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
         html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Inter', -apple-system, sans-serif;
             background: var(--sand-pale);
@@ -52,1362 +45,940 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            min-height: 100vh;
         }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.2; }
+        a { color: var(--sea-mid); text-decoration: none; }
+        a:hover { color: var(--sea-deep); }
 
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', Georgia, serif;
-            line-height: 1.2;
-        }
-
-        /* ========== HERO ========== */
+        /* ===== HERO ===== */
         .hero {
             position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            padding: 4rem 2rem 3rem;
             text-align: center;
-            background:
-                linear-gradient(180deg,
-                    rgba(26,58,74,0.3) 0%,
-                    rgba(26,58,74,0.1) 40%,
-                    rgba(74,155,176,0.15) 70%,
-                    rgba(240,230,214,0.6) 100%
-                ),
-                linear-gradient(135deg, #2d6a7a 0%, #4a9bb0 30%, #7ec8db 50%, #b8dce6 70%, #f0e6d6 100%);
-            padding: 2rem;
+            background: linear-gradient(135deg, #1a3a4a 0%, #2d6a7a 30%, #4a9bb0 60%, #7ec8db 100%);
             overflow: hidden;
         }
-
-        .hero::before {
+        .hero::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 200px;
-            background: linear-gradient(to top, var(--sand-pale), transparent);
-            z-index: 1;
+            bottom: -2px; left: 0; right: 0; height: 60px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60'%3E%3Cpath fill='%23faf6f0' d='M0,30 C360,60 720,0 1080,30 C1260,45 1380,40 1440,35 L1440,60 L0,60Z'/%3E%3C/svg%3E") no-repeat bottom center;
+            background-size: cover;
         }
-
-        /* Animated waves */
-        .hero-waves {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 120px;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .wave {
-            position: absolute;
-            bottom: 0;
-            left: -5%;
-            width: 110%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='%23faf6f0' d='M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z'/%3E%3C/svg%3E") repeat-x;
-            background-size: 1440px 120px;
-            animation: wave 8s linear infinite;
-        }
-
-        .wave:nth-child(2) {
-            opacity: 0.5;
-            animation-delay: -2s;
-            animation-duration: 10s;
-            bottom: -5px;
-        }
-
-        .wave:nth-child(3) {
-            opacity: 0.3;
-            animation-delay: -4s;
-            animation-duration: 12s;
-            bottom: -10px;
-        }
-
-        @keyframes wave {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
         .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 20px;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 100px;
-            color: var(--white);
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 6px 18px; background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 100px; color: #fff; font-size: 0.78rem;
+            font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem;
         }
-
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            color: var(--white);
-            text-shadow: 0 2px 20px rgba(0,0,0,0.15);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+            font-size: clamp(2rem, 6vw, 3.5rem); color: #fff;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.15); margin-bottom: 0.25rem;
         }
-
-        .hero h1 em {
-            font-style: italic;
-            font-weight: 400;
+        .hero h1 em { font-style: italic; font-weight: 400; }
+        .hero-sub {
+            font-size: clamp(0.9rem, 2vw, 1.1rem); color: rgba(255,255,255,0.85);
+            font-weight: 300; margin-bottom: 1.5rem;
         }
-
-        .hero-subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.35rem);
-            color: rgba(255,255,255,0.9);
-            font-weight: 300;
-            margin-bottom: 2rem;
-            letter-spacing: 0.02em;
-        }
-
         .hero-dates {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 14px 28px;
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
-            color: var(--sea-deep);
-            font-weight: 500;
-            font-size: 1rem;
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 10px 22px; background: #fff; border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg); color: var(--sea-deep); font-weight: 500; font-size: 0.9rem;
         }
-
         .hero-dates i { color: var(--terracotta); }
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            z-index: 3;
-            animation: bounce 2s ease-in-out infinite;
-            color: var(--sea-deep);
-            opacity: 0.5;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(8px); }
-        }
-
-        /* ========== NAVIGATION ========== */
-        .day-nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(250,246,240,0.85);
-            backdrop-filter: blur(20px);
+        /* ===== TAB NAV ===== */
+        .tab-nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(250,246,240,0.9); backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
-            padding: 0;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
+            overflow-x: auto; -webkit-overflow-scrolling: touch;
         }
-
-        .day-nav::-webkit-scrollbar { display: none; }
-
-        .day-nav-inner {
-            display: flex;
-            align-items: center;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 1rem;
+        .tab-nav::-webkit-scrollbar { display: none; }
+        .tab-nav-inner {
+            display: flex; max-width: 960px; margin: 0 auto; padding: 0 0.5rem;
         }
-
-        .day-nav a {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 16px 18px;
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            font-weight: 500;
-            white-space: nowrap;
-            border-bottom: 2px solid transparent;
-            transition: all 0.25s ease;
+        .tab-btn {
+            display: flex; flex-direction: column; align-items: center; gap: 2px;
+            padding: 10px 14px; border: none; background: none; cursor: pointer;
+            color: var(--text-muted); font-size: 0.7rem; font-weight: 600;
+            font-family: 'Inter', sans-serif; white-space: nowrap;
+            border-bottom: 3px solid transparent; transition: all 0.25s ease;
+            letter-spacing: 0.03em; text-transform: uppercase;
         }
+        .tab-btn:hover { color: var(--sea-mid); }
+        .tab-btn.active { color: var(--sea-deep); border-bottom-color: var(--terracotta); }
+        .tab-btn .tab-icon { width: 18px; height: 18px; }
+        .tab-btn .tab-day { font-size: 0.82rem; font-weight: 700; text-transform: none; }
 
-        .day-nav a:hover, .day-nav a.active {
-            color: var(--sea-mid);
-            border-bottom-color: var(--sea-mid);
+        /* ===== PANELS ===== */
+        .panels-container { max-width: 780px; margin: 0 auto; padding: 1.5rem 1rem 3rem; transition: max-width 0.3s ease; }
+        .panels-container.wide { max-width: 1100px; }
+        .panel { display: none; animation: fadeIn 0.35s ease; }
+        .panel.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ===== DAY HEADER ===== */
+        .day-head { margin-bottom: 1.5rem; }
+        .day-chip {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 5px 12px; background: var(--sea-deep); color: #fff;
+            border-radius: var(--radius-sm); font-size: 0.72rem; font-weight: 600;
+            letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.6rem;
         }
+        .day-head h2 { font-size: 1.6rem; color: var(--sea-deep); margin-bottom: 0.2rem; }
+        .day-head p { color: var(--text-muted); font-size: 0.9rem; }
 
-        /* ========== MAIN CONTENT ========== */
-        .content {
-            max-width: 820px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem 4rem;
+        /* ===== TIMELINE ===== */
+        .tl { position: relative; padding-left: 26px; }
+        .tl::before {
+            content: ''; position: absolute; left: 6px; top: 6px; bottom: 6px;
+            width: 2px; background: linear-gradient(to bottom, var(--sea-pale), var(--sand-mid)); border-radius: 2px;
         }
-
-        /* ========== DAY SECTION ========== */
-        .day-section {
-            margin-bottom: 4rem;
-            scroll-margin-top: 70px;
+        .tl-item { position: relative; padding-bottom: 1.25rem; }
+        .tl-item:last-child { padding-bottom: 0; }
+        .tl-dot {
+            position: absolute; left: -23px; top: 6px; width: 14px; height: 14px;
+            border-radius: 50%; background: #fff; border: 3px solid var(--sea-light); z-index: 2;
         }
-
-        .day-header {
-            margin-bottom: 1.5rem;
+        .tl-item.hl .tl-dot { border-color: var(--terracotta); background: var(--terracotta); box-shadow: 0 0 0 4px rgba(196,105,74,0.12); }
+        .tl-time { font-size: 0.78rem; font-weight: 600; color: var(--sea-mid); margin-bottom: 3px; }
+        .tl-card {
+            background: #fff; border-radius: var(--radius-md); padding: 0.9rem 1.1rem;
+            box-shadow: var(--shadow-sm); border: 1px solid var(--border); transition: all 0.3s ease;
         }
+        .tl-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+        .tl-item.hl .tl-card { border-color: var(--terracotta-light); background: linear-gradient(135deg, #fff, #fff8f5); }
+        .tl-card-head { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+        .tl-card-head i { flex-shrink: 0; color: var(--sea-mid); width: 16px; height: 16px; }
+        .tl-item.hl .tl-card-head i { color: var(--terracotta); }
+        .tl-card-head h4 { font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; }
+        .tl-card p { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; }
 
-        .day-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 14px;
-            background: var(--sea-deep);
-            color: var(--white);
-            border-radius: var(--radius-sm);
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
+        .links-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+        .link-pill {
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 4px 10px; border-radius: 100px; font-size: 0.75rem; font-weight: 500;
+            transition: all 0.2s ease; text-decoration: none;
         }
-
-        .day-header h2 {
-            font-size: 1.85rem;
-            color: var(--sea-deep);
-            margin-bottom: 0.3rem;
-        }
-
-        .day-header p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* ========== TIMELINE ========== */
-        .timeline {
-            position: relative;
-            padding-left: 28px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 7px;
-            top: 8px;
-            bottom: 8px;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--sea-pale), var(--sand-mid));
-            border-radius: 2px;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-bottom: 1.5rem;
-        }
-
-        .timeline-item:last-child { padding-bottom: 0; }
-
-        .timeline-dot {
-            position: absolute;
-            left: -24px;
-            top: 6px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--white);
-            border: 3px solid var(--sea-light);
-            z-index: 2;
-        }
-
-        .timeline-item.highlight .timeline-dot {
-            border-color: var(--terracotta);
-            background: var(--terracotta);
-            box-shadow: 0 0 0 4px rgba(196,105,74,0.15);
-        }
-
-        .timeline-time {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--sea-mid);
-            margin-bottom: 4px;
-            letter-spacing: 0.02em;
-        }
-
-        .timeline-card {
-            background: var(--white);
-            border-radius: var(--radius-md);
-            padding: 1rem 1.25rem;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .timeline-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-1px);
-        }
-
-        .timeline-item.highlight .timeline-card {
-            border-color: var(--terracotta-light);
-            background: linear-gradient(135deg, var(--white), #fff8f5);
-        }
-
-        .timeline-card-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 6px;
-        }
-
-        .timeline-card-header i {
-            flex-shrink: 0;
-            color: var(--sea-mid);
-            width: 18px;
-            height: 18px;
-        }
-
-        .timeline-item.highlight .timeline-card-header i {
-            color: var(--terracotta);
-        }
-
-        .timeline-card-header h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .timeline-card p {
-            font-size: 0.88rem;
-            color: var(--text-secondary);
-            line-height: 1.55;
-        }
-
-        .timeline-card .tip {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            margin-top: 10px;
-            padding: 10px 12px;
-            background: var(--sea-foam);
-            border-radius: var(--radius-sm);
-            font-size: 0.82rem;
-            color: var(--sea-deep);
-        }
-
-        .timeline-card .tip i {
-            flex-shrink: 0;
-            margin-top: 1px;
-            color: var(--sea-mid);
-        }
+        .link-pill i { width: 12px; height: 12px; }
+        .link-map { background: #eef7ee; color: #3a7d44; }
+        .link-map:hover { background: #d4edd6; color: #2a5d30; }
+        .link-web { background: var(--sea-foam); color: var(--sea-mid); }
+        .link-web:hover { background: var(--sea-pale); color: var(--sea-deep); }
+        .link-reserve { background: #fef3ec; color: var(--terracotta); }
+        .link-reserve:hover { background: #fde4d4; color: #a0503a; }
 
         .price-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 2px 10px;
-            background: var(--sand-light);
-            border-radius: 100px;
-            font-size: 0.78rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            margin-top: 6px;
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 2px 10px; background: var(--sand-light); border-radius: 100px;
+            font-size: 0.75rem; font-weight: 500; color: var(--text-secondary); margin-top: 6px;
         }
+        .tip-box {
+            display: flex; align-items: flex-start; gap: 8px;
+            margin-top: 8px; padding: 8px 10px; background: var(--sea-foam);
+            border-radius: var(--radius-sm); font-size: 0.78rem; color: var(--sea-deep);
+        }
+        .tip-box i { flex-shrink: 0; margin-top: 1px; color: var(--sea-mid); }
 
-        /* ========== BOAT ROUTE ========== */
-        .boat-route {
+        /* ===== BOAT ROUTE ===== */
+        .boat-card {
             background: linear-gradient(135deg, var(--sea-deep), var(--sea-mid));
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            margin: 1rem 0;
-            color: var(--white);
+            border-radius: var(--radius-lg); padding: 1.5rem; color: #fff; margin: 1rem 0;
         }
-
-        .boat-route h3 {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.2rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .boat-stops {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 12px;
-        }
-
+        .boat-card h3 { display: flex; align-items: center; gap: 8px; font-size: 1.1rem; margin-bottom: 1rem; }
+        .boat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
         .boat-stop {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 12px 14px;
-            background: rgba(255,255,255,0.1);
-            border-radius: var(--radius-sm);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.1);
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 10px 12px; background: rgba(255,255,255,0.1);
+            border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.08);
         }
-
-        .boat-stop-num {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            font-size: 0.8rem;
-            font-weight: 600;
-            flex-shrink: 0;
+        .boat-num {
+            width: 24px; height: 24px; border-radius: 50%; background: rgba(255,255,255,0.2);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
         }
+        .boat-stop h4 { font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 600; }
+        .boat-stop p { font-size: 0.72rem; opacity: 0.8; line-height: 1.35; }
+        .boat-stop a { color: rgba(255,255,255,0.7); font-size: 0.7rem; }
+        .boat-stop a:hover { color: #fff; }
 
-        .boat-stop h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2px;
+        /* ===== DAY FOOTER NAV ===== */
+        .day-nav-footer {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
         }
-
-        .boat-stop p {
-            font-size: 0.78rem;
-            opacity: 0.8;
-            line-height: 1.4;
-        }
-
-        /* ========== FEATURE CARDS ========== */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 1rem;
-            margin: 3rem 0;
-        }
-
-        .feature-card {
-            background: var(--white);
-            border-radius: var(--radius-md);
-            padding: 1.5rem;
-            border: 1px solid var(--border);
+        .nav-btn {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 10px 18px; border-radius: var(--radius-xl); border: 1px solid var(--border);
+            background: #fff; color: var(--text-primary); font-family: 'Inter', sans-serif;
+            font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: all 0.2s ease;
             box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
         }
+        .nav-btn:hover { background: var(--sea-deep); color: #fff; border-color: var(--sea-deep); }
+        .nav-btn.primary { background: var(--sea-deep); color: #fff; border-color: var(--sea-deep); }
+        .nav-btn.primary:hover { background: var(--sea-mid); border-color: var(--sea-mid); }
+        .nav-btn i { width: 16px; height: 16px; }
+        .nav-btn.hidden { visibility: hidden; }
 
-        .feature-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
+        /* ===== OVERVIEW PANEL ===== */
+        .overview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin: 1.5rem 0; }
+        .ov-card {
+            background: #fff; border-radius: var(--radius-md); padding: 1.25rem;
+            border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+            cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden;
         }
-
-        .feature-card i {
-            color: var(--terracotta);
-            margin-bottom: 12px;
+        .ov-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: var(--sea-light); transition: height 0.3s ease;
         }
-
-        .feature-card h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 6px;
+        .ov-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .ov-card:hover::before { height: 6px; }
+        .ov-card .ov-day { font-size: 0.72rem; font-weight: 600; color: var(--sea-mid); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+        .ov-card h3 { font-size: 1.05rem; color: var(--sea-deep); margin-bottom: 6px; }
+        .ov-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.4; }
+        .ov-card .ov-highlights { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 4px; }
+        .ov-tag {
+            padding: 3px 8px; border-radius: 100px; font-size: 0.7rem; font-weight: 500;
+            background: var(--sand-light); color: var(--text-secondary);
         }
+        .ov-tag.star { background: #fef3ec; color: var(--terracotta); }
 
-        .feature-card p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
+        /* ===== TABLES ===== */
+        .section-title {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 1.2rem; color: var(--sea-deep); margin: 2rem 0 1rem;
         }
-
-        /* ========== SUMMARY TABLES ========== */
-        .summary-section {
-            margin: 3rem 0;
+        .section-title i { color: var(--terracotta); }
+        .s-table {
+            width: 100%; border-collapse: separate; border-spacing: 0;
+            background: #fff; border-radius: var(--radius-md); overflow: hidden;
+            box-shadow: var(--shadow-sm); border: 1px solid var(--border); font-size: 0.85rem;
         }
-
-        .summary-section h3 {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.4rem;
-            color: var(--sea-deep);
-            margin-bottom: 1rem;
+        .s-table th {
+            background: var(--sea-deep); color: #fff; padding: 10px 14px; text-align: left;
+            font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600;
+            letter-spacing: 0.04em; text-transform: uppercase;
         }
-
-        .summary-section h3 i { color: var(--terracotta); }
-
-        .summary-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            background: var(--white);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border);
-        }
-
-        .summary-table th {
-            background: var(--sea-deep);
-            color: var(--white);
-            padding: 12px 16px;
-            text-align: left;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        .summary-table td {
-            padding: 12px 16px;
-            font-size: 0.88rem;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-secondary);
-        }
-
-        .summary-table tr:last-child td { border-bottom: none; }
-
-        .summary-table tr:hover td { background: var(--sand-pale); }
-
+        .s-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
+        .s-table tr:last-child td { border-bottom: none; }
+        .s-table tr:hover td { background: var(--sand-pale); }
         .star-cell { color: var(--terracotta); font-weight: 600; }
 
-        /* ========== RESERVATIONS ========== */
-        .reservations {
+        /* ===== RESERVATIONS ===== */
+        .reserve-block {
             background: linear-gradient(135deg, var(--terracotta), #d47a5a);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            color: var(--white);
-            margin: 3rem 0;
+            border-radius: var(--radius-lg); padding: 1.5rem; color: #fff; margin: 2rem 0;
         }
-
-        .reservations h3 {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+        .reserve-block h3 { display: flex; align-items: center; gap: 8px; font-size: 1.15rem; margin-bottom: 1rem; }
+        .res-list { list-style: none; }
+        .res-list li {
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.15); font-size: 0.88rem;
         }
+        .res-list li:last-child { border-bottom: none; }
+        .res-list i { flex-shrink: 0; margin-top: 2px; opacity: 0.8; }
+        .res-list .date { opacity: 0.7; font-size: 0.78rem; }
+        .res-list a { color: rgba(255,255,255,0.9); text-decoration: underline; text-underline-offset: 2px; }
+        .res-list a:hover { color: #fff; }
 
-        .reservation-list { list-style: none; }
-
-        .reservation-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.15);
-            font-size: 0.92rem;
+        /* ===== FEATURES ===== */
+        .feat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin: 1rem 0; }
+        .feat-card {
+            background: #fff; border-radius: var(--radius-md); padding: 1.2rem;
+            border: 1px solid var(--border); box-shadow: var(--shadow-sm); transition: all 0.3s ease;
         }
+        .feat-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .feat-card i { color: var(--terracotta); margin-bottom: 8px; }
+        .feat-card h4 { font-family: 'Inter', sans-serif; font-size: 0.88rem; font-weight: 600; margin-bottom: 4px; }
+        .feat-card p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.45; }
 
-        .reservation-list li:last-child { border-bottom: none; }
-
-        .reservation-list li i { flex-shrink: 0; margin-top: 2px; opacity: 0.8; }
-
-        .reservation-list strong { font-weight: 600; }
-
-        .reservation-list .date { opacity: 0.7; font-size: 0.82rem; }
-
-        /* ========== PRACTICAL INFO ========== */
-        .practical {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-sm);
-            margin: 3rem 0;
+        /* ===== PRACTICAL ===== */
+        .prac-block {
+            background: #fff; border-radius: var(--radius-lg); padding: 1.5rem;
+            border: 1px solid var(--border); box-shadow: var(--shadow-sm); margin: 2rem 0;
         }
+        .prac-block h3 { display: flex; align-items: center; gap: 8px; font-size: 1.15rem; color: var(--sea-deep); margin-bottom: 1rem; }
+        .prac-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
+        .prac-item { display: flex; align-items: flex-start; gap: 8px; }
+        .prac-item i { color: var(--sea-mid); flex-shrink: 0; margin-top: 2px; width: 16px; height: 16px; }
+        .prac-item strong { display: block; font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 600; }
+        .prac-item span { font-size: 0.82rem; color: var(--text-secondary); }
 
-        .practical h3 {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.3rem;
-            color: var(--sea-deep);
-            margin-bottom: 1.25rem;
+        /* ===== FOOTER ===== */
+        .foot { text-align: center; padding: 2rem 1rem; color: var(--text-muted); font-size: 0.82rem; }
+        .foot .heart { color: var(--terracotta); }
+
+        /* ===== GANTT CHART ===== */
+        .gantt-wrapper {
+            overflow-x: auto; -webkit-overflow-scrolling: touch;
+            margin: 0 -0.5rem; padding: 0 0.5rem 1rem;
         }
-
-        .practical-grid {
+        .gantt-wrapper::-webkit-scrollbar { height: 6px; }
+        .gantt-wrapper::-webkit-scrollbar-track { background: var(--sand-light); border-radius: 3px; }
+        .gantt-wrapper::-webkit-scrollbar-thumb { background: var(--sand-dark); border-radius: 3px; }
+        .gantt {
+            min-width: 900px;
+            background: var(--white); border-radius: var(--radius-lg);
+            border: 1px solid var(--border); box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+        .gantt-head {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
+            grid-template-columns: 90px repeat(32, 1fr);
+            background: var(--sea-deep); color: rgba(255,255,255,0.85);
+            font-size: 0.7rem; font-weight: 600; letter-spacing: 0.02em;
         }
-
-        .practical-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
+        .gantt-head .gh-label {
+            padding: 10px 12px; display: flex; align-items: center; gap: 4px;
+            border-right: 1px solid rgba(255,255,255,0.1); font-size: 0.72rem;
         }
-
-        .practical-item i { color: var(--sea-mid); flex-shrink: 0; margin-top: 2px; }
-
-        .practical-item strong {
-            display: block;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: var(--text-primary);
+        .gantt-head .gh-hour {
+            grid-column: span 2; padding: 10px 0; text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.06);
         }
-
-        .practical-item span {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
+        .gantt-head .gh-hour.even { background: rgba(0,0,0,0.08); }
+        .gantt-row {
+            display: grid; grid-template-columns: 90px repeat(32, 1fr);
+            border-bottom: 1px solid var(--border); min-height: 56px; position: relative;
         }
-
-        /* ========== FOOTER ========== */
-        .footer {
-            text-align: center;
-            padding: 3rem 1.5rem;
-            color: var(--text-muted);
-            font-size: 0.85rem;
+        .gantt-row:last-child { border-bottom: none; }
+        .gantt-row:hover { background: rgba(74,155,176,0.03); }
+        .gr-label {
+            padding: 8px 10px; display: flex; flex-direction: column; justify-content: center;
+            border-right: 1px solid var(--border); background: var(--sand-pale);
         }
-
-        .footer p { margin-bottom: 0.5rem; }
-
-        .footer .heart { color: var(--terracotta); }
-
-        /* ========== ANIMATIONS ========== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+        .gr-label .gr-day { font-family: 'Inter',sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--sea-deep); }
+        .gr-label .gr-date { font-size: 0.65rem; color: var(--text-muted); }
+        .gr-track {
+            grid-column: 2 / -1; display: grid; grid-template-columns: repeat(32, 1fr);
+            padding: 6px 2px; gap: 2px 0; align-items: center; position: relative;
         }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .g-block {
+            border-radius: 6px; padding: 3px 7px; font-size: 0.68rem; font-weight: 600;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            cursor: pointer; transition: all 0.2s ease; position: relative;
+            min-height: 24px; display: flex; align-items: center;
+            line-height: 1.2; z-index: 2;
         }
+        .g-block:hover { transform: scaleY(1.15); z-index: 10; filter: brightness(0.95); }
+        .g-block.g-beach { background: #d4f0f7; color: #1a5a6a; border: 1px solid #b0dfe9; }
+        .g-block.g-food { background: #f5e6d0; color: #7a5a30; border: 1px solid #e5d2b5; }
+        .g-block.g-sunset { background: #fde4d4; color: #993d1f; border: 1px solid #f0c8ad; }
+        .g-block.g-boat { background: #c8dff0; color: #1a3a5a; border: 1px solid #a0c4db; }
+        .g-block.g-travel { background: #e8e5e0; color: #6a6560; border: 1px solid #d5d0c8; }
+        .g-block.g-culture { background: #dde8d0; color: #3a5a20; border: 1px solid #c5d8b0; }
+        .g-block.g-hotel { background: #f0e6d6; color: #8a7a60; border: 1px solid #ddd4c2; }
+        .g-block.g-drinks { background: #e8daf0; color: #5a3070; border: 1px solid #d4c0e0; }
+        .g-block.g-star { box-shadow: 0 0 0 2px var(--terracotta); border-color: var(--terracotta); }
+        /* grid lines */
+        .gr-track::before {
+            content: ''; position: absolute; inset: 0;
+            background: repeating-linear-gradient(to right,
+                transparent 0, transparent calc(100% / 32 * 2 - 1px),
+                rgba(0,0,0,0.04) calc(100% / 32 * 2 - 1px),
+                rgba(0,0,0,0.04) calc(100% / 32 * 2)
+            );
+            z-index: 0; pointer-events: none;
+        }
+        .gantt-legend {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem;
+            padding: 1rem; background: var(--white); border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+        }
+        .gl-item { display: flex; align-items: center; gap: 5px; font-size: 0.72rem; color: var(--text-secondary); }
+        .gl-dot { width: 14px; height: 10px; border-radius: 3px; }
+        .gl-dot.beach { background: #d4f0f7; border: 1px solid #b0dfe9; }
+        .gl-dot.food { background: #f5e6d0; border: 1px solid #e5d2b5; }
+        .gl-dot.sunset { background: #fde4d4; border: 1px solid #f0c8ad; }
+        .gl-dot.boat { background: #c8dff0; border: 1px solid #a0c4db; }
+        .gl-dot.travel { background: #e8e5e0; border: 1px solid #d5d0c8; }
+        .gl-dot.culture { background: #dde8d0; border: 1px solid #c5d8b0; }
+        .gl-dot.drinks { background: #e8daf0; border: 1px solid #d4c0e0; }
+        .gl-dot.hotel { background: #f0e6d6; border: 1px solid #ddd4c2; }
 
-        /* ========== RESPONSIVE ========== */
         @media (max-width: 640px) {
-            .content { padding: 1.5rem 1rem 3rem; }
-            .day-header h2 { font-size: 1.5rem; }
-            .boat-stops { grid-template-columns: 1fr; }
-            .features-grid { grid-template-columns: 1fr; }
-            .practical-grid { grid-template-columns: 1fr; }
-            .summary-table { font-size: 0.82rem; }
-            .summary-table th, .summary-table td { padding: 10px 12px; }
-            .boat-route, .reservations, .practical { padding: 1.5rem; }
-            .hero h1 { font-size: 2.8rem; }
+            .panels-container { padding: 1rem 0.75rem 2rem; }
+            .boat-grid { grid-template-columns: 1fr; }
+            .feat-grid, .overview-grid { grid-template-columns: 1fr; }
+            .prac-grid { grid-template-columns: 1fr 1fr; }
+            .tab-btn { padding: 8px 10px; }
+            .tab-btn .tab-day { font-size: 0.75rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- ==================== HERO ==================== -->
 <section class="hero">
-    <div class="hero-waves">
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-    </div>
-    <div class="hero-content">
-        <div class="hero-badge">
-            <i data-lucide="plane" style="width:14px;height:14px"></i>
-            Plan de viaje
-        </div>
-        <h1><em>Menorca</em></h1>
-        <p class="hero-subtitle">Calas, atardeceres y gastronomía mediterránea</p>
-        <div class="hero-dates">
-            <i data-lucide="calendar-days" style="width:18px;height:18px"></i>
-            20 — 25 de Junio 2026
-        </div>
-    </div>
-    <div class="scroll-indicator">
-        <i data-lucide="chevrons-down" style="width:24px;height:24px"></i>
-    </div>
+    <div class="hero-badge"><i data-lucide="plane" style="width:13px;height:13px"></i> Plan de viaje</div>
+    <h1>Quackys en <em>Menorca</em></h1>
+    <p class="hero-sub">Calas, atardeceres y gastronomía mediterránea</p>
+    <div class="hero-dates"><i data-lucide="calendar-days" style="width:16px;height:16px"></i> 20 — 25 de Junio 2026</div>
 </section>
 
-<!-- ==================== NAV ==================== -->
-<nav class="day-nav">
-    <div class="day-nav-inner">
-        <a href="#day1"><i data-lucide="sun" style="width:14px;height:14px"></i> Día 1</a>
-        <a href="#day2"><i data-lucide="waves" style="width:14px;height:14px"></i> Día 2</a>
-        <a href="#day3"><i data-lucide="sailboat" style="width:14px;height:14px"></i> Día 3</a>
-        <a href="#day4"><i data-lucide="sunset" style="width:14px;height:14px"></i> Día 4</a>
-        <a href="#day5"><i data-lucide="wine" style="width:14px;height:14px"></i> Día 5</a>
-        <a href="#day6"><i data-lucide="plane-takeoff" style="width:14px;height:14px"></i> Día 6</a>
-        <a href="#reservas"><i data-lucide="bookmark" style="width:14px;height:14px"></i> Reservas</a>
-        <a href="#info"><i data-lucide="info" style="width:14px;height:14px"></i> Info</a>
+<nav class="tab-nav">
+    <div class="tab-nav-inner">
+        <button class="tab-btn active" data-tab="overview"><i data-lucide="layout-grid" class="tab-icon"></i><span class="tab-day">Inicio</span></button>
+        <button class="tab-btn" data-tab="gantt"><i data-lucide="gantt-chart" class="tab-icon"></i><span class="tab-day">Vista</span></button>
+        <button class="tab-btn" data-tab="day1"><i data-lucide="sun" class="tab-icon"></i><span class="tab-day">Día 1</span></button>
+        <button class="tab-btn" data-tab="day2"><i data-lucide="waves" class="tab-icon"></i><span class="tab-day">Día 2</span></button>
+        <button class="tab-btn" data-tab="day3"><i data-lucide="sailboat" class="tab-icon"></i><span class="tab-day">Día 3</span></button>
+        <button class="tab-btn" data-tab="day4"><i data-lucide="sunset" class="tab-icon"></i><span class="tab-day">Día 4</span></button>
+        <button class="tab-btn" data-tab="day5"><i data-lucide="wine" class="tab-icon"></i><span class="tab-day">Día 5</span></button>
+        <button class="tab-btn" data-tab="day6"><i data-lucide="plane-takeoff" class="tab-icon"></i><span class="tab-day">Día 6</span></button>
+        <button class="tab-btn" data-tab="extras"><i data-lucide="sparkles" class="tab-icon"></i><span class="tab-day">Extras</span></button>
     </div>
 </nav>
 
-<!-- ==================== CONTENT ==================== -->
-<main class="content">
+<div class="panels-container">
 
-    <!-- ========== DÍA 1 ========== -->
-    <section class="day-section fade-in" id="day1">
-        <div class="day-header">
-            <div class="day-label"><i data-lucide="sun" style="width:12px;height:12px"></i> Sábado 20 de Junio</div>
-            <h2>Llegada y primer atardecer</h2>
-            <p>Aterrizar, instalarse y descubrir los alrededores del hotel</p>
+<!-- ===== OVERVIEW ===== -->
+<div class="panel active" id="overview">
+    <div class="day-head">
+        <h2>Tu viaje día a día</h2>
+        <p>Tocá cualquier día para ver el plan completo</p>
+    </div>
+    <div class="overview-grid">
+        <div class="ov-card" onclick="goTab('day1')">
+            <div class="ov-day">Sábado 20</div>
+            <h3>Llegada</h3>
+            <p>Check-in, Cales Fonts, Mirador Costa des General</p>
+            <div class="ov-highlights"><span class="ov-tag">Cala Rafalet</span><span class="ov-tag">Ses Forquilles</span></div>
         </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">~12:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="plane-landing"></i>
-                        <h4>Llegada a Menorca</h4>
-                    </div>
-                    <p>Recoger auto en el aeropuerto. Directo al Barceló Hamilton (~15 min).</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">13:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="hotel"></i>
-                        <h4>Check-in · Barceló Hamilton</h4>
-                    </div>
-                    <p>Acomodarse y disfrutar la piscina del hotel con vistas al puerto.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">14:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="utensils"></i>
-                        <h4>Almuerzo en Cales Fonts</h4>
-                    </div>
-                    <p>Sa Parada o Es Cau en el pintoresco puerto de Es Castell. Mariscos, tapas, ambiente local. A 5 min caminando del hotel.</p>
-                    <div class="price-tag"><i data-lucide="coins" style="width:12px;height:12px"></i> ~25-40€/pp</div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">16:00 — 18:30</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="waves"></i>
-                        <h4>Cala Rafalet o Cala de Sant Esteve</h4>
-                    </div>
-                    <p>Calas cercanas al hotel (10-15 min en auto). Rafalet es pequeñita, aguas cristalinas, poca gente.</p>
-                </div>
-            </div>
-            <div class="timeline-item highlight">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">19:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="binoculars"></i>
-                        <h4>Mirador Costa des General</h4>
-                    </div>
-                    <p>Vistas panorámicas al puerto natural más grande del Mediterráneo. Espectacular al atardecer.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">20:30</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="wine"></i>
-                        <h4>Cena en Ses Forquilles — Mahón</h4>
-                    </div>
-                    <p>Cocina menorquina contemporánea, producto local, ambiente íntimo. Reservar con antelación.</p>
-                    <div class="price-tag"><i data-lucide="coins" style="width:12px;height:12px"></i> ~35-50€/pp</div>
-                </div>
-            </div>
+        <div class="ov-card" onclick="goTab('day2')">
+            <div class="ov-day">Domingo 21</div>
+            <h3>Calas + Cova d'en Xoroi</h3>
+            <p>Las calas más bonitas y el sunset más icónico</p>
+            <div class="ov-highlights"><span class="ov-tag">Mitjana</span><span class="ov-tag">Macarella</span><span class="ov-tag star">Xoroi sunset</span></div>
         </div>
-    </section>
-
-    <!-- ========== DÍA 2 ========== -->
-    <section class="day-section fade-in" id="day2">
-        <div class="day-header">
-            <div class="day-label"><i data-lucide="waves" style="width:12px;height:12px"></i> Domingo 21 de Junio</div>
-            <h2>Las calas más bonitas + Cova d'en Xoroi</h2>
-            <p>Cala Mitjana, Macarella y el sunset más icónico de la isla</p>
+        <div class="ov-card" onclick="goTab('day3')">
+            <div class="ov-day">Lunes 22</div>
+            <h3>Día de lancha</h3>
+            <p>6 calas en barco + cena gourmet en Fontenille</p>
+            <div class="ov-highlights"><span class="ov-tag">Turqueta</span><span class="ov-tag">Escorxada</span><span class="ov-tag star">Fontenille</span></div>
         </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">10:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="car"></i>
-                        <h4>Rumbo al sur</h4>
-                    </div>
-                    <p>Hotel → Cala Mitjana (~40 min). Salir temprano para encontrar parking.</p>
-                </div>
-            </div>
-            <div class="timeline-item highlight">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">10:30 — 13:30</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="palm-tree"></i>
-                        <h4>Cala Mitjana + Cala Mitjaneta</h4>
-                    </div>
-                    <p>Agua turquesa irreal. Mitjaneta está a 5 min caminando — más pequeña, más exclusiva. Llevar snacks y agua.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">14:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="utensils"></i>
-                        <h4>Almuerzo en Cala Galdana — Smoix</h4>
-                    </div>
-                    <p>Cocina mediterránea con terraza. Buena relación calidad-precio.</p>
-                    <div class="price-tag"><i data-lucide="coins" style="width:12px;height:12px"></i> ~25-40€/pp</div>
-                </div>
-            </div>
-            <div class="timeline-item highlight">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">15:30 — 18:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="tree-palm"></i>
-                        <h4>Cala Macarella + Macarelleta</h4>
-                    </div>
-                    <p>Las postales de Menorca. Pinos sobre acantilados, agua esmeralda. Macarelleta es nudista y aún más bonita. Acceso a pie desde Galdana (~25 min).</p>
-                </div>
-            </div>
-            <div class="timeline-item highlight">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">19:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="sunset"></i>
-                        <h4>Cova d'en Xoroi — Sunset</h4>
-                    </div>
-                    <p>Bar-cueva natural dentro de un acantilado sobre el mar. El atardecer desde aquí es una experiencia que no se olvida. Llegar 18:30 para buen sitio.</p>
-                    <div class="price-tag"><i data-lucide="ticket" style="width:12px;height:12px"></i> Entrada sunset ~20-25€ con consumición</div>
-                    <div class="tip">
-                        <i data-lucide="lightbulb" style="width:14px;height:14px"></i>
-                        <span>Reservar mesa sunset por su web con antelación. Llega a llenarse en junio.</span>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">21:30</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="utensils"></i>
-                        <h4>Cena en Can Jaumot — Alaior</h4>
-                    </div>
-                    <p>Cocina de mercado, ambiente local, sin pretensiones. O cenar ligero en Cales Fonts de vuelta al hotel.</p>
-                    <div class="price-tag"><i data-lucide="coins" style="width:12px;height:12px"></i> ~30-45€/pp</div>
-                </div>
-            </div>
+        <div class="ov-card" onclick="goTab('day4')">
+            <div class="ov-day">Martes 23</div>
+            <h3>Pregonda + Cap Roig</h3>
+            <p>La playa marciana y el mejor atardecer gastronómico</p>
+            <div class="ov-highlights"><span class="ov-tag">Ciutadella</span><span class="ov-tag">Pregonda</span><span class="ov-tag star">Cap Roig</span></div>
         </div>
-    </section>
-
-    <!-- ========== DÍA 3 ========== -->
-    <section class="day-section fade-in" id="day3">
-        <div class="day-header">
-            <div class="day-label"><i data-lucide="sailboat" style="width:12px;height:12px"></i> Lunes 22 de Junio</div>
-            <h2>Día de lancha + Fontenille</h2>
-            <p>Calas inaccesibles por tierra y cena gourmet en finca del siglo XVIII</p>
+        <div class="ov-card" onclick="goTab('day5')">
+            <div class="ov-day">Miércoles 24</div>
+            <h3>Despedida + Caldereta</h3>
+            <p>Calas vírgenes, gin local y la gran cena final</p>
+            <div class="ov-highlights"><span class="ov-tag">Gin Xoriguer</span><span class="ov-tag star">La Minerva</span></div>
         </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">9:30</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="anchor"></i>
-                        <h4>Recoger lancha en Cala en Bosc</h4>
-                    </div>
-                    <p>Lancha de 4-5m para 2 personas. Empresas: Menorca Nautic, Blueforce, Charter Menorca.</p>
-                    <div class="price-tag"><i data-lucide="coins" style="width:12px;height:12px"></i> ~150-350€ el día completo</div>
-                </div>
-            </div>
-            <div class="timeline-item highlight">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">10:00 — 18:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="sailboat"></i>
-                        <h4>Ruta en lancha por 6 calas</h4>
-                    </div>
-                    <p>Día entero navegando la costa sur. Llevar nevera con comida, agua, crema solar y snorkel.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="boat-route">
-            <h3><i data-lucide="navigation" style="width:20px;height:20px"></i> Ruta desde Cala en Bosc</h3>
-            <div class="boat-stops">
-                <div class="boat-stop">
-                    <div class="boat-stop-num">1</div>
-                    <div>
-                        <h4>Cala en Turqueta</h4>
-                        <p>Arena blanca, aguas cristalinas, pinos. La joya.</p>
-                    </div>
-                </div>
-                <div class="boat-stop">
-                    <div class="boat-stop-num">2</div>
-                    <div>
-                        <h4>Cala des Talaier</h4>
-                        <p>Pequeña y virgen. Solo accesible fácilmente en barco.</p>
-                    </div>
-                </div>
-                <div class="boat-stop">
-                    <div class="boat-stop-num">3</div>
-                    <div>
-                        <h4>Cala Macarella</h4>
-                        <p>Verla desde el mar es otro nivel. Fondear y nadar.</p>
-                    </div>
-                </div>
-                <div class="boat-stop">
-                    <div class="boat-stop-num">4</div>
-                    <div>
-                        <h4>Cala Trebalúger</h4>
-                        <p>Salvaje, rodeada de bosque. Difícil acceso terrestre.</p>
-                    </div>
-                </div>
-                <div class="boat-stop">
-                    <div class="boat-stop-num">5</div>
-                    <div>
-                        <h4>Cala Mitjana</h4>
-                        <p>Fondear y disfrutar desde el agua. Perspectiva única.</p>
-                    </div>
-                </div>
-                <div class="boat-stop">
-                    <div class="boat-stop-num">6</div>
-                    <div>
-                        <h4>Cala Escorxada</h4>
-                        <p>Solo en barco. Paraíso absoluto y virgen.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="timeline" style="margin-top: 1.5rem;">
-            <div class="timeline-item highlight">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">20:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="crown"></i>
-                        <h4>Cena en Fontenille Menorca Santa Ponsa</h4>
-                    </div>
-                    <p>Finca boutique del s. XVIII con restaurante gourmet. Cocina mediterránea con producto de huerta propia. Ambiente espectacular. Reservar sí o sí.</p>
-                    <div class="price-tag"><i data-lucide="coins" style="width:12px;height:12px"></i> ~80-120€/pp</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== DÍA 4 ========== -->
-    <section class="day-section fade-in" id="day4">
-        <div class="day-header">
-            <div class="day-label"><i data-lucide="sunset" style="width:12px;height:12px"></i> Martes 23 de Junio</div>
-            <h2>Ciutadella, Cala Pregonda y Cap Roig</h2>
-            <p>La playa más especial de la isla y el mejor atardecer gastronómico</p>
-        </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">10:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="car"></i>
-                        <h4>Rumbo a Ciutadella</h4>
-                    </div>
-                    <p>Hotel → Ciutadella (~45 min). La otra "capital" de Menorca.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">10:30 — 12:30</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="landmark"></i>
-                        <h4>Pasear por Ciutadella</h4>
-                    </div>
-                    <p>La Catedral, el puerto antiguo, calles empedradas, helado en la Plaça des Born. El pueblo más bonito de la isla, merece al menos 2 horas.</p>
-                </div>
-            </div>
-            <div class="timeline-item highlight">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">13:00 — 16:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="mountain"></i>
-                        <h4>Cala Pregonda</h4>
-                    </div>
-                    <p>La playa roja/dorada de Menorca. Arena rojiza, rocas de arenisca, paisaje tipo marciano. Caminar ~25 min desde el parking de Binimel·là. Llevar comida, no hay nada.</p>
-                    <div class="tip">
-                        <i data-lucide="lightbulb" style="width:14px;height:14px"></i>
-                        <span>La playa más especial de Menorca por su paisaje único. No te la pierdas.</span>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">17:30</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="waves"></i>
-                        <h4>Playa de Sa Mesquida</h4>
-                    </div>
-                    <p>Baño rápido antes de la cena en Cap Roig. La playa está justo al lado del restaurante.</p>
-                </div>
-            </div>
-            <div class="timeline-item highlight">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">19:30 — 21:30</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="sunset"></i>
-                        <h4>Cena en Cap Roig — Atardecer</h4>
-                    </div>
-                    <p>Primera línea mirando al mar. Arroces, pescados frescos y mariscos. Pedir mesa exterior con vistas. El sunset es alrededor de las 21:20.</p>
-                    <div class="price-tag"><i data-lucide="coins" style="width:12px;height:12px"></i> ~50-70€/pp</div>
-                    <div class="tip">
-                        <i data-lucide="lightbulb" style="width:14px;height:14px"></i>
-                        <span>Reservar con mucha antelación. Es uno de los restaurantes más solicitados de la isla.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== DÍA 5 ========== -->
-    <section class="day-section fade-in" id="day5">
-        <div class="day-header">
-            <div class="day-label"><i data-lucide="wine" style="width:12px;height:12px"></i> Miércoles 24 de Junio</div>
-            <h2>Último día completo — Caldereta y despedida</h2>
-            <p>Calas vírgenes del noreste, ginebra local y la gran cena de despedida</p>
-        </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">10:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="waves"></i>
-                        <h4>Cala Tortuga o Cala Presili</h4>
-                    </div>
-                    <p>Parque Natural de s'Albufera des Grau (~15 min del hotel). Playas vírgenes, naturaleza pura, poca gente.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">13:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="utensils"></i>
-                        <h4>Almuerzo en Es Grau</h4>
-                    </div>
-                    <p>Pueblecito pesquero con restaurantes frente al mar. Cocina sencilla y fresca.</p>
-                    <div class="price-tag"><i data-lucide="coins" style="width:12px;height:12px"></i> ~25-35€/pp</div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">15:00 — 17:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="palm-tree"></i>
-                        <h4>Cala Cavalleria o Platja de Binigaus</h4>
-                    </div>
-                    <p>Cavalleria: playa grande con acantilados rojizos al norte. Binigaus: virgen y larguísima en el sur.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">18:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="glass-water"></i>
-                        <h4>Gin Xoriguer — Destilería</h4>
-                    </div>
-                    <p>Visitar la destilería de la ginebra típica menorquina en el puerto de Mahón. Degustación y comprar una botella de recuerdo.</p>
-                    <div class="price-tag"><i data-lucide="ticket" style="width:12px;height:12px"></i> ~5€ la visita</div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">19:30</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="martini"></i>
-                        <h4>Copas en el puerto de Mahón</h4>
-                    </div>
-                    <p>Paseo por los bares del muelle. Akelarre lounge con vistas o una terraza tranquila.</p>
-                </div>
-            </div>
-            <div class="timeline-item highlight">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">21:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="crown"></i>
-                        <h4>Cena de despedida — La Minerva</h4>
-                    </div>
-                    <p>Restaurante sobre el agua en el puerto de Mahón. Caldereta de langosta menorquina — EL plato insignia de la isla. La forma perfecta de despedirse.</p>
-                    <div class="price-tag"><i data-lucide="coins" style="width:12px;height:12px"></i> ~60-80€ la caldereta para 2</div>
-                    <div class="tip">
-                        <i data-lucide="lightbulb" style="width:14px;height:14px"></i>
-                        <span>No te podés ir de Menorca sin probar la caldereta de langosta. Este es el momento.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== DÍA 6 ========== -->
-    <section class="day-section fade-in" id="day6">
-        <div class="day-header">
-            <div class="day-label"><i data-lucide="plane-takeoff" style="width:12px;height:12px"></i> Jueves 25 de Junio</div>
-            <h2>Vuelta a casa</h2>
+        <div class="ov-card" onclick="goTab('day6')">
+            <div class="ov-day">Jueves 25</div>
+            <h3>Vuelta a casa</h3>
             <p>Último desayuno y salida temprano</p>
+            <div class="ov-highlights"><span class="ov-tag">Check-out</span></div>
         </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">7:00 — 8:00</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="coffee"></i>
-                        <h4>Último desayuno</h4>
-                    </div>
-                    <p>Disfrutar las vistas del Hamilton una última vez.</p>
+    </div>
+
+    <h3 class="section-title"><i data-lucide="utensils" style="width:20px;height:20px"></i> Resumen gastronómico</h3>
+    <table class="s-table">
+        <thead><tr><th>Día</th><th>Almuerzo</th><th>Cena</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Día 1</strong></td><td>Cales Fonts (casual)</td><td>Ses Forquilles</td></tr>
+            <tr><td><strong>Día 2</strong></td><td>Smoix, Cala Galdana</td><td>Can Jaumot</td></tr>
+            <tr><td><strong>Día 3</strong></td><td>Picnic en lancha</td><td class="star-cell">Fontenille Menorca</td></tr>
+            <tr><td><strong>Día 4</strong></td><td>Picnic en Pregonda</td><td class="star-cell">Cap Roig — sunset</td></tr>
+            <tr><td><strong>Día 5</strong></td><td>Es Grau</td><td class="star-cell">La Minerva — caldereta</td></tr>
+        </tbody>
+    </table>
+
+    <h3 class="section-title"><i data-lucide="car" style="width:20px;height:20px"></i> Tiempos en auto</h3>
+    <table class="s-table">
+        <thead><tr><th>Ruta</th><th>Tiempo</th></tr></thead>
+        <tbody>
+            <tr><td>Aeropuerto → Hotel</td><td>15 min</td></tr>
+            <tr><td>Hotel → Cala Mitjana</td><td>40 min</td></tr>
+            <tr><td>Hotel → Cova d'en Xoroi</td><td>25 min</td></tr>
+            <tr><td>Hotel → Ciutadella</td><td>45 min</td></tr>
+            <tr><td>Hotel → Cap Roig</td><td>15 min</td></tr>
+            <tr><td>Hotel → Cala Pregonda</td><td>55 min</td></tr>
+            <tr><td>Hotel → Fontenille</td><td>25 min</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- ===== GANTT ===== -->
+<div class="panel" id="gantt">
+    <div class="day-head">
+        <h2>Vista general</h2>
+        <p>Tu viaje de un vistazo — tocá cualquier bloque para ir al día</p>
+    </div>
+    <div class="gantt-wrapper">
+        <div class="gantt">
+            <div class="gantt-head">
+                <div class="gh-label"><i data-lucide="calendar-days" style="width:12px;height:12px"></i> Día</div>
+                <div class="gh-hour">7</div>
+                <div class="gh-hour even">8</div>
+                <div class="gh-hour">9</div>
+                <div class="gh-hour even">10</div>
+                <div class="gh-hour">11</div>
+                <div class="gh-hour even">12</div>
+                <div class="gh-hour">13</div>
+                <div class="gh-hour even">14</div>
+                <div class="gh-hour">15</div>
+                <div class="gh-hour even">16</div>
+                <div class="gh-hour">17</div>
+                <div class="gh-hour even">18</div>
+                <div class="gh-hour">19</div>
+                <div class="gh-hour even">20</div>
+                <div class="gh-hour">21</div>
+                <div class="gh-hour even">22</div>
+            </div>
+            <!-- Day 1 -->
+            <div class="gantt-row">
+                <div class="gr-label"><span class="gr-day">Día 1</span><span class="gr-date">Sáb 20</span></div>
+                <div class="gr-track">
+                    <div class="g-block g-travel" style="grid-column:11/13" onclick="goTab('day1')" title="Llegada + auto al hotel">Llegada</div>
+                    <div class="g-block g-hotel" style="grid-column:13/15" onclick="goTab('day1')" title="Check-in Barceló Hamilton">Check-in</div>
+                    <div class="g-block g-food" style="grid-column:15/19" onclick="goTab('day1')" title="Almuerzo Cales Fonts">Cales Fonts</div>
+                    <div class="g-block g-beach" style="grid-column:19/24" onclick="goTab('day1')" title="Cala Rafalet">Cala Rafalet</div>
+                    <div class="g-block g-sunset g-star" style="grid-column:25/27" onclick="goTab('day1')" title="Mirador Costa des General">Mirador</div>
+                    <div class="g-block g-food" style="grid-column:28/31" onclick="goTab('day1')" title="Cena Ses Forquilles">Ses Forquilles</div>
                 </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-time">8:30</div>
-                <div class="timeline-card">
-                    <div class="timeline-card-header">
-                        <i data-lucide="luggage"></i>
-                        <h4>Check-out</h4>
-                    </div>
-                    <p>Hotel → Aeropuerto (~15 min). Devolver auto y vuelo de vuelta.</p>
+            <!-- Day 2 -->
+            <div class="gantt-row">
+                <div class="gr-label"><span class="gr-day">Día 2</span><span class="gr-date">Dom 21</span></div>
+                <div class="gr-track">
+                    <div class="g-block g-travel" style="grid-column:7/8" onclick="goTab('day2')" title="Auto al sur">Auto</div>
+                    <div class="g-block g-beach" style="grid-column:8/14" onclick="goTab('day2')" title="Cala Mitjana + Mitjaneta">Mitjana</div>
+                    <div class="g-block g-food" style="grid-column:15/18" onclick="goTab('day2')" title="Almuerzo Smoix">Smoix</div>
+                    <div class="g-block g-beach" style="grid-column:18/23" onclick="goTab('day2')" title="Cala Macarella + Macarelleta">Macarella</div>
+                    <div class="g-block g-sunset g-star" style="grid-column:24/29" onclick="goTab('day2')" title="Cova d'en Xoroi — Sunset">Xoroi sunset</div>
+                    <div class="g-block g-food" style="grid-column:30/33" onclick="goTab('day2')" title="Cena Can Jaumot">Can Jaumot</div>
+                </div>
+            </div>
+            <!-- Day 3 -->
+            <div class="gantt-row">
+                <div class="gr-label"><span class="gr-day">Día 3</span><span class="gr-date">Lun 22</span></div>
+                <div class="gr-track">
+                    <div class="g-block g-travel" style="grid-column:5/6" onclick="goTab('day3')" title="Auto a Cala en Bosc">Auto</div>
+                    <div class="g-block g-boat" style="grid-column:6/23" onclick="goTab('day3')" title="Lancha: Turqueta → Talaier → Macarella → Trebalúger → Mitjana → Escorxada">Lancha — 6 calas</div>
+                    <div class="g-block g-travel" style="grid-column:23/26" onclick="goTab('day3')" title="Devolver lancha + auto">Devolver</div>
+                    <div class="g-block g-food g-star" style="grid-column:27/31" onclick="goTab('day3')" title="Cena Fontenille Menorca">Fontenille</div>
+                </div>
+            </div>
+            <!-- Day 4 -->
+            <div class="gantt-row">
+                <div class="gr-label"><span class="gr-day">Día 4</span><span class="gr-date">Mar 23</span></div>
+                <div class="gr-track">
+                    <div class="g-block g-travel" style="grid-column:7/8" onclick="goTab('day4')" title="Auto a Ciutadella">Auto</div>
+                    <div class="g-block g-culture" style="grid-column:8/12" onclick="goTab('day4')" title="Pasear por Ciutadella">Ciutadella</div>
+                    <div class="g-block g-travel" style="grid-column:12/13" onclick="goTab('day4')" title="Auto al norte">Auto</div>
+                    <div class="g-block g-beach" style="grid-column:13/19" onclick="goTab('day4')" title="Cala Pregonda">Pregonda</div>
+                    <div class="g-block g-travel" style="grid-column:20/22" onclick="goTab('day4')" title="Auto a Sa Mesquida">Auto</div>
+                    <div class="g-block g-beach" style="grid-column:22/25" onclick="goTab('day4')" title="Sa Mesquida">Mesquida</div>
+                    <div class="g-block g-sunset g-star" style="grid-column:26/30" onclick="goTab('day4')" title="Cena Cap Roig — Sunset">Cap Roig</div>
+                </div>
+            </div>
+            <!-- Day 5 -->
+            <div class="gantt-row">
+                <div class="gr-label"><span class="gr-day">Día 5</span><span class="gr-date">Mié 24</span></div>
+                <div class="gr-track">
+                    <div class="g-block g-beach" style="grid-column:7/13" onclick="goTab('day5')" title="Cala Tortuga / Presili">C. Tortuga</div>
+                    <div class="g-block g-food" style="grid-column:13/17" onclick="goTab('day5')" title="Almuerzo Es Grau">Es Grau</div>
+                    <div class="g-block g-beach" style="grid-column:17/21" onclick="goTab('day5')" title="Cala Cavalleria / Binigaus">Cavalleria</div>
+                    <div class="g-block g-culture" style="grid-column:23/25" onclick="goTab('day5')" title="Gin Xoriguer — Destilería">Xoriguer</div>
+                    <div class="g-block g-drinks" style="grid-column:26/29" onclick="goTab('day5')" title="Copas puerto de Mahón">Copas</div>
+                    <div class="g-block g-food g-star" style="grid-column:29/33" onclick="goTab('day5')" title="Cena La Minerva — Caldereta">La Minerva</div>
+                </div>
+            </div>
+            <!-- Day 6 -->
+            <div class="gantt-row">
+                <div class="gr-label"><span class="gr-day">Día 6</span><span class="gr-date">Jue 25</span></div>
+                <div class="gr-track">
+                    <div class="g-block g-hotel" style="grid-column:1/3" onclick="goTab('day6')" title="Último desayuno">Desayuno</div>
+                    <div class="g-block g-travel" style="grid-column:4/6" onclick="goTab('day6')" title="Check-out + aeropuerto">Aeropuerto</div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+    <div class="gantt-legend">
+        <div class="gl-item"><div class="gl-dot beach"></div> Playa / Cala</div>
+        <div class="gl-item"><div class="gl-dot food"></div> Comida</div>
+        <div class="gl-item"><div class="gl-dot sunset"></div> Sunset / Experiencia</div>
+        <div class="gl-item"><div class="gl-dot boat"></div> Lancha</div>
+        <div class="gl-item"><div class="gl-dot culture"></div> Cultura / Visita</div>
+        <div class="gl-item"><div class="gl-dot drinks"></div> Copas</div>
+        <div class="gl-item"><div class="gl-dot travel"></div> Desplazamiento</div>
+        <div class="gl-item"><div class="gl-dot hotel"></div> Hotel</div>
+    </div>
+</div>
 
-    <!-- ========== NO TE PIERDAS ========== -->
-    <section class="summary-section fade-in">
-        <h3><i data-lucide="sparkles" style="width:22px;height:22px"></i> No te pierdas</h3>
-        <div class="features-grid">
-            <div class="feature-card">
-                <i data-lucide="soup" style="width:24px;height:24px"></i>
-                <h4>Caldereta de langosta</h4>
-                <p>EL plato de Menorca. Guiso marinero con langosta fresca. Imprescindible.</p>
+<!-- ===== DÍA 1 ===== -->
+<div class="panel" id="day1">
+    <div class="day-head">
+        <div class="day-chip"><i data-lucide="sun" style="width:11px;height:11px"></i> Sábado 20 de Junio</div>
+        <h2>Llegada y primer atardecer</h2>
+        <p>Aterrizar, instalarse y descubrir los alrededores del hotel</p>
+    </div>
+    <div class="tl">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">~12:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="plane-landing"></i><h4>Llegada a Menorca</h4></div>
+            <p>Recoger auto en el aeropuerto. Directo al hotel (~15 min).</p></div>
+        </div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">13:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="hotel"></i><h4>Check-in · Barceló Hamilton</h4></div>
+            <p>Adults Only. Piscina con vistas al puerto de Mahón.</p>
+            <div class="links-row">
+                <a href="https://maps.app.goo.gl/szTYdAaSXx2YxBN87" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://www.barcelo.com/es-es/barcelo-hamilton-menorca/" target="_blank" class="link-pill link-web"><i data-lucide="globe"></i> Web</a>
+            </div></div>
+        </div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">14:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="utensils"></i><h4>Almuerzo en Cales Fonts</h4></div>
+            <p>Sa Parada o Es Cau en el puerto de Es Castell. Mariscos, tapas. A 5 min caminando del hotel.</p>
+            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~25-40€/pp</div>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Cales+Fonts+Es+Castell+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div></div>
+        </div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">16:00 – 18:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="waves"></i><h4>Cala Rafalet</h4></div>
+            <p>Cala pequeñita a 10 min en auto del hotel. Aguas cristalinas, poca gente.</p>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Cala+Rafalet+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div></div>
+        </div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">19:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="binoculars"></i><h4>Mirador Costa des General</h4></div>
+            <p>Vistas panorámicas al puerto natural más grande del Mediterráneo.</p>
+            <div class="links-row">
+                <a href="https://maps.app.goo.gl/svoNVan6e42Gas1G8" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div></div>
+        </div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">20:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="wine"></i><h4>Cena en Ses Forquilles</h4></div>
+            <p>Cocina menorquina contemporánea en Mahón. Producto local, ambiente íntimo.</p>
+            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~35-50€/pp</div>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Ses+Forquilles+Mahon+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://sesforquilles.com" target="_blank" class="link-pill link-reserve"><i data-lucide="calendar-check"></i> Reservar</a>
+            </div></div>
+        </div>
+    </div>
+    <div class="day-nav-footer">
+        <button class="nav-btn hidden"><i data-lucide="arrow-left"></i> Anterior</button>
+        <button class="nav-btn primary" onclick="goTab('day2')">Día 2 <i data-lucide="arrow-right"></i></button>
+    </div>
+</div>
+
+<!-- ===== DÍA 2 ===== -->
+<div class="panel" id="day2">
+    <div class="day-head">
+        <div class="day-chip"><i data-lucide="waves" style="width:11px;height:11px"></i> Domingo 21 de Junio</div>
+        <h2>Las calas más bonitas + Cova d'en Xoroi</h2>
+        <p>Mitjana, Macarella y el sunset más icónico de la isla</p>
+    </div>
+    <div class="tl">
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">10:30 – 13:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="palm-tree"></i><h4>Cala Mitjana + Mitjaneta</h4></div>
+            <p>Agua turquesa irreal. Mitjaneta a 5 min caminando, más pequeña y exclusiva. Llevar snacks.</p>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Cala+Mitjana+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div></div>
+        </div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">14:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="utensils"></i><h4>Almuerzo en Smoix — Cala Galdana</h4></div>
+            <p>Cocina mediterránea con terraza. Buena relación calidad-precio.</p>
+            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~25-40€/pp</div>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Smoix+Cala+Galdana+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div></div>
+        </div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">15:30 – 18:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="palm-tree"></i><h4>Cala Macarella + Macarelleta</h4></div>
+            <p>Las postales de Menorca. Pinos, acantilados, agua esmeralda. Macarelleta más íntima. Acceso a pie desde Galdana (~25 min).</p>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Cala+Macarella+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div></div>
+        </div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">19:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="sunset"></i><h4>Cova d'en Xoroi — Sunset</h4></div>
+            <p>Bar-cueva en acantilado sobre el mar. Atardecer inolvidable. Llegar 18:30.</p>
+            <div class="price-tag"><i data-lucide="ticket" style="width:11px;height:11px"></i> Entrada sunset ~20-25€ con consumición</div>
+            <div class="links-row">
+                <a href="https://maps.app.goo.gl/ZBa15uiLdxwd3CMSA" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://www.covadeixoroi.com" target="_blank" class="link-pill link-reserve"><i data-lucide="calendar-check"></i> Reservar sunset</a>
+            </div></div>
+        </div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">21:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="utensils"></i><h4>Cena en Can Jaumot — Alaior</h4></div>
+            <p>Cocina de mercado, ambiente local. O cenar ligero de vuelta en Cales Fonts.</p>
+            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~30-45€/pp</div>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Can+Jaumot+Alaior+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div></div>
+        </div>
+    </div>
+    <div class="day-nav-footer">
+        <button class="nav-btn" onclick="goTab('day1')"><i data-lucide="arrow-left"></i> Día 1</button>
+        <button class="nav-btn primary" onclick="goTab('day3')">Día 3 <i data-lucide="arrow-right"></i></button>
+    </div>
+</div>
+
+<!-- ===== DÍA 3 ===== -->
+<div class="panel" id="day3">
+    <div class="day-head">
+        <div class="day-chip"><i data-lucide="sailboat" style="width:11px;height:11px"></i> Lunes 22 de Junio</div>
+        <h2>Día de lancha + Fontenille</h2>
+        <p>6 calas inaccesibles por tierra y cena gourmet en finca del s. XVIII</p>
+    </div>
+    <div class="tl">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">9:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="anchor"></i><h4>Recoger lancha — Cala en Bosc</h4></div>
+            <p>Lancha 4-5m para 2 personas. Empresas: Menorca Nautic, Blueforce, Charter Menorca.</p>
+            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~150-350€ el día</div>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Cala+en+Bosc+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://www.menorcanautic.com" target="_blank" class="link-pill link-web"><i data-lucide="globe"></i> Menorca Nautic</a>
             </div>
-            <div class="feature-card">
-                <i data-lucide="glass-water" style="width:24px;height:24px"></i>
-                <h4>Gin Xoriguer</h4>
-                <p>La ginebra artesanal de la isla. Herencia británica del s. XVIII. Destilería en Mahón.</p>
-            </div>
-            <div class="feature-card">
-                <i data-lucide="mountain" style="width:24px;height:24px"></i>
-                <h4>Cala Pregonda</h4>
-                <p>Arena roja, rocas de arenisca, paisaje "marciano". La playa más especial de Menorca.</p>
-            </div>
-            <div class="feature-card">
-                <i data-lucide="anchor" style="width:24px;height:24px"></i>
-                <h4>Calas solo en barco</h4>
-                <p>Escorxada y Trebalúger — paraísos vírgenes accesibles solo desde el agua.</p>
-            </div>
-            <div class="feature-card">
-                <i data-lucide="building" style="width:24px;height:24px"></i>
-                <h4>Binibèquer Vell</h4>
-                <p>Pueblito blanco tipo "Santorini menorquín" a 10 min del hotel. Ideal para fotos.</p>
-            </div>
-            <div class="feature-card">
-                <i data-lucide="glasses" style="width:24px;height:24px"></i>
-                <h4>Snorkel</h4>
-                <p>Llevar gafas y tubo. Las calas tienen fondos marinos increíbles con agua cristalina.</p>
+            <div class="tip-box"><i data-lucide="lightbulb" style="width:13px;height:13px"></i><span>Llevar nevera con comida, agua, crema solar y snorkel. Salir temprano = calas vacías.</span></div>
             </div>
         </div>
-    </section>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">10:00 – 18:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="sailboat"></i><h4>Ruta en lancha — 6 calas</h4></div>
+            <p>Día entero navegando la costa sur por calas inaccesibles desde tierra.</p></div>
+        </div>
+    </div>
+    <div class="boat-card">
+        <h3><i data-lucide="navigation" style="width:18px;height:18px"></i> Ruta desde Cala en Bosc</h3>
+        <div class="boat-grid">
+            <div class="boat-stop"><div class="boat-num">1</div><div><h4>Cala en Turqueta</h4><p>Arena blanca, la joya.</p><a href="https://www.google.com/maps/search/Cala+en+Turqueta+Menorca" target="_blank">Ver mapa →</a></div></div>
+            <div class="boat-stop"><div class="boat-num">2</div><div><h4>Cala des Talaier</h4><p>Virgen, solo fácil en barco.</p><a href="https://www.google.com/maps/search/Cala+des+Talaier+Menorca" target="_blank">Ver mapa →</a></div></div>
+            <div class="boat-stop"><div class="boat-num">3</div><div><h4>Cala Macarella</h4><p>Verla desde el mar.</p><a href="https://www.google.com/maps/search/Cala+Macarella+Menorca" target="_blank">Ver mapa →</a></div></div>
+            <div class="boat-stop"><div class="boat-num">4</div><div><h4>Cala Trebalúger</h4><p>Salvaje, rodeada de bosque.</p><a href="https://www.google.com/maps/search/Cala+Trebaluger+Menorca" target="_blank">Ver mapa →</a></div></div>
+            <div class="boat-stop"><div class="boat-num">5</div><div><h4>Cala Mitjana</h4><p>Fondear desde el agua.</p><a href="https://www.google.com/maps/search/Cala+Mitjana+Menorca" target="_blank">Ver mapa →</a></div></div>
+            <div class="boat-stop"><div class="boat-num">6</div><div><h4>Cala Escorxada</h4><p>Solo en barco. Paraíso.</p><a href="https://www.google.com/maps/search/Cala+Escorxada+Menorca" target="_blank">Ver mapa →</a></div></div>
+        </div>
+    </div>
+    <div class="tl" style="margin-top:1rem;">
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">20:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="crown"></i><h4>Cena en Fontenille Menorca</h4></div>
+            <p>Finca boutique del s. XVIII. Cocina mediterránea con huerta propia. Experiencia única.</p>
+            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~80-120€/pp</div>
+            <div class="links-row">
+                <a href="https://maps.app.goo.gl/2ziB4tJM7oz29zgcA" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://www.fontenille.com/menorca/" target="_blank" class="link-pill link-reserve"><i data-lucide="calendar-check"></i> Reservar</a>
+            </div></div>
+        </div>
+    </div>
+    <div class="day-nav-footer">
+        <button class="nav-btn" onclick="goTab('day2')"><i data-lucide="arrow-left"></i> Día 2</button>
+        <button class="nav-btn primary" onclick="goTab('day4')">Día 4 <i data-lucide="arrow-right"></i></button>
+    </div>
+</div>
 
-    <!-- ========== GASTRO TABLE ========== -->
-    <section class="summary-section fade-in">
-        <h3><i data-lucide="chef-hat" style="width:22px;height:22px"></i> Resumen gastronómico</h3>
-        <table class="summary-table">
-            <thead>
-                <tr>
-                    <th>Día</th>
-                    <th>Almuerzo</th>
-                    <th>Cena</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Día 1</strong></td>
-                    <td>Cales Fonts (casual)</td>
-                    <td>Ses Forquilles, Mahón</td>
-                </tr>
-                <tr>
-                    <td><strong>Día 2</strong></td>
-                    <td>Smoix, Cala Galdana</td>
-                    <td>Can Jaumot, Alaior</td>
-                </tr>
-                <tr>
-                    <td><strong>Día 3</strong></td>
-                    <td>Picnic en la lancha</td>
-                    <td class="star-cell">Fontenille Menorca</td>
-                </tr>
-                <tr>
-                    <td><strong>Día 4</strong></td>
-                    <td>Picnic en Pregonda</td>
-                    <td class="star-cell">Cap Roig — sunset</td>
-                </tr>
-                <tr>
-                    <td><strong>Día 5</strong></td>
-                    <td>Es Grau</td>
-                    <td class="star-cell">La Minerva — caldereta</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+<!-- ===== DÍA 4 ===== -->
+<div class="panel" id="day4">
+    <div class="day-head">
+        <div class="day-chip"><i data-lucide="sunset" style="width:11px;height:11px"></i> Martes 23 de Junio</div>
+        <h2>Ciutadella, Pregonda y Cap Roig</h2>
+        <p>La playa marciana y el mejor atardecer gastronómico de Menorca</p>
+    </div>
+    <div class="tl">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">10:30 – 12:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="landmark"></i><h4>Pasear por Ciutadella</h4></div>
+            <p>Catedral, puerto antiguo, calles empedradas, helado en Plaça des Born. El pueblo más bonito.</p>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Ciutadella+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div></div>
+        </div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">13:00 – 16:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="mountain"></i><h4>Cala Pregonda</h4></div>
+            <p>Arena rojiza, rocas de arenisca, paisaje marciano. Caminar ~25 min desde parking Binimel·là. Llevar comida.</p>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Cala+Pregonda+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div>
+            <div class="tip-box"><i data-lucide="lightbulb" style="width:13px;height:13px"></i><span>La playa más especial de Menorca. Paisaje único que no vas a encontrar en otra parte.</span></div>
+            </div>
+        </div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">17:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="waves"></i><h4>Playa de Sa Mesquida</h4></div>
+            <p>Baño rápido antes de la cena. Está pegada a Cap Roig.</p>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Sa+Mesquida+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div></div>
+        </div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">19:30 – 21:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="sunset"></i><h4>Cena en Cap Roig — Atardecer</h4></div>
+            <p>Primera línea al mar. Arroces, pescado fresco. Sunset ~21:20. Pedir mesa exterior.</p>
+            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~50-70€/pp</div>
+            <div class="links-row">
+                <a href="https://maps.app.goo.gl/6TEQXzUwEtELG7ku8" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://www.restaurantcaproig.com" target="_blank" class="link-pill link-reserve"><i data-lucide="calendar-check"></i> Reservar</a>
+            </div></div>
+        </div>
+    </div>
+    <div class="day-nav-footer">
+        <button class="nav-btn" onclick="goTab('day3')"><i data-lucide="arrow-left"></i> Día 3</button>
+        <button class="nav-btn primary" onclick="goTab('day5')">Día 5 <i data-lucide="arrow-right"></i></button>
+    </div>
+</div>
 
-    <!-- ========== TIEMPOS AUTO ========== -->
-    <section class="summary-section fade-in">
-        <h3><i data-lucide="car" style="width:22px;height:22px"></i> Tiempos en auto</h3>
-        <table class="summary-table">
-            <thead>
-                <tr>
-                    <th>Ruta</th>
-                    <th>Tiempo</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Aeropuerto → Hotel</td><td>15 min</td></tr>
-                <tr><td>Hotel → Cala Mitjana</td><td>40 min</td></tr>
-                <tr><td>Hotel → Cova d'en Xoroi</td><td>25 min</td></tr>
-                <tr><td>Hotel → Ciutadella</td><td>45 min</td></tr>
-                <tr><td>Hotel → Cap Roig / Sa Mesquida</td><td>15 min</td></tr>
-                <tr><td>Hotel → Cala Pregonda (parking)</td><td>55 min</td></tr>
-                <tr><td>Hotel → Fontenille Menorca</td><td>25 min</td></tr>
-            </tbody>
-        </table>
-    </section>
+<!-- ===== DÍA 5 ===== -->
+<div class="panel" id="day5">
+    <div class="day-head">
+        <div class="day-chip"><i data-lucide="wine" style="width:11px;height:11px"></i> Miércoles 24 de Junio</div>
+        <h2>Último día completo — Caldereta</h2>
+        <p>Calas vírgenes, gin Xoriguer y la cena de despedida</p>
+    </div>
+    <div class="tl">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">10:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="waves"></i><h4>Cala Tortuga o Cala Presili</h4></div>
+            <p>Parque Natural s'Albufera des Grau (~15 min hotel). Vírgenes, naturaleza pura.</p>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Cala+Tortuga+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div></div>
+        </div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">13:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="utensils"></i><h4>Almuerzo en Es Grau</h4></div>
+            <p>Pueblecito pesquero con restaurantes frente al mar.</p>
+            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~25-35€/pp</div>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Es+Grau+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div></div>
+        </div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">15:00 – 17:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="palm-tree"></i><h4>Cala Cavalleria o Binigaus</h4></div>
+            <p>Cavalleria: acantilados rojizos al norte. Binigaus: larguísima y virgen al sur.</p>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Cala+Cavalleria+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Cavalleria</a>
+                <a href="https://www.google.com/maps/search/Platja+Binigaus+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Binigaus</a>
+            </div></div>
+        </div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">18:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="glass-water"></i><h4>Gin Xoriguer — Destilería</h4></div>
+            <p>Ginebra artesanal menorquina en el puerto de Mahón. Degustación y botella de recuerdo.</p>
+            <div class="price-tag"><i data-lucide="ticket" style="width:11px;height:11px"></i> ~5€ visita</div>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Gin+Xoriguer+Mahon+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://www.xoriguer.es" target="_blank" class="link-pill link-web"><i data-lucide="globe"></i> Web</a>
+            </div></div>
+        </div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">21:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="crown"></i><h4>Cena de despedida — La Minerva</h4></div>
+            <p>Restaurante sobre el agua en el puerto de Mahón. Caldereta de langosta — EL plato de la isla.</p>
+            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~60-80€ caldereta para 2</div>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/La+Minerva+Mahon+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://www.restaurantelaminervamenorca.com" target="_blank" class="link-pill link-reserve"><i data-lucide="calendar-check"></i> Reservar</a>
+            </div>
+            <div class="tip-box"><i data-lucide="lightbulb" style="width:13px;height:13px"></i><span>No te vayas de Menorca sin probar la caldereta de langosta. Este es el momento.</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="day-nav-footer">
+        <button class="nav-btn" onclick="goTab('day4')"><i data-lucide="arrow-left"></i> Día 4</button>
+        <button class="nav-btn primary" onclick="goTab('day6')">Día 6 <i data-lucide="arrow-right"></i></button>
+    </div>
+</div>
 
-    <!-- ========== RESERVAS ========== -->
-    <section class="reservations fade-in" id="reservas">
-        <h3><i data-lucide="bookmark-check" style="width:22px;height:22px"></i> Reservas importantes</h3>
-        <ul class="reservation-list">
-            <li>
-                <i data-lucide="sailboat" style="width:16px;height:16px"></i>
-                <div><strong>Alquiler de lancha</strong> — día completo<br><span class="date">Lunes 22 de junio</span></div>
-            </li>
-            <li>
-                <i data-lucide="utensils" style="width:16px;height:16px"></i>
-                <div><strong>Cap Roig</strong> — mesa exterior con sunset<br><span class="date">Martes 23 de junio</span></div>
-            </li>
-            <li>
-                <i data-lucide="utensils" style="width:16px;height:16px"></i>
-                <div><strong>Fontenille Menorca</strong> — cena gourmet<br><span class="date">Lunes 22 de junio</span></div>
-            </li>
-            <li>
-                <i data-lucide="sunset" style="width:16px;height:16px"></i>
-                <div><strong>Cova d'en Xoroi</strong> — entrada sunset<br><span class="date">Domingo 21 de junio</span></div>
-            </li>
-            <li>
-                <i data-lucide="utensils" style="width:16px;height:16px"></i>
-                <div><strong>La Minerva</strong> — caldereta de langosta<br><span class="date">Miércoles 24 de junio</span></div>
-            </li>
-            <li>
-                <i data-lucide="utensils" style="width:16px;height:16px"></i>
-                <div><strong>Ses Forquilles</strong> — primera noche<br><span class="date">Sábado 20 de junio</span></div>
-            </li>
+<!-- ===== DÍA 6 ===== -->
+<div class="panel" id="day6">
+    <div class="day-head">
+        <div class="day-chip"><i data-lucide="plane-takeoff" style="width:11px;height:11px"></i> Jueves 25 de Junio</div>
+        <h2>Vuelta a casa</h2>
+        <p>Último desayuno y salida temprano</p>
+    </div>
+    <div class="tl">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">7:00 – 8:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="coffee"></i><h4>Último desayuno</h4></div>
+            <p>Disfrutar las vistas del Hamilton una última vez.</p></div>
+        </div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">8:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="luggage"></i><h4>Check-out y aeropuerto</h4></div>
+            <p>Hotel → Aeropuerto (~15 min). Devolver auto y vuelo.</p></div>
+        </div>
+    </div>
+    <div class="day-nav-footer">
+        <button class="nav-btn" onclick="goTab('day5')"><i data-lucide="arrow-left"></i> Día 5</button>
+        <button class="nav-btn primary" onclick="goTab('extras')">Extras <i data-lucide="arrow-right"></i></button>
+    </div>
+</div>
+
+<!-- ===== EXTRAS ===== -->
+<div class="panel" id="extras">
+    <div class="day-head">
+        <h2>Extras, reservas e info práctica</h2>
+        <p>Todo lo que necesitás para que salga perfecto</p>
+    </div>
+
+    <h3 class="section-title"><i data-lucide="sparkles" style="width:20px;height:20px"></i> No te pierdas</h3>
+    <div class="feat-grid">
+        <div class="feat-card"><i data-lucide="soup" style="width:22px;height:22px"></i><h4>Caldereta de langosta</h4><p>EL plato de Menorca. Guiso marinero con langosta fresca. Imprescindible.</p></div>
+        <div class="feat-card"><i data-lucide="glass-water" style="width:22px;height:22px"></i><h4>Gin Xoriguer</h4><p>Ginebra artesanal. Herencia británica del s. XVIII.</p></div>
+        <div class="feat-card"><i data-lucide="mountain" style="width:22px;height:22px"></i><h4>Cala Pregonda</h4><p>Arena roja, paisaje "marciano". Única.</p></div>
+        <div class="feat-card"><i data-lucide="anchor" style="width:22px;height:22px"></i><h4>Calas solo en barco</h4><p>Escorxada y Trebalúger: paraísos vírgenes.</p></div>
+        <div class="feat-card"><i data-lucide="building" style="width:22px;height:22px"></i><h4>Binibèquer Vell</h4><p>Pueblito blanco tipo Santorini a 10 min del hotel.</p></div>
+        <div class="feat-card"><i data-lucide="glasses" style="width:22px;height:22px"></i><h4>Snorkel</h4><p>Llevar gafas y tubo. Fondos increíbles.</p></div>
+    </div>
+
+    <div class="reserve-block">
+        <h3><i data-lucide="bookmark-check" style="width:20px;height:20px"></i> Reservas importantes</h3>
+        <ul class="res-list">
+            <li><i data-lucide="sailboat" style="width:15px;height:15px"></i><div><strong>Alquiler de lancha</strong> — día completo<br><span class="date">Lun 22 junio</span> · <a href="https://www.menorcanautic.com" target="_blank">Menorca Nautic</a></div></li>
+            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Cap Roig</strong> — mesa exterior sunset<br><span class="date">Mar 23 junio</span> · <a href="https://www.restaurantcaproig.com" target="_blank">Reservar</a></div></li>
+            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Fontenille Menorca</strong> — cena gourmet<br><span class="date">Lun 22 junio</span> · <a href="https://www.fontenille.com/menorca/" target="_blank">Reservar</a></div></li>
+            <li><i data-lucide="sunset" style="width:15px;height:15px"></i><div><strong>Cova d'en Xoroi</strong> — entrada sunset<br><span class="date">Dom 21 junio</span> · <a href="https://www.covadeixoroi.com" target="_blank">Reservar</a></div></li>
+            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>La Minerva</strong> — caldereta de langosta<br><span class="date">Mié 24 junio</span> · <a href="https://www.restaurantelaminervamenorca.com" target="_blank">Reservar</a></div></li>
+            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Ses Forquilles</strong> — primera noche<br><span class="date">Sáb 20 junio</span> · <a href="https://sesforquilles.com" target="_blank">Reservar</a></div></li>
         </ul>
-    </section>
+    </div>
 
-    <!-- ========== INFO PRÁCTICA ========== -->
-    <section class="practical fade-in" id="info">
-        <h3><i data-lucide="info" style="width:22px;height:22px"></i> Info práctica — Junio en Menorca</h3>
-        <div class="practical-grid">
-            <div class="practical-item">
-                <i data-lucide="thermometer-sun" style="width:18px;height:18px"></i>
-                <div>
-                    <strong>Temperatura</strong>
-                    <span>25-30°C · Agua 22-24°C</span>
-                </div>
-            </div>
-            <div class="practical-item">
-                <i data-lucide="sunset" style="width:18px;height:18px"></i>
-                <div>
-                    <strong>Atardecer</strong>
-                    <span>~21:15 — 21:20</span>
-                </div>
-            </div>
-            <div class="practical-item">
-                <i data-lucide="sun" style="width:18px;height:18px"></i>
-                <div>
-                    <strong>Horas de sol</strong>
-                    <span>~15 horas por día</span>
-                </div>
-            </div>
-            <div class="practical-item">
-                <i data-lucide="wind" style="width:18px;height:18px"></i>
-                <div>
-                    <strong>Viento</strong>
-                    <span>Tramuntana (norte) posible</span>
-                </div>
-            </div>
-            <div class="practical-item">
-                <i data-lucide="car" style="width:18px;height:18px"></i>
-                <div>
-                    <strong>Parking calas</strong>
-                    <span>Llegar antes de las 11:00</span>
-                </div>
-            </div>
-            <div class="practical-item">
-                <i data-lucide="shield-check" style="width:18px;height:18px"></i>
-                <div>
-                    <strong>Protector solar</strong>
-                    <span>Factor 50 — sol fuerte</span>
-                </div>
-            </div>
+    <div class="prac-block">
+        <h3><i data-lucide="info" style="width:20px;height:20px"></i> Info práctica — Junio en Menorca</h3>
+        <div class="prac-grid">
+            <div class="prac-item"><i data-lucide="thermometer-sun"></i><div><strong>Temperatura</strong><span>25-30°C · Agua 22-24°C</span></div></div>
+            <div class="prac-item"><i data-lucide="sunset"></i><div><strong>Atardecer</strong><span>~21:15 — 21:20</span></div></div>
+            <div class="prac-item"><i data-lucide="sun"></i><div><strong>Horas de sol</strong><span>~15 horas/día</span></div></div>
+            <div class="prac-item"><i data-lucide="wind"></i><div><strong>Viento</strong><span>Tramuntana posible</span></div></div>
+            <div class="prac-item"><i data-lucide="car"></i><div><strong>Parking calas</strong><span>Llegar antes 11:00</span></div></div>
+            <div class="prac-item"><i data-lucide="shield-check"></i><div><strong>Protección</strong><span>Factor 50 siempre</span></div></div>
         </div>
-    </section>
+    </div>
 
-</main>
+    <div class="day-nav-footer">
+        <button class="nav-btn" onclick="goTab('overview')"><i data-lucide="arrow-left"></i> Inicio</button>
+        <button class="nav-btn hidden">_</button>
+    </div>
+</div>
 
-<!-- ==================== FOOTER ==================== -->
-<footer class="footer">
-    <p>Hecho con <i data-lucide="heart" class="heart" style="width:14px;height:14px;display:inline;vertical-align:middle"></i> para el mejor viaje</p>
-    <p style="opacity:0.6; font-size: 0.78rem;">Menorca · Junio 2026</p>
+</div>
+
+<footer class="foot">
+    <p>Hecho con <i data-lucide="heart" class="heart" style="width:13px;height:13px;display:inline;vertical-align:middle"></i> para los Quackys</p>
+    <p style="opacity:0.5; font-size:0.75rem;">Menorca · Junio 2026</p>
 </footer>
 
-<!-- ==================== SCRIPTS ==================== -->
 <script>
-    // Initialize Lucide icons
     lucide.createIcons();
 
-    // Intersection Observer for fade-in animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    function goTab(tabId) {
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        const activeBtn = document.querySelector(`[data-tab="${tabId}"]`);
+        activeBtn.classList.add('active');
+        activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        const container = document.querySelector('.panels-container');
+        container.classList.toggle('wide', tabId === 'gantt');
+        window.scrollTo({ top: document.querySelector('.tab-nav').offsetTop, behavior: 'smooth' });
+        lucide.createIcons();
+    }
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Active nav link on scroll
-    const sections = document.querySelectorAll('.day-section, .reservations, .practical');
-    const navLinks = document.querySelectorAll('.day-nav a');
-
-    const navObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.id;
-                navLinks.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-                });
-            }
-        });
-    }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
-
-    sections.forEach(section => navObserver.observe(section));
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => goTab(btn.dataset.tab));
+    });
 </script>
-
 </body>
 </html>
