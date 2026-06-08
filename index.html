@@ -144,7 +144,10 @@
         }
         .tab-nav::-webkit-scrollbar { display: none; }
         .tab-nav-inner {
-            display: flex; justify-content: center; max-width: 960px; margin: 0 auto; padding: 0 0.5rem;
+            display: flex; justify-content: flex-start; max-width: 960px; margin: 0 auto; padding: 0 0.5rem;
+        }
+        @media (min-width: 920px) {
+            .tab-nav-inner { justify-content: center; }
         }
         .tab-btn {
             display: flex; flex-direction: column; align-items: center; gap: 2px;
@@ -543,6 +546,7 @@
         <button class="tab-btn" data-tab="day4"><i data-lucide="sunset" class="tab-icon"></i><span class="tab-day">Día 4</span></button>
         <button class="tab-btn" data-tab="day5"><i data-lucide="wine" class="tab-icon"></i><span class="tab-day">Día 5</span></button>
         <button class="tab-btn" data-tab="day6"><i data-lucide="plane-takeoff" class="tab-icon"></i><span class="tab-day">Día 6</span></button>
+        <button class="tab-btn" data-tab="reservas"><i data-lucide="bookmark-check" class="tab-icon"></i><span class="tab-day">Reservas</span></button>
         <button class="tab-btn" data-tab="extras"><i data-lucide="sparkles" class="tab-icon"></i><span class="tab-day">Extras</span></button>
     </div>
 </nav>
@@ -881,20 +885,30 @@
     <div class="day-head">
         <div class="day-chip"><i data-lucide="sun" style="width:11px;height:11px"></i> Sábado 20 de Junio</div>
         <h2>Llegada y primer atardecer</h2>
-        <p>Aterrizar, instalarse y descubrir los alrededores del hotel</p>
+        <p>Aterrizar, recoger auto e instalarse para arrancar el viaje</p>
     </div>
     <div class="tl">
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">~12:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="plane-landing"></i><h4>Llegada a Menorca</h4></div>
-            <p>Recoger auto en el aeropuerto. Directo al hotel (~15 min).</p></div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">09:40</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="plane-takeoff"></i><h4>Vuelo Ibiza → Palma (IB2517)</h4></div>
+            <p>Salida a las 09:40. Llegada a PMI a las 10:30. Conexión de 35 min.</p>
+            <p>Localizador: <strong>N6K0F</strong></p></div>
+        </div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">11:05</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="plane-landing"></i><h4>Vuelo Palma → Menorca (IB2488)</h4></div>
+            <p>Salida a las 11:05. Llegada a Menorca (MAH) a las 12:00.</p>
+            <p>Localizador: <strong>N6K0F</strong></p>
+            <div class="links-row">
+                <a href="https://www.iberia.com/es/online-checkin/?language=en&market=ES&pnr=N6K0F&surname=Brea" target="_blank" class="link-pill link-reserve"><i data-lucide="check-circle"></i> Check-in online</a>
+            </div></div>
+        </div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">12:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="car"></i><h4>Recoger auto de alquiler</h4></div>
+            <p>Autos Menorca. Encontrarse en el Meeting Point del Parking Público y tomar el autobús de cortesía.</p>
+            <p>Localizador: <strong>AM142329</strong></p></div>
         </div>
         <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">13:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="hotel"></i><h4>Check-in · Barceló Hamilton</h4></div>
-            <p>Adults Only. Piscina con vistas al puerto de Mahón.</p>
-            <div class="links-row">
-                <a href="https://maps.app.goo.gl/szTYdAaSXx2YxBN87" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
-                <a href="https://www.barcelo.com/es-es/barcelo-hamilton-menorca/" target="_blank" class="link-pill link-web"><i data-lucide="globe"></i> Web</a>
-            </div></div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="hotel"></i><h4>Check-in / Dejar equipaje (TBD)</h4></div>
+            <p>Check-in en el alojamiento de la primera noche (TBD) o dejar las valijas para pasear libres.</p></div>
         </div>
         <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">14:00</div>
             <div class="tl-card"><div class="tl-card-head"><i data-lucide="utensils"></i><h4>Almuerzo en Cales Fonts</h4></div>
@@ -1179,6 +1193,159 @@
     </div>
     <div class="day-nav-footer">
         <button class="nav-btn" onclick="goTab('day5')"><i data-lucide="arrow-left"></i> Día 5</button>
+        <button class="nav-btn primary" onclick="goTab('reservas')">Reservas <i data-lucide="arrow-right"></i></button>
+    </div>
+</div>
+
+<!-- ===== RESERVAS ===== -->
+<div class="panel" id="reservas">
+    <div class="day-head">
+        <h2>Tus Reservas y Vuelos</h2>
+        <p>Todos los localizadores, horarios y datos clave de tus confirmaciones</p>
+    </div>
+
+    <div class="prac-block" style="border-left: 4px solid var(--sea-mid);">
+        <h3><i data-lucide="plane" style="width:20px;height:20px"></i> Vuelos y Transporte</h3>
+        <div style="display:grid;gap:10px;margin-top:0.5rem">
+            <!-- Vuelo de Ida -->
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sea-foam);border-radius:var(--radius-sm)">
+                <i data-lucide="plane" style="width:16px;height:16px;color:var(--sea-mid);flex-shrink:0;margin-top:2px"></i>
+                <div style="font-size:0.85rem;width:100%">
+                    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:4px">
+                        <strong>Vuelo de ida (IBZ → PMI → MAH)</strong>
+                        <span style="background:var(--sea-mid);color:#fff;font-size:0.7rem;padding:2px 6px;border-radius:100px;font-weight:600">Iberia</span>
+                    </div>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Código de reserva: <strong style="color:var(--sea-deep)">N6K0F</strong> · Sáb 20 junio</span><br>
+                    <div style="margin:6px 0;padding-left:8px;border-left:2px solid var(--sea-mid);font-size:0.78rem;color:var(--text-secondary)">
+                        <strong>Segmento 1:</strong> IB2517 (Air Nostrum) · <strong>09:40</strong> Ibiza (IBZ) → <strong>10:30</strong> Palma (PMI)<br>
+                        <span style="font-size:0.72rem;color:var(--terracotta)">Escala corta en Palma: 35 min</span><br>
+                        <strong>Segmento 2:</strong> IB2488 (Air Nostrum) · <strong>11:05</strong> Palma (PMI) → <strong>12:00</strong> Menorca (MAH)
+                    </div>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Pasajeros: Carolina Graffigna, Juan Pablo Brea</span><br>
+                    <a href="https://www.iberia.com/es/online-checkin/?language=en&market=ES&pnr=N6K0F&surname=Brea" target="_blank" class="link-pill link-reserve" style="margin-top:6px"><i data-lucide="check-circle"></i> Check-in online</a>
+                </div>
+            </div>
+
+            <!-- Vuelo de Vuelta -->
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sea-foam);border-radius:var(--radius-sm)">
+                <i data-lucide="plane-takeoff" style="width:16px;height:16px;color:var(--sea-mid);flex-shrink:0;margin-top:2px"></i>
+                <div style="font-size:0.85rem;width:100%">
+                    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:4px">
+                        <strong>Vuelo de vuelta (MAH → MAD)</strong>
+                        <span style="background:var(--sea-mid);color:#fff;font-size:0.7rem;padding:2px 6px;border-radius:100px;font-weight:600">Iberia</span>
+                    </div>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Código de reserva: <strong style="color:var(--sea-deep)">P34S7</strong> · Jue 25 junio · <strong>08:55 AM</strong> · 190€</span><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Pasajeros: Juan Pablo Brea</span><br>
+                    <a href="https://www.iberia.com/es/online-checkin/?language=en&market=ES&pnr=P34S7&surname=Brea" target="_blank" class="link-pill link-reserve" style="margin-top:6px"><i data-lucide="check-circle"></i> Check-in online</a>
+                </div>
+            </div>
+
+            <!-- Auto -->
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sea-foam);border-radius:var(--radius-sm)">
+                <i data-lucide="car" style="width:16px;height:16px;color:var(--sea-mid);flex-shrink:0;margin-top:2px"></i>
+                <div style="font-size:0.85rem">
+                    <strong>Auto de alquiler</strong> — Autos Menorca / OwnersCars · <strong>Fiat 500</strong> · <strong>276,41€</strong><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Reserva: <strong style="color:var(--sea-deep)">AM142329</strong> · Carolina Graffigna</span><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Vehículo: 160,66€ + Cobertura Total & Asistencia: 115,75€</span><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)"><strong>Recogida:</strong> Sáb 20 jun 12:00 · Aeropuerto (Meeting Point Parking Público, bus cortesía)</span><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)"><strong>Devolución:</strong> Jue 25 jun 08:15 · Oficina Av. Europa nº9 (Polígono Mahón, bus al aeropuerto)</span><br>
+                    <span style="font-size:0.72rem;color:var(--text-muted)">Tel: (+34) 620 027 354 · Reservas: 971 361 508</span>
+                </div>
+            </div>
+
+            <!-- Lancha (Contacto) -->
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sand-light);border-radius:var(--radius-sm)">
+                <i data-lucide="sailboat" style="width:16px;height:16px;color:var(--sea-mid);flex-shrink:0;margin-top:2px"></i>
+                <div style="font-size:0.85rem">
+                    <strong>Lancha de alquiler</strong> — Nautic Fun Menorca · Lun 22 junio (Día 3)<br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Contacto para coordinar y reservar: +34 670 39 63 96</span><br>
+                    <a href="https://wa.me/34670396396" target="_blank" class="link-pill link-web" style="margin-top:6px"><i data-lucide="phone"></i> WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="prac-block" style="border-left: 4px solid var(--sea-mid);">
+        <h3><i data-lucide="hotel" style="width:20px;height:20px"></i> Alojamiento</h3>
+        <div style="display:grid;gap:10px;margin-top:0.5rem">
+            <!-- Noche de 20 TBD -->
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:#fff3e0;border-radius:var(--radius-sm);border-left:3px solid #e8a87c">
+                <i data-lucide="alert-circle" style="width:16px;height:16px;color:#c4694a;flex-shrink:0;margin-top:2px"></i>
+                <div style="font-size:0.82rem;color:#8a6a4e">
+                    <strong>Noche del Sáb 20 junio — TBD</strong><br>
+                    <span style="font-size:0.75rem">El Hamilton arranca el Domingo 21. Falta definir alojamiento para la primera noche.</span>
+                </div>
+            </div>
+
+            <!-- Barceló Hamilton -->
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sea-foam);border-radius:var(--radius-sm)">
+                <i data-lucide="hotel" style="width:16px;height:16px;color:var(--sea-mid);flex-shrink:0;margin-top:2px"></i>
+                <div style="font-size:0.85rem">
+                    <strong>Barceló Hamilton Menorca</strong> — Adults Only (4 noches) · <strong>913,95€</strong><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Reserva: <strong style="color:var(--sea-deep)">24876B70257316</strong> · Juan Pablo Brea</span><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Habitación Superior · Bed & Breakfast (desayuno incluido) · 2 adultos</span><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)"><strong>Check-in:</strong> Dom 21 jun desde 14:00 · <strong>Check-out:</strong> Jue 25 jun hasta 12:00</span><br>
+                    <span style="font-size:0.72rem;color:var(--text-muted)">Tasa turística de 3.30€/persona/noche pagadera directamente en el hotel</span><br>
+                    <span style="font-size:0.72rem;color:var(--text-muted)">Paseo Santa Agueda 6, Es Castell · Tel: +34 971 362 050</span><br>
+                    <a href="https://maps.app.goo.gl/szTYdAaSXx2YxBN87" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a>
+                    <a href="mailto:hamiltonmenorca@barcelo.com" class="link-pill link-web" style="margin-top:6px"><i data-lucide="mail"></i> Email hotel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cova d'en Xoroi -->
+    <div class="prac-block" style="border-left: 4px solid #e8a87c;">
+        <h3><i data-lucide="sunset" style="width:20px;height:20px"></i> Cova d'en Xoroi — Sunset Session</h3>
+        <div style="display:grid;gap:10px;margin-top:0.5rem">
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sea-foam);border-radius:var(--radius-sm)">
+                <i data-lucide="ticket" style="width:16px;height:16px;color:var(--terracotta);flex-shrink:0;margin-top:2px"></i>
+                <div style="font-size:0.85rem">
+                    <strong>Sunset Session</strong> — Mar 23 junio · 2 adultos · <strong>56€</strong><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Orden de compra: <strong style="color:var(--sea-deep)">CX2026011415</strong></span><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Entrada: 18:30 – 19:15 · Salida: hasta 22:30</span><br>
+                    <span style="font-size:0.72rem;color:var(--text-muted)">Dress code: no se permite ropa de playa, deportiva ni camisetas sin mangas</span><br>
+                    <a href="https://www.covadenxoroi.com/en/tickets/datos/success/f96dd065eb35e631f80cb40293963c12f21f17ac8d9cf8726533a0ced2fa" target="_blank" class="link-pill link-reserve" style="margin-top:6px"><i data-lucide="ticket"></i> Ver tickets</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cap Roig -->
+    <div class="prac-block" style="border-left: 4px solid #c4694a;">
+        <h3><i data-lucide="utensils" style="width:20px;height:20px"></i> Cap Roig — Sunset Dinner</h3>
+        <div style="display:grid;gap:10px;margin-top:0.5rem">
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sea-foam);border-radius:var(--radius-sm)">
+                <i data-lucide="sunset" style="width:16px;height:16px;color:#c4694a;flex-shrink:0;margin-top:2px"></i>
+                <div style="font-size:0.85rem">
+                    <strong>Cena en Terraza</strong> — Dom 21 junio · <strong>19:00h</strong> · 2 personas<br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Reserva a nombre de: <strong>Juan Pablo Brea</strong></span><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Duración máxima: 1h45 · 15 min de cortesía</span><br>
+                    <span style="font-size:0.72rem;color:var(--text-muted)">Tel: +34 971 188 383 · experienciascaproig@gmail.com</span><br>
+                    <a href="https://maps.app.goo.gl/6TEQXzUwEtELG7ku8" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="reserve-block">
+        <h3><i data-lucide="bookmark-check" style="width:20px;height:20px"></i> Resumen de Reservas</h3>
+        <ul class="res-list">
+            <li><i data-lucide="plane" style="width:15px;height:15px"></i><div><strong>Vuelo Ida (IBZ→PMI→MAH)</strong> — Iberia ✅<br><span class="date">Sáb 20 junio · 09:40h</span> · Localizador: N6K0F · <a href="https://www.iberia.com/es/online-checkin/?language=en&market=ES&pnr=N6K0F&surname=Brea" target="_blank">Check-in</a></div></li>
+            <li><i data-lucide="car" style="width:15px;height:15px"></i><div><strong>Alquiler de Auto</strong> — Autos Menorca ✅<br><span class="date">Sáb 20 - Jue 25 junio</span> · Localizador: AM142329</div></li>
+            <li><i data-lucide="hotel" style="width:15px;height:15px"></i><div><strong>Hotel Hamilton (4n)</strong> — Barceló ✅<br><span class="date">Dom 21 - Jue 25 junio</span> · Localizador: 24876B70257316</div></li>
+            <li><i data-lucide="sailboat" style="width:15px;height:15px"></i><div><strong>Nautic Fun Menorca</strong> — Lancha día completo<br><span class="date">Lun 22 junio</span> · <a href="https://wa.me/34670396396" target="_blank">+34 670 39 63 96</a></div></li>
+            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Cap Roig</strong> — Terraza sunset ✅<br><span class="date">Dom 21 junio · 19:00h</span> · Juan Pablo Brea · <a href="tel:+34971188383">+34 971 188 383</a></div></li>
+            <li><i data-lucide="sunset" style="width:15px;height:15px"></i><div><strong>Cova d'en Xoroi</strong> — Sunset session ✅<br><span class="date">Mar 23 junio · 18:30-22:30</span> · Localizador: CX2026011415 · <a href="https://www.covadenxoroi.com/en/tickets/datos/success/f96dd065eb35e631f80cb40293963c12f21f17ac8d9cf8726533a0ced2fa" target="_blank">Tickets</a></div></li>
+            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Fontenille Menorca</strong> — Cena gourmet<br><span class="date">Lun 22 junio</span> · <a href="https://www.fontenille.com/menorca/" target="_blank">Reservar</a></div></li>
+            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Es Cranc, Fornells</strong> — Caldereta de langosta<br><span class="date">Mié 24 junio</span> · <a href="https://www.escranc.com" target="_blank">Reservar</a></div></li>
+            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Ses Forquilles</strong> — Primera noche<br><span class="date">Sáb 20 junio</span> · <a href="https://sesforquilles.com" target="_blank">Reservar</a></div></li>
+            <li><i data-lucide="plane" style="width:15px;height:15px"></i><div><strong>Vuelo Vuelta (MAH→MAD)</strong> — Iberia ✅<br><span class="date">Jue 25 junio · 08:55h</span> · Localizador: P34S7 · <a href="https://www.iberia.com/es/online-checkin/?language=en&market=ES&pnr=P34S7&surname=Brea" target="_blank">Check-in</a></div></li>
+        </ul>
+    </div>
+
+    <div class="day-nav-footer">
+        <button class="nav-btn" onclick="goTab('day6')"><i data-lucide="arrow-left"></i> Día 6</button>
         <button class="nav-btn primary" onclick="goTab('extras')">Extras <i data-lucide="arrow-right"></i></button>
     </div>
 </div>
@@ -1186,8 +1353,8 @@
 <!-- ===== EXTRAS ===== -->
 <div class="panel" id="extras">
     <div class="day-head">
-        <h2>Extras, reservas e info práctica</h2>
-        <p>Todo lo que necesitás para que salga perfecto</p>
+        <h2>Extras e info práctica</h2>
+        <p>Recomendaciones, restaurantes alternativos e información útil de Menorca</p>
     </div>
 
     <h3 class="section-title"><i data-lucide="sparkles" style="width:20px;height:20px"></i> No te pierdas</h3>
@@ -1217,104 +1384,6 @@
         <div class="feat-card"><i data-lucide="lighthouse" style="width:22px;height:22px"></i><h4>Cala Presili + Faro Favàritx</h4><p>Arena fina, aguas bajitas y cristalinas dentro de la reserva s'Albufera des Grau. 20 min caminando. Al lado del fotogénico Faro de Favàritx.</p><a href="https://www.google.com/maps/search/?api=1&query=Cala+Presili+Menorca" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a></div>
     </div>
 
-    <div class="prac-block" style="border-left: 4px solid var(--sea-mid);">
-        <h3><i data-lucide="ticket" style="width:20px;height:20px"></i> Datos del viaje</h3>
-        <div style="display:grid;gap:10px;margin-top:0.5rem">
-            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sea-foam);border-radius:var(--radius-sm)">
-                <i data-lucide="plane" style="width:16px;height:16px;color:var(--sea-mid);flex-shrink:0;margin-top:2px"></i>
-                <div style="font-size:0.85rem">
-                    <strong>Vuelo de vuelta</strong> — Iberia · Jue 25 junio · 8:55 AM · <strong>190€</strong><br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)">Código: <strong style="color:var(--sea-deep)">P34S7</strong> · Apellido: Brea</span><br>
-                    <a href="https://www.iberia.com/es/online-checkin/?language=en&market=ES&pnr=P34S7&surname=Brea" target="_blank" class="link-pill link-reserve" style="margin-top:6px"><i data-lucide="check-circle"></i> Check-in online</a>
-                </div>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sand-light);border-radius:var(--radius-sm)">
-                <i data-lucide="sailboat" style="width:16px;height:16px;color:var(--sea-mid);flex-shrink:0;margin-top:2px"></i>
-                <div style="font-size:0.85rem">
-                    <strong>Lancha</strong> — Nautic Fun Menorca · Lun 22 junio<br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)">Contacto: +34 670 39 63 96</span><br>
-                    <a href="https://wa.me/34670396396" target="_blank" class="link-pill link-web" style="margin-top:6px"><i data-lucide="phone"></i> WhatsApp</a>
-                </div>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sea-foam);border-radius:var(--radius-sm)">
-                <i data-lucide="car" style="width:16px;height:16px;color:var(--sea-mid);flex-shrink:0;margin-top:2px"></i>
-                <div style="font-size:0.85rem">
-                    <strong>Auto</strong> — Autos Menorca / OwnersCars · <strong>Fiat 500</strong> o similar · <strong>276,41€</strong><br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)">Reserva: <strong style="color:var(--sea-deep)">AM142329</strong> · A nombre de: Carolina Graffigna</span><br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)">Vehículo: 160,66€ + Extras: 115,75€ (Cobertura Total + Asistencia)</span><br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)"><strong>Recogida:</strong> Sáb 20 jun 12:00 · Aeropuerto</span><br>
-                    <span style="font-size:0.72rem;color:var(--text-muted)">→ Ir al Meeting Point del Parking Público, esperar autobús de cortesía</span><br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)"><strong>Devolución:</strong> Jue 25 jun 08:15 · Oficina Av. Europa nº9, Polígono de Mahón</span><br>
-                    <span style="font-size:0.72rem;color:var(--text-muted)">→ Shuttle bus de la oficina al aeropuerto</span><br>
-                    <span style="font-size:0.72rem;color:var(--text-muted)">Tel: (+34) 620 027 354 · Reservas: 971 361 508</span>
-                </div>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sea-foam);border-radius:var(--radius-sm)">
-                <i data-lucide="hotel" style="width:16px;height:16px;color:var(--sea-mid);flex-shrink:0;margin-top:2px"></i>
-                <div style="font-size:0.85rem">
-                    <strong>Hotel</strong> — Barceló Hamilton Menorca · Adults Only · <strong>913,95€</strong><br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)">Reserva: <strong style="color:var(--sea-deep)">24876B70257316</strong> · Juan Pablo Brea</span><br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)">Habitación Superior · B&B (desayuno incluido) · 2 adultos</span><br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)"><strong>Check-in:</strong> Dom 21 jun desde 14:00 · <strong>Check-out:</strong> Jue 25 jun hasta 12:00</span><br>
-                    <span style="font-size:0.72rem;color:var(--text-muted)">4 noches · 830,86€ + impuestos 83,09€ · Tasa turística 3,30€/persona/noche (pagar en hotel)</span><br>
-                    <span style="font-size:0.72rem;color:var(--text-muted)">Paseo Santa Agueda 6, Es Castell · Tel: +34 971 362 050</span><br>
-                    <a href="https://maps.app.goo.gl/szTYdAaSXx2YxBN87" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a>
-                    <a href="mailto:hamiltonmenorca@barcelo.com" class="link-pill link-web" style="margin-top:6px"><i data-lucide="mail"></i> Email hotel</a>
-                </div>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:#fff3e0;border-radius:var(--radius-sm);border-left:3px solid #e8a87c">
-                <i data-lucide="alert-circle" style="width:16px;height:16px;color:#c4694a;flex-shrink:0;margin-top:2px"></i>
-                <div style="font-size:0.82rem;color:#8a6a4e">
-                    <strong>Noche del Sáb 20 jun — TBD</strong><br>
-                    <span style="font-size:0.75rem">El Hamilton arranca el Dom 21. Buscar hotel o Airbnb para la primera noche.</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="prac-block" style="border-left: 4px solid #e8a87c;">
-        <h3><i data-lucide="sunset" style="width:20px;height:20px"></i> Cova d'en Xoroi — Confirmado</h3>
-        <div style="display:grid;gap:10px;margin-top:0.5rem">
-            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sea-foam);border-radius:var(--radius-sm)">
-                <i data-lucide="ticket" style="width:16px;height:16px;color:var(--terracotta);flex-shrink:0;margin-top:2px"></i>
-                <div style="font-size:0.85rem">
-                    <strong>Sunset Session</strong> — Mar 23 junio · 2 adultos · <strong>56€</strong><br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)">Orden: <strong style="color:var(--sea-deep)">CX2026011415</strong></span><br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)">Entrada: 18:30 – 19:15 · Salida: hasta 22:30</span><br>
-                    <span style="font-size:0.72rem;color:var(--text-muted)">Dress code: no ropa de playa/deportiva/musculosas</span><br>
-                    <a href="https://www.covadenxoroi.com/en/tickets/datos/success/f96dd065eb35e631f80cb40293963c12f21f17ac8d9cf8726533a0ced2fa" target="_blank" class="link-pill link-reserve" style="margin-top:6px"><i data-lucide="ticket"></i> Ver tickets</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="prac-block" style="border-left: 4px solid #c4694a;">
-        <h3><i data-lucide="utensils" style="width:20px;height:20px"></i> Cap Roig — Confirmado</h3>
-        <div style="display:grid;gap:10px;margin-top:0.5rem">
-            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sea-foam);border-radius:var(--radius-sm)">
-                <i data-lucide="sunset" style="width:16px;height:16px;color:#c4694a;flex-shrink:0;margin-top:2px"></i>
-                <div style="font-size:0.85rem">
-                    <strong>Cena Terraza</strong> — Dom 21 junio · 19:00h · 2 personas · <strong>Juan Pablo Brea</strong><br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)">Duración: 1h45 · 15 min de cortesía para llegar</span><br>
-                    <span style="font-size:0.72rem;color:var(--text-muted)">Tel: +34 971 188 383 · experienciascaproig@gmail.com</span><br>
-                    <a href="https://maps.app.goo.gl/6TEQXzUwEtELG7ku8" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="reserve-block">
-        <h3><i data-lucide="bookmark-check" style="width:20px;height:20px"></i> Reservas importantes</h3>
-        <ul class="res-list">
-            <li><i data-lucide="sailboat" style="width:15px;height:15px"></i><div><strong>Nautic Fun Menorca</strong> — lancha día completo<br><span class="date">Lun 22 junio</span> · <a href="https://wa.me/34670396396" target="_blank">+34 670 39 63 96</a></div></li>
-            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Cap Roig</strong> — terraza sunset ✅<br><span class="date">Dom 21 junio · 19:00h</span> · Juan Pablo Brea · <a href="tel:+34971188383">+34 971 188 383</a></div></li>
-            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Fontenille Menorca</strong> — cena gourmet<br><span class="date">Lun 22 junio</span> · <a href="https://www.fontenille.com/menorca/" target="_blank">Reservar</a></div></li>
-            <li><i data-lucide="sunset" style="width:15px;height:15px"></i><div><strong>Cova d'en Xoroi</strong> — sunset session ✅<br><span class="date">Mar 23 junio · 18:30-22:30</span> · Orden: CX2026011415 · <a href="https://www.covadenxoroi.com/en/tickets/datos/success/f96dd065eb35e631f80cb40293963c12f21f17ac8d9cf8726533a0ced2fa" target="_blank">Ver tickets</a></div></li>
-            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Es Cranc, Fornells</strong> — caldereta de langosta<br><span class="date">Mié 24 junio</span> · <a href="https://www.escranc.com" target="_blank">Reservar</a></div></li>
-            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Ses Forquilles</strong> — primera noche<br><span class="date">Sáb 20 junio</span> · <a href="https://sesforquilles.com" target="_blank">Reservar</a></div></li>
-        </ul>
-    </div>
-
     <div class="prac-block">
         <h3><i data-lucide="info" style="width:20px;height:20px"></i> Info práctica — Junio en Menorca</h3>
         <div class="prac-grid">
@@ -1328,10 +1397,9 @@
     </div>
 
     <div class="day-nav-footer">
-        <button class="nav-btn" onclick="goTab('overview')"><i data-lucide="arrow-left"></i> Inicio</button>
-        <button class="nav-btn hidden">_</button>
+        <button class="nav-btn" onclick="goTab('reservas')"><i data-lucide="arrow-left"></i> Reservas</button>
+        <button class="nav-btn primary" onclick="goTab('overview')">Inicio <i data-lucide="arrow-right"></i></button>
     </div>
-</div>
 
 </div>
 
