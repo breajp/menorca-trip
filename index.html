@@ -564,9 +564,9 @@
         </div>
         <div class="ov-card" onclick="goTab('day2')">
             <div class="ov-day">Domingo 21</div>
-            <h3>Calas + Cova d'en Xoroi</h3>
-            <p>Las calas más bonitas y el sunset más icónico</p>
-            <div class="ov-highlights"><span class="ov-tag">Mitjana</span><span class="ov-tag">Macarella</span><span class="ov-tag star">Xoroi sunset</span></div>
+            <h3>Pregonda + Cap Roig</h3>
+            <p>La playa marciana y el mejor atardecer gastronómico</p>
+            <div class="ov-highlights"><span class="ov-tag">Ciutadella</span><span class="ov-tag">Pregonda</span><span class="ov-tag star">Cap Roig</span></div>
         </div>
         <div class="ov-card" onclick="goTab('day3')">
             <div class="ov-day">Lunes 22</div>
@@ -576,15 +576,15 @@
         </div>
         <div class="ov-card" onclick="goTab('day4')">
             <div class="ov-day">Martes 23</div>
-            <h3>Pregonda + Cap Roig</h3>
-            <p>La playa marciana y el mejor atardecer gastronómico</p>
-            <div class="ov-highlights"><span class="ov-tag">Ciutadella</span><span class="ov-tag">Pregonda</span><span class="ov-tag star">Cap Roig</span></div>
+            <h3>Calas + Cova d'en Xoroi</h3>
+            <p>Las calas más bonitas y el sunset más icónico</p>
+            <div class="ov-highlights"><span class="ov-tag">Mitjana</span><span class="ov-tag">Macarella</span><span class="ov-tag star">Xoroi sunset</span></div>
         </div>
         <div class="ov-card" onclick="goTab('day5')">
             <div class="ov-day">Miércoles 24</div>
             <h3>Despedida + Caldereta</h3>
             <p>Calas vírgenes, gin local y la gran cena final</p>
-            <div class="ov-highlights"><span class="ov-tag">Gin Xoriguer</span><span class="ov-tag star">La Minerva</span></div>
+            <div class="ov-highlights"><span class="ov-tag">Gin Xoriguer</span><span class="ov-tag star">Es Cranc</span></div>
         </div>
         <div class="ov-card" onclick="goTab('day6')">
             <div class="ov-day">Jueves 25</div>
@@ -599,10 +599,10 @@
         <thead><tr><th>Día</th><th>Almuerzo</th><th>Cena</th></tr></thead>
         <tbody>
             <tr><td><strong>Día 1</strong></td><td>Cales Fonts (casual)</td><td>Ses Forquilles</td></tr>
-            <tr><td><strong>Día 2</strong></td><td>Smoix, Cala Galdana</td><td>Can Jaumot</td></tr>
+            <tr><td><strong>Día 2</strong></td><td>Picnic en Pregonda</td><td class="star-cell">Cap Roig — sunset</td></tr>
             <tr><td><strong>Día 3</strong></td><td>Picnic en lancha</td><td class="star-cell">Fontenille Menorca</td></tr>
-            <tr><td><strong>Día 4</strong></td><td>Picnic en Pregonda</td><td class="star-cell">Cap Roig — sunset</td></tr>
-            <tr><td><strong>Día 5</strong></td><td>Es Grau</td><td class="star-cell">La Minerva — caldereta</td></tr>
+            <tr><td><strong>Día 4</strong></td><td>Smoix, Cala Galdana</td><td>Cena casual</td></tr>
+            <tr><td><strong>Día 5</strong></td><td>Es Grau</td><td class="star-cell">Es Cranc, Fornells — caldereta</td></tr>
         </tbody>
     </table>
 
@@ -617,6 +617,7 @@
             <tr><td>Hotel → Cap Roig</td><td>15 min</td></tr>
             <tr><td>Hotel → Cala Pregonda</td><td>55 min</td></tr>
             <tr><td>Hotel → Fontenille</td><td>25 min</td></tr>
+            <tr><td>Hotel → Fornells (Es Cranc)</td><td>30 min</td></tr>
         </tbody>
     </table>
 </div>
@@ -664,12 +665,13 @@
             <div class="gantt-row">
                 <div class="gr-label"><span class="gr-day">Día 2</span><span class="gr-date">Dom 21</span></div>
                 <div class="gr-track">
-                    <div class="g-block g-travel" style="grid-column:7/8" onclick="goTab('day2')" title="Auto al sur">Auto</div>
-                    <div class="g-block g-beach" style="grid-column:8/14" onclick="goTab('day2')" title="Cala Mitjana + Mitjaneta">Mitjana</div>
-                    <div class="g-block g-food" style="grid-column:15/18" onclick="goTab('day2')" title="Almuerzo Smoix">Smoix</div>
-                    <div class="g-block g-beach" style="grid-column:18/23" onclick="goTab('day2')" title="Cala Macarella + Macarelleta">Macarella</div>
-                    <div class="g-block g-sunset g-star" style="grid-column:24/29" onclick="goTab('day2')" title="Cova d'en Xoroi — Sunset">Xoroi sunset</div>
-                    <div class="g-block g-food" style="grid-column:30/33" onclick="goTab('day2')" title="Cena Can Jaumot">Can Jaumot</div>
+                    <div class="g-block g-travel" style="grid-column:7/8" onclick="goTab('day2')" title="Auto a Ciutadella">Auto</div>
+                    <div class="g-block g-culture" style="grid-column:8/12" onclick="goTab('day2')" title="Pasear por Ciutadella">Ciutadella</div>
+                    <div class="g-block g-travel" style="grid-column:12/13" onclick="goTab('day2')" title="Auto al norte">Auto</div>
+                    <div class="g-block g-beach" style="grid-column:13/19" onclick="goTab('day2')" title="Cala Pregonda">Pregonda</div>
+                    <div class="g-block g-travel" style="grid-column:20/22" onclick="goTab('day2')" title="Auto a Sa Mesquida">Auto</div>
+                    <div class="g-block g-beach" style="grid-column:22/25" onclick="goTab('day2')" title="Sa Mesquida">Mesquida</div>
+                    <div class="g-block g-sunset g-star" style="grid-column:26/30" onclick="goTab('day2')" title="Cena Cap Roig — Sunset">Cap Roig</div>
                 </div>
             </div>
             <!-- Day 3 -->
@@ -686,13 +688,12 @@
             <div class="gantt-row">
                 <div class="gr-label"><span class="gr-day">Día 4</span><span class="gr-date">Mar 23</span></div>
                 <div class="gr-track">
-                    <div class="g-block g-travel" style="grid-column:7/8" onclick="goTab('day4')" title="Auto a Ciutadella">Auto</div>
-                    <div class="g-block g-culture" style="grid-column:8/12" onclick="goTab('day4')" title="Pasear por Ciutadella">Ciutadella</div>
-                    <div class="g-block g-travel" style="grid-column:12/13" onclick="goTab('day4')" title="Auto al norte">Auto</div>
-                    <div class="g-block g-beach" style="grid-column:13/19" onclick="goTab('day4')" title="Cala Pregonda">Pregonda</div>
-                    <div class="g-block g-travel" style="grid-column:20/22" onclick="goTab('day4')" title="Auto a Sa Mesquida">Auto</div>
-                    <div class="g-block g-beach" style="grid-column:22/25" onclick="goTab('day4')" title="Sa Mesquida">Mesquida</div>
-                    <div class="g-block g-sunset g-star" style="grid-column:26/30" onclick="goTab('day4')" title="Cena Cap Roig — Sunset">Cap Roig</div>
+                    <div class="g-block g-travel" style="grid-column:7/8" onclick="goTab('day4')" title="Auto al sur">Auto</div>
+                    <div class="g-block g-beach" style="grid-column:8/14" onclick="goTab('day4')" title="Cala Mitjana + Mitjaneta">Mitjana</div>
+                    <div class="g-block g-food" style="grid-column:15/18" onclick="goTab('day4')" title="Almuerzo Smoix">Smoix</div>
+                    <div class="g-block g-beach" style="grid-column:18/23" onclick="goTab('day4')" title="Cala Macarella + Macarelleta">Macarella</div>
+                    <div class="g-block g-sunset g-star" style="grid-column:24/29" onclick="goTab('day4')" title="Cova d'en Xoroi — Sunset">Xoroi sunset</div>
+                    <div class="g-block g-food" style="grid-column:30/33" onclick="goTab('day4')" title="Cena casual">Cena casual</div>
                 </div>
             </div>
             <!-- Day 5 -->
@@ -704,7 +705,7 @@
                     <div class="g-block g-beach" style="grid-column:17/21" onclick="goTab('day5')" title="Cala Cavalleria / Binigaus">Cavalleria</div>
                     <div class="g-block g-culture" style="grid-column:23/25" onclick="goTab('day5')" title="Gin Xoriguer — Destilería">Xoriguer</div>
                     <div class="g-block g-drinks" style="grid-column:26/29" onclick="goTab('day5')" title="Copas puerto de Mahón">Copas</div>
-                    <div class="g-block g-food g-star" style="grid-column:29/33" onclick="goTab('day5')" title="Cena La Minerva — Caldereta">La Minerva</div>
+                    <div class="g-block g-food g-star" style="grid-column:29/33" onclick="goTab('day5')" title="Cena Es Cranc — Caldereta">Es Cranc</div>
                 </div>
             </div>
             <!-- Day 6 -->
@@ -770,18 +771,15 @@
                 <circle class="map-dot" cx="468" cy="106" r="3" fill="#4a9bb0" onclick="goTab('day1')"><title>Ses Forquilles</title></circle>
             </g>
 
-            <!-- ===== DAY 2 — #c4694a ===== -->
+            <!-- ===== DAY 2 — #c4694a (Ciutadella → Pregonda → Cap Roig) ===== -->
             <g class="day-group d2">
-                <path class="day-route" stroke="#c4694a" opacity="0.55" d="M 478,130 Q 380,168 232,196"/>
-                <path class="day-route" stroke="#c4694a" opacity="0.55" d="M 232,196 Q 220,194 212,192"/>
-                <path class="day-route" stroke="#c4694a" opacity="0.55" d="M 212,192 Q 196,190 182,192"/>
-                <path class="day-route" stroke="#c4694a" opacity="0.55" d="M 182,192 Q 250,185 340,178"/>
-                <path class="day-route" stroke="#c4694a" opacity="0.55" d="M 340,178 Q 320,148 305,118"/>
-                <circle class="map-dot" cx="232" cy="196" r="3.5" fill="#c4694a" onclick="goTab('day2')"><title>Cala Mitjana</title></circle>
-                <circle class="map-dot" cx="212" cy="192" r="2.5" fill="#c4694a" onclick="goTab('day2')"><title>Smoix</title></circle>
-                <circle class="map-dot" cx="182" cy="192" r="3.5" fill="#c4694a" onclick="goTab('day2')"><title>Macarella</title></circle>
-                <circle class="map-dot" cx="340" cy="178" r="3.5" fill="#c4694a" onclick="goTab('day2')"><title>Cova d'en Xoroi</title></circle>
-                <circle class="map-dot" cx="305" cy="118" r="2.5" fill="#c4694a" onclick="goTab('day2')"><title>Can Jaumot</title></circle>
+                <path class="day-route" stroke="#c4694a" opacity="0.55" d="M 478,130 Q 300,110 52,102"/>
+                <path class="day-route" stroke="#c4694a" opacity="0.55" d="M 52,102 Q 130,58 222,28"/>
+                <path class="day-route" stroke="#c4694a" opacity="0.55" d="M 222,28 Q 350,48 464,78"/>
+                <circle class="map-dot" cx="52" cy="102" r="3.5" fill="#c4694a" onclick="goTab('day2')"><title>Ciutadella</title></circle>
+                <circle class="map-dot" cx="222" cy="28" r="3.5" fill="#c4694a" onclick="goTab('day2')"><title>Pregonda</title></circle>
+                <circle class="map-dot" cx="460" cy="80" r="2.5" fill="#c4694a" onclick="goTab('day2')"><title>Sa Mesquida</title></circle>
+                <circle class="map-dot" cx="464" cy="78" r="3.5" fill="#c4694a" onclick="goTab('day2')"><title>Cap Roig</title></circle>
             </g>
 
             <!-- ===== DAY 3 — #1a5a8a (Lancha) ===== -->
@@ -797,15 +795,16 @@
                 <circle class="map-dot" cx="310" cy="128" r="3.5" fill="#1a5a8a" onclick="goTab('day3')"><title>Fontenille</title></circle>
             </g>
 
-            <!-- ===== DAY 4 — #6b7c4e ===== -->
+            <!-- ===== DAY 4 — #6b7c4e (Mitjana → Macarella → Xoroi) ===== -->
             <g class="day-group d4">
-                <path class="day-route" stroke="#6b7c4e" opacity="0.55" d="M 478,130 Q 300,110 52,102"/>
-                <path class="day-route" stroke="#6b7c4e" opacity="0.55" d="M 52,102 Q 130,58 222,28"/>
-                <path class="day-route" stroke="#6b7c4e" opacity="0.55" d="M 222,28 Q 350,48 462,78"/>
-                <circle class="map-dot" cx="52" cy="102" r="3.5" fill="#6b7c4e" onclick="goTab('day4')"><title>Ciutadella</title></circle>
-                <circle class="map-dot" cx="222" cy="28" r="3.5" fill="#6b7c4e" onclick="goTab('day4')"><title>Pregonda</title></circle>
-                <circle class="map-dot" cx="460" cy="80" r="2.5" fill="#6b7c4e" onclick="goTab('day4')"><title>Sa Mesquida</title></circle>
-                <circle class="map-dot" cx="464" cy="78" r="3.5" fill="#6b7c4e" onclick="goTab('day4')"><title>Cap Roig</title></circle>
+                <path class="day-route" stroke="#6b7c4e" opacity="0.55" d="M 478,130 Q 380,168 232,196"/>
+                <path class="day-route" stroke="#6b7c4e" opacity="0.55" d="M 232,196 Q 220,194 212,192"/>
+                <path class="day-route" stroke="#6b7c4e" opacity="0.55" d="M 212,192 Q 196,190 182,192"/>
+                <path class="day-route" stroke="#6b7c4e" opacity="0.55" d="M 182,192 Q 250,185 340,178"/>
+                <circle class="map-dot" cx="232" cy="196" r="3.5" fill="#6b7c4e" onclick="goTab('day4')"><title>Cala Mitjana</title></circle>
+                <circle class="map-dot" cx="212" cy="192" r="2.5" fill="#6b7c4e" onclick="goTab('day4')"><title>Smoix</title></circle>
+                <circle class="map-dot" cx="182" cy="192" r="3.5" fill="#6b7c4e" onclick="goTab('day4')"><title>Macarella</title></circle>
+                <circle class="map-dot" cx="340" cy="178" r="3.5" fill="#6b7c4e" onclick="goTab('day4')"><title>Cova d'en Xoroi</title></circle>
             </g>
 
             <!-- ===== DAY 5 — #8b5a9a ===== -->
@@ -813,12 +812,13 @@
                 <path class="day-route" stroke="#8b5a9a" opacity="0.55" d="M 478,130 Q 460,90 434,56"/>
                 <path class="day-route" stroke="#8b5a9a" opacity="0.55" d="M 434,56 Q 424,62 416,68"/>
                 <path class="day-route" stroke="#8b5a9a" opacity="0.55" d="M 416,68 Q 355,42 288,24"/>
-                <path class="day-route" stroke="#8b5a9a" opacity="0.55" d="M 288,24 Q 385,68 472,108"/>
+                <path class="day-route" stroke="#8b5a9a" opacity="0.55" d="M 288,24 Q 385,68 468,106"/>
+                <path class="day-route" stroke="#8b5a9a" opacity="0.55" d="M 468,106 Q 400,66 320,32"/>
                 <circle class="map-dot" cx="434" cy="56" r="3" fill="#8b5a9a" onclick="goTab('day5')"><title>Cala Tortuga</title></circle>
                 <circle class="map-dot" cx="416" cy="68" r="2.5" fill="#8b5a9a" onclick="goTab('day5')"><title>Es Grau</title></circle>
                 <circle class="map-dot" cx="288" cy="24" r="3" fill="#8b5a9a" onclick="goTab('day5')"><title>Cala Cavalleria</title></circle>
                 <circle class="map-dot" cx="468" cy="106" r="2.5" fill="#8b5a9a" onclick="goTab('day5')"><title>Gin Xoriguer</title></circle>
-                <circle class="map-dot" cx="472" cy="108" r="3.5" fill="#8b5a9a" onclick="goTab('day5')"><title>La Minerva</title></circle>
+                <circle class="map-dot" cx="320" cy="32" r="3.5" fill="#8b5a9a" onclick="goTab('day5')"><title>Es Cranc — Fornells</title></circle>
             </g>
 
             <!-- ===== PERMANENT LABELS ===== -->
@@ -848,7 +848,8 @@
                 <text x="310" y="139" style="font-size:6.5px;fill:#6a7a7e" text-anchor="middle">Fontenille ★</text>
                 <text x="486" y="166" style="font-size:5.5px;fill:#8a9a9e" text-anchor="middle">Rafalet</text>
                 <text x="474" y="118" style="font-size:5.5px;fill:#8a9a9e" text-anchor="start"> Mirador</text>
-                <text x="472" y="113" style="font-size:5.5px;fill:#8a9a9e" text-anchor="middle">La Minerva ★</text>
+                <text x="320" y="42" style="font-size:6px;fill:#6a7a7e" text-anchor="middle">Es Cranc ★</text>
+                <text x="320" y="28" style="font-size:5.5px;fill:#8a9a9e" text-anchor="middle">Fornells</text>
             </g>
 
             <!-- Hotel dot (always on top) -->
@@ -865,9 +866,9 @@
     </div>
     <div class="map-legend" id="mapLegend">
         <div class="ml-item" data-d="1" onmouseenter="hlDay(1)" onmouseleave="hlDay(0)" onclick="goTab('day1')"><div class="ml-dot"></div> Día 1 · Llegada</div>
-        <div class="ml-item" data-d="2" onmouseenter="hlDay(2)" onmouseleave="hlDay(0)" onclick="goTab('day2')"><div class="ml-dot"></div> Día 2 · Calas + Xoroi</div>
+        <div class="ml-item" data-d="2" onmouseenter="hlDay(2)" onmouseleave="hlDay(0)" onclick="goTab('day2')"><div class="ml-dot"></div> Día 2 · Pregonda + Cap Roig</div>
         <div class="ml-item" data-d="3" onmouseenter="hlDay(3)" onmouseleave="hlDay(0)" onclick="goTab('day3')"><div class="ml-dot"></div> Día 3 · Lancha</div>
-        <div class="ml-item" data-d="4" onmouseenter="hlDay(4)" onmouseleave="hlDay(0)" onclick="goTab('day4')"><div class="ml-dot"></div> Día 4 · Pregonda</div>
+        <div class="ml-item" data-d="4" onmouseenter="hlDay(4)" onmouseleave="hlDay(0)" onclick="goTab('day4')"><div class="ml-dot"></div> Día 4 · Calas + Xoroi</div>
         <div class="ml-item" data-d="5" onmouseenter="hlDay(5)" onmouseleave="hlDay(0)" onclick="goTab('day5')"><div class="ml-dot"></div> Día 5 · Caldereta</div>
     </div>
     <p style="text-align:center;font-size:0.72rem;color:var(--text-muted);margin-top:0.6rem">
@@ -937,47 +938,40 @@
 <div class="panel" id="day2">
     <div class="day-head">
         <div class="day-chip"><i data-lucide="waves" style="width:11px;height:11px"></i> Domingo 21 de Junio</div>
-        <h2>Las calas más bonitas + Cova d'en Xoroi</h2>
-        <p>Mitjana, Macarella y el sunset más icónico de la isla</p>
+        <h2>Ciutadella, Pregonda y Cap Roig</h2>
+        <p>La playa marciana y el mejor atardecer gastronómico de Menorca</p>
     </div>
     <div class="tl">
-        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">10:30 – 13:30</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="palm-tree"></i><h4>Cala Mitjana + Mitjaneta</h4></div>
-            <p>Agua turquesa irreal. Mitjaneta a 5 min caminando, más pequeña y exclusiva. Llevar snacks.</p>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">10:30 – 12:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="landmark"></i><h4>Pasear por Ciutadella</h4></div>
+            <p>Catedral, puerto antiguo, calles empedradas, helado en Plaça des Born. El pueblo más bonito.</p>
             <div class="links-row">
-                <a href="https://www.google.com/maps/search/Cala+Mitjana+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://www.google.com/maps/search/Ciutadella+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
             </div></div>
         </div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">14:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="utensils"></i><h4>Almuerzo en Smoix — Cala Galdana</h4></div>
-            <p>Cocina mediterránea con terraza. Buena relación calidad-precio.</p>
-            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~25-40€/pp</div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">13:00 – 16:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="mountain"></i><h4>Cala Pregonda</h4></div>
+            <p>Arena rojiza, rocas de arenisca, paisaje marciano. Caminar ~25 min desde parking Binimel·là. Llevar comida.</p>
             <div class="links-row">
-                <a href="https://www.google.com/maps/search/Smoix+Cala+Galdana+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://www.google.com/maps/search/Cala+Pregonda+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div>
+            <div class="tip-box"><i data-lucide="lightbulb" style="width:13px;height:13px"></i><span>La playa más especial de Menorca. Paisaje único que no vas a encontrar en otra parte.</span></div>
+            </div>
+        </div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">17:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="waves"></i><h4>Playa de Sa Mesquida</h4></div>
+            <p>Baño rápido antes de la cena. Está pegada a Cap Roig.</p>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Sa+Mesquida+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
             </div></div>
         </div>
-        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">15:30 – 18:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="palm-tree"></i><h4>Cala Macarella + Macarelleta</h4></div>
-            <p>Las postales de Menorca. Pinos, acantilados, agua esmeralda. Macarelleta más íntima. Acceso a pie desde Galdana (~25 min).</p>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">19:30 – 21:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="sunset"></i><h4>Cena en Cap Roig — Atardecer</h4></div>
+            <p>Primera línea al mar. Arroces, pescado fresco. Sunset ~21:20. Pedir mesa exterior.</p>
+            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~50-70€/pp</div>
             <div class="links-row">
-                <a href="https://www.google.com/maps/search/Cala+Macarella+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
-            </div></div>
-        </div>
-        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">19:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="sunset"></i><h4>Cova d'en Xoroi — Sunset</h4></div>
-            <p>Bar-cueva en acantilado sobre el mar. Atardecer inolvidable. Llegar 18:30.</p>
-            <div class="price-tag"><i data-lucide="ticket" style="width:11px;height:11px"></i> Entrada sunset ~20-25€ con consumición</div>
-            <div class="links-row">
-                <a href="https://maps.app.goo.gl/ZBa15uiLdxwd3CMSA" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
-                <a href="https://www.covadeixoroi.com" target="_blank" class="link-pill link-reserve"><i data-lucide="calendar-check"></i> Reservar sunset</a>
-            </div></div>
-        </div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">21:30</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="utensils"></i><h4>Cena en Can Jaumot — Alaior</h4></div>
-            <p>Cocina de mercado, ambiente local. O cenar ligero de vuelta en Cales Fonts.</p>
-            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~30-45€/pp</div>
-            <div class="links-row">
-                <a href="https://www.google.com/maps/search/Can+Jaumot+Alaior+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://maps.app.goo.gl/6TEQXzUwEtELG7ku8" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://www.restaurantcaproig.com" target="_blank" class="link-pill link-reserve"><i data-lucide="calendar-check"></i> Reservar</a>
             </div></div>
         </div>
     </div>
@@ -1043,41 +1037,46 @@
 <div class="panel" id="day4">
     <div class="day-head">
         <div class="day-chip"><i data-lucide="sunset" style="width:11px;height:11px"></i> Martes 23 de Junio</div>
-        <h2>Ciutadella, Pregonda y Cap Roig</h2>
-        <p>La playa marciana y el mejor atardecer gastronómico de Menorca</p>
+        <h2>Las calas más bonitas + Cova d'en Xoroi</h2>
+        <p>Mitjana, Macarella y el sunset más icónico de la isla</p>
     </div>
     <div class="tl">
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">10:30 – 12:30</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="landmark"></i><h4>Pasear por Ciutadella</h4></div>
-            <p>Catedral, puerto antiguo, calles empedradas, helado en Plaça des Born. El pueblo más bonito.</p>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">10:30 – 13:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="palm-tree"></i><h4>Cala Mitjana + Mitjaneta</h4></div>
+            <p>Agua turquesa irreal. Mitjaneta a 5 min caminando, más pequeña y exclusiva. Llevar snacks.</p>
             <div class="links-row">
-                <a href="https://www.google.com/maps/search/Ciutadella+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://www.google.com/maps/search/Cala+Mitjana+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
             </div></div>
         </div>
-        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">13:00 – 16:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="mountain"></i><h4>Cala Pregonda</h4></div>
-            <p>Arena rojiza, rocas de arenisca, paisaje marciano. Caminar ~25 min desde parking Binimel·là. Llevar comida.</p>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">14:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="utensils"></i><h4>Almuerzo en Smoix — Cala Galdana</h4></div>
+            <p>Cocina mediterránea con terraza. Buena relación calidad-precio.</p>
+            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~25-40€/pp</div>
             <div class="links-row">
-                <a href="https://www.google.com/maps/search/Cala+Pregonda+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://www.google.com/maps/search/Smoix+Cala+Galdana+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div></div>
+        </div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">15:30 – 18:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="palm-tree"></i><h4>Cala Macarella + Macarelleta</h4></div>
+            <p>Las postales de Menorca. Pinos, acantilados, agua esmeralda. Macarelleta más íntima. Acceso a pie desde Galdana (~25 min).</p>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Cala+Macarella+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div></div>
+        </div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">19:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="sunset"></i><h4>Cova d'en Xoroi — Sunset</h4></div>
+            <p>Bar-cueva en acantilado sobre el mar. Atardecer inolvidable. Llegar 18:30.</p>
+            <div class="price-tag"><i data-lucide="ticket" style="width:11px;height:11px"></i> Entrada sunset ~20-25€ con consumición</div>
+            <div class="links-row">
+                <a href="https://maps.app.goo.gl/ZBa15uiLdxwd3CMSA" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://www.covadeixoroi.com" target="_blank" class="link-pill link-reserve"><i data-lucide="calendar-check"></i> Reservar sunset</a>
+            </div></div>
+        </div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">21:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="utensils"></i><h4>Cena casual</h4></div>
+            <p>Algo ligero de vuelta en Cales Fonts o cualquier sitio cerca del hotel.</p>
+            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~20-30€/pp</div>
             </div>
-            <div class="tip-box"><i data-lucide="lightbulb" style="width:13px;height:13px"></i><span>La playa más especial de Menorca. Paisaje único que no vas a encontrar en otra parte.</span></div>
-            </div>
-        </div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">17:30</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="waves"></i><h4>Playa de Sa Mesquida</h4></div>
-            <p>Baño rápido antes de la cena. Está pegada a Cap Roig.</p>
-            <div class="links-row">
-                <a href="https://www.google.com/maps/search/Sa+Mesquida+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
-            </div></div>
-        </div>
-        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">19:30 – 21:30</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="sunset"></i><h4>Cena en Cap Roig — Atardecer</h4></div>
-            <p>Primera línea al mar. Arroces, pescado fresco. Sunset ~21:20. Pedir mesa exterior.</p>
-            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~50-70€/pp</div>
-            <div class="links-row">
-                <a href="https://maps.app.goo.gl/6TEQXzUwEtELG7ku8" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
-                <a href="https://www.restaurantcaproig.com" target="_blank" class="link-pill link-reserve"><i data-lucide="calendar-check"></i> Reservar</a>
-            </div></div>
         </div>
     </div>
     <div class="day-nav-footer">
@@ -1090,7 +1089,7 @@
 <div class="panel" id="day5">
     <div class="day-head">
         <div class="day-chip"><i data-lucide="wine" style="width:11px;height:11px"></i> Miércoles 24 de Junio</div>
-        <h2>Último día completo — Caldereta</h2>
+        <h2>Último día completo — Caldereta en Fornells</h2>
         <p>Calas vírgenes, gin Xoriguer y la cena de despedida</p>
     </div>
     <div class="tl">
@@ -1126,15 +1125,15 @@
                 <a href="https://www.xoriguer.es" target="_blank" class="link-pill link-web"><i data-lucide="globe"></i> Web</a>
             </div></div>
         </div>
-        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">21:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="crown"></i><h4>Cena de despedida — La Minerva</h4></div>
-            <p>Restaurante sobre el agua en el puerto de Mahón. Caldereta de langosta — EL plato de la isla.</p>
-            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~60-80€ caldereta para 2</div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">20:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="crown"></i><h4>Cena de despedida — Es Cranc, Fornells</h4></div>
+            <p>El templo de la caldereta en Fornells. Langostas del vivero propio, receta tradicional en cazuela de barro.</p>
+            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~60-90€ caldereta para 2</div>
             <div class="links-row">
-                <a href="https://www.google.com/maps/search/La+Minerva+Mahon+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
-                <a href="https://www.restaurantelaminervamenorca.com" target="_blank" class="link-pill link-reserve"><i data-lucide="calendar-check"></i> Reservar</a>
+                <a href="https://www.google.com/maps/search/Es+Cranc+Fornells+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://www.escranc.com" target="_blank" class="link-pill link-reserve"><i data-lucide="calendar-check"></i> Reservar</a>
             </div>
-            <div class="tip-box"><i data-lucide="lightbulb" style="width:13px;height:13px"></i><span>No te vayas de Menorca sin probar la caldereta de langosta. Este es el momento.</span></div>
+            <div class="tip-box"><i data-lucide="lightbulb" style="width:13px;height:13px"></i><span>No te vayas de Menorca sin probar la caldereta de langosta. Fornells es la capital de la caldereta — este es el lugar.</span></div>
             </div>
         </div>
     </div>
@@ -1188,10 +1187,10 @@
         <h3><i data-lucide="bookmark-check" style="width:20px;height:20px"></i> Reservas importantes</h3>
         <ul class="res-list">
             <li><i data-lucide="sailboat" style="width:15px;height:15px"></i><div><strong>Alquiler de lancha</strong> — día completo<br><span class="date">Lun 22 junio</span> · <a href="https://www.menorcanautic.com" target="_blank">Menorca Nautic</a></div></li>
-            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Cap Roig</strong> — mesa exterior sunset<br><span class="date">Mar 23 junio</span> · <a href="https://www.restaurantcaproig.com" target="_blank">Reservar</a></div></li>
+            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Cap Roig</strong> — mesa exterior sunset<br><span class="date">Dom 21 junio</span> · <a href="https://www.restaurantcaproig.com" target="_blank">Reservar</a></div></li>
             <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Fontenille Menorca</strong> — cena gourmet<br><span class="date">Lun 22 junio</span> · <a href="https://www.fontenille.com/menorca/" target="_blank">Reservar</a></div></li>
-            <li><i data-lucide="sunset" style="width:15px;height:15px"></i><div><strong>Cova d'en Xoroi</strong> — entrada sunset<br><span class="date">Dom 21 junio</span> · <a href="https://www.covadeixoroi.com" target="_blank">Reservar</a></div></li>
-            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>La Minerva</strong> — caldereta de langosta<br><span class="date">Mié 24 junio</span> · <a href="https://www.restaurantelaminervamenorca.com" target="_blank">Reservar</a></div></li>
+            <li><i data-lucide="sunset" style="width:15px;height:15px"></i><div><strong>Cova d'en Xoroi</strong> — entrada sunset<br><span class="date">Mar 23 junio</span> · <a href="https://www.covadeixoroi.com" target="_blank">Reservar</a></div></li>
+            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Es Cranc, Fornells</strong> — caldereta de langosta<br><span class="date">Mié 24 junio</span> · <a href="https://www.escranc.com" target="_blank">Reservar</a></div></li>
             <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Ses Forquilles</strong> — primera noche<br><span class="date">Sáb 20 junio</span> · <a href="https://sesforquilles.com" target="_blank">Reservar</a></div></li>
         </ul>
     </div>
