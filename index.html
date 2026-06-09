@@ -602,7 +602,7 @@
     <table class="s-table">
         <thead><tr><th>Día</th><th>Almuerzo</th><th>Cena</th></tr></thead>
         <tbody>
-            <tr><td><strong>Día 1</strong></td><td>Cales Fonts (casual)</td><td>Ses Forquilles</td></tr>
+            <tr><td><strong>Día 1</strong></td><td>Cales Fonts (casual)</td><td class="star-cell">Artrutx Sea Club — sunset</td></tr>
             <tr><td><strong>Día 2</strong></td><td>Picnic en Pregonda</td><td class="star-cell">Cap Roig — sunset</td></tr>
             <tr><td><strong>Día 3</strong></td><td>Picnic en lancha</td><td class="star-cell">Fontenille Menorca</td></tr>
             <tr><td><strong>Día 4</strong></td><td>Smoix, Cala Galdana</td><td>Cena casual</td></tr>
@@ -657,12 +657,13 @@
             <div class="gantt-row">
                 <div class="gr-label"><span class="gr-day">Día 1</span><span class="gr-date">Sáb 20</span></div>
                 <div class="gr-track">
-                    <div class="g-block g-travel" style="grid-column:11/13" onclick="goTab('day1')" title="Llegada + auto al hotel">Llegada</div>
-                    <div class="g-block g-hotel" style="grid-column:13/15" onclick="goTab('day1')" title="Check-in Barceló Hamilton">Check-in</div>
+                    <div class="g-block g-travel" style="grid-column:7/12" onclick="goTab('day1')" title="Vuelos Iberia Ibiza → Palma → Menorca">Vuelos</div>
+                    <div class="g-block g-travel" style="grid-column:12/13" onclick="goTab('day1')" title="Recoger auto de alquiler">Auto</div>
+                    <div class="g-block g-hotel" style="grid-column:13/15" onclick="goTab('day1')" title="Check-in / Dejar equipaje (TBD)">Equipaje</div>
                     <div class="g-block g-food" style="grid-column:15/19" onclick="goTab('day1')" title="Almuerzo Cales Fonts">Cales Fonts</div>
                     <div class="g-block g-beach" style="grid-column:19/24" onclick="goTab('day1')" title="Cala Rafalet">Cala Rafalet</div>
-                    <div class="g-block g-sunset g-star" style="grid-column:25/27" onclick="goTab('day1')" title="Mirador Costa des General">Mirador</div>
-                    <div class="g-block g-food" style="grid-column:28/31" onclick="goTab('day1')" title="Cena Ses Forquilles">Ses Forquilles</div>
+                    <div class="g-block g-travel" style="grid-column:24/26" onclick="goTab('day1')" title="Viaje a Far d'Artrutx">Auto</div>
+                    <div class="g-block g-sunset g-star" style="grid-column:26/31" onclick="goTab('day1')" title="Cena Artrutx Sea Club — Sunset">Artrutx Club</div>
                 </div>
             </div>
             <!-- Day 2 -->
@@ -925,20 +926,15 @@
                 <a href="https://www.google.com/maps/search/Cala+Rafalet+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
             </div></div>
         </div>
-        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">19:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="binoculars"></i><h4>Mirador Costa des General</h4></div>
-            <p>Vistas panorámicas al puerto natural más grande del Mediterráneo.</p>
-            <div class="links-row">
-                <a href="https://maps.app.goo.gl/svoNVan6e42Gas1G8" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
-            </div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">19:15</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="car"></i><h4>Viaje a Far d'Artrutx</h4></div>
+            <p>Conducir hacia el extremo suroeste de la isla (~50 min). Paisajes de costa camino al atardecer.</p></div>
         </div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">20:30</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="wine"></i><h4>Cena en Ses Forquilles</h4></div>
-            <p>Cocina menorquina contemporánea en Mahón. Producto local, ambiente íntimo.</p>
-            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~35-50€/pp</div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">20:15</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="sunset"></i><h4>Cena en Artrutx Sea Club</h4></div>
+            <p>Sunset dinner espectacular en las terrazas del faro de Cap d'Artrutx. Luz mágica y ambientación mediterránea.</p>
             <div class="links-row">
-                <a href="https://www.google.com/maps/search/Ses+Forquilles+Mahon+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
-                <a href="https://sesforquilles.com" target="_blank" class="link-pill link-reserve"><i data-lucide="calendar-check"></i> Reservar</a>
+                <a href="https://maps.app.goo.gl/sTnv7hZXGExXgWQt7" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
             </div></div>
         </div>
         <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">23:00</div>
@@ -1294,6 +1290,22 @@
         </div>
     </div>
 
+    <!-- Artrutx Sea Club -->
+    <div class="prac-block" style="border-left: 4px solid #c4694a;">
+        <h3><i data-lucide="utensils" style="width:20px;height:20px"></i> Artrutx Sea Club — Sunset Dinner</h3>
+        <div style="display:grid;gap:10px;margin-top:0.5rem">
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sea-foam);border-radius:var(--radius-sm)">
+                <i data-lucide="sunset" style="width:16px;height:16px;color:#c4694a;flex-shrink:0;margin-top:2px"></i>
+                <div style="font-size:0.85rem">
+                    <strong>Cena en Terraza</strong> — Sáb 20 junio · <strong>20:15h</strong> · 2 personas ✅<br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Confirmado · Email: <strong>juanpablo@abndigital.com.ar</strong></span><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Ubicación en el faro de Cap d'Artrutx (sunset point espectacular)</span><br>
+                    <a href="https://maps.app.goo.gl/sTnv7hZXGExXgWQt7" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Cova d'en Xoroi -->
     <div class="prac-block" style="border-left: 4px solid #e8a87c;">
         <h3><i data-lucide="sunset" style="width:20px;height:20px"></i> Cova d'en Xoroi — Sunset Session</h3>
@@ -1333,13 +1345,14 @@
         <ul class="res-list">
             <li><i data-lucide="plane" style="width:15px;height:15px"></i><div><strong>Vuelo Ida (IBZ→PMI→MAH)</strong> — Iberia ✅<br><span class="date">Sáb 20 junio · 09:40h</span> · Localizador: N6K0F · <a href="https://www.iberia.com/es/online-checkin/?language=en&market=ES&pnr=N6K0F&surname=Brea" target="_blank">Check-in</a></div></li>
             <li><i data-lucide="car" style="width:15px;height:15px"></i><div><strong>Alquiler de Auto</strong> — Autos Menorca ✅<br><span class="date">Sáb 20 - Jue 25 junio</span> · Localizador: AM142329</div></li>
+            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Artrutx Sea Club</strong> — Cena sunset ✅<br><span class="date">Sáb 20 junio · 20:15h</span> · Confirmado · <a href="https://maps.app.goo.gl/sTnv7hZXGExXgWQt7" target="_blank">Ver mapa</a></div></li>
             <li><i data-lucide="hotel" style="width:15px;height:15px"></i><div><strong>Hotel Hamilton (4n)</strong> — Barceló ✅<br><span class="date">Dom 21 - Jue 25 junio</span> · Localizador: 24876B70257316</div></li>
-            <li><i data-lucide="sailboat" style="width:15px;height:15px"></i><div><strong>Nautic Fun Menorca</strong> — Lancha día completo<br><span class="date">Lun 22 junio</span> · <a href="https://wa.me/34670396396" target="_blank">+34 670 39 63 96</a></div></li>
             <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Cap Roig</strong> — Terraza sunset ✅<br><span class="date">Dom 21 junio · 19:00h</span> · Juan Pablo Brea · <a href="tel:+34971188383">+34 971 188 383</a></div></li>
-            <li><i data-lucide="sunset" style="width:15px;height:15px"></i><div><strong>Cova d'en Xoroi</strong> — Sunset session ✅<br><span class="date">Mar 23 junio · 18:30-22:30</span> · Localizador: CX2026011415 · <a href="https://www.covadenxoroi.com/en/tickets/datos/success/f96dd065eb35e631f80cb40293963c12f21f17ac8d9cf8726533a0ced2fa" target="_blank">Tickets</a></div></li>
+            <li><i data-lucide="sailboat" style="width:15px;height:15px"></i><div><strong>Nautic Fun Menorca</strong> — Lancha día completo<br><span class="date">Lun 22 junio</span> · <a href="https://wa.me/34670396396" target="_blank">+34 670 39 63 96</a></div></li>
             <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Fontenille Menorca</strong> — Cena gourmet<br><span class="date">Lun 22 junio</span> · <a href="https://www.fontenille.com/menorca/" target="_blank">Reservar</a></div></li>
+            <li><i data-lucide="sunset" style="width:15px;height:15px"></i><div><strong>Cova d'en Xoroi</strong> — Sunset session ✅<br><span class="date">Mar 23 junio · 18:30-22:30</span> · Localizador: CX2026011415 · <a href="https://www.covadenxoroi.com/en/tickets/datos/success/f96dd065eb35e631f80cb40293963c12f21f17ac8d9cf8726533a0ced2fa" target="_blank">Tickets</a></div></li>
             <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Es Cranc, Fornells</strong> — Caldereta de langosta<br><span class="date">Mié 24 junio</span> · <a href="https://www.escranc.com" target="_blank">Reservar</a></div></li>
-            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Ses Forquilles</strong> — Primera noche<br><span class="date">Sáb 20 junio</span> · <a href="https://sesforquilles.com" target="_blank">Reservar</a></div></li>
+            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Ses Forquilles</strong> — Primera noche (alt.)<br><span class="date">Sáb 20 junio</span> · <a href="https://sesforquilles.com" target="_blank">Reservar</a></div></li>
             <li><i data-lucide="plane" style="width:15px;height:15px"></i><div><strong>Vuelo Vuelta (MAH→MAD)</strong> — Iberia ✅<br><span class="date">Jue 25 junio · 08:55h</span> · Localizador: P34S7 · <a href="https://www.iberia.com/es/online-checkin/?language=en&market=ES&pnr=P34S7&surname=Brea" target="_blank">Check-in</a></div></li>
         </ul>
     </div>
@@ -1375,6 +1388,7 @@
         <div class="feat-card"><i data-lucide="award" style="width:22px;height:22px"></i><h4>Smoix (Ciutadella)</h4><p>Cocina de autor en patio interior elegante. Recomendado Michelin.</p><a href="https://www.google.com/maps/search/?api=1&query=Smoix+Ciutadella" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a></div>
         <div class="feat-card"><i data-lucide="flame" style="width:22px;height:22px"></i><h4>Ca Na Marga (Fornells)</h4><p>El asador de carnes y producto ibérico de referencia en la isla.</p><a href="https://www.google.com/maps/search/?api=1&query=Ca+Na+Marga+Menorca" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a></div>
         <div class="feat-card"><i data-lucide="leaf" style="width:22px;height:22px"></i><h4>Es Tast de na Sílvia</h4><p>Recetas tradicionales menorquinas con producto 100% local y de tierra. Ciutadella.</p><a href="https://www.google.com/maps/search/?api=1&query=Es+Tast+de+na+Silvia+Ciutadella" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a></div>
+        <div class="feat-card"><i data-lucide="wine" style="width:22px;height:22px"></i><h4>Ses Forquilles (Mahón)</h4><p>Cocina menorquina contemporánea. Producto de mercado local, platillos innovadores y ambiente íntimo.</p><a href="https://www.google.com/maps/search/?api=1&query=Ses+Forquilles+Mahon+Menorca" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a></div>
     </div>
 
     <h3 class="section-title"><i data-lucide="compass" style="width:20px;height:20px"></i> Calas ocultas (para caminantes)</h3>
