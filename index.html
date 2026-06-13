@@ -542,8 +542,8 @@
         <button class="tab-btn" data-tab="mapa"><i data-lucide="map" class="tab-icon"></i><span class="tab-day">Mapa</span></button>
         <button class="tab-btn" data-tab="day1"><i data-lucide="sun" class="tab-icon"></i><span class="tab-day">Día 1</span></button>
         <button class="tab-btn" data-tab="day2"><i data-lucide="waves" class="tab-icon"></i><span class="tab-day">Día 2</span></button>
-        <button class="tab-btn" data-tab="day3"><i data-lucide="sailboat" class="tab-icon"></i><span class="tab-day">Día 3</span></button>
-        <button class="tab-btn" data-tab="day4"><i data-lucide="sunset" class="tab-icon"></i><span class="tab-day">Día 4</span></button>
+        <button class="tab-btn" data-tab="day3"><i data-lucide="waves" class="tab-icon"></i><span class="tab-day">Día 3</span></button>
+        <button class="tab-btn" data-tab="day4"><i data-lucide="sailboat" class="tab-icon"></i><span class="tab-day">Día 4</span></button>
         <button class="tab-btn" data-tab="day5"><i data-lucide="wine" class="tab-icon"></i><span class="tab-day">Día 5</span></button>
         <button class="tab-btn" data-tab="day6"><i data-lucide="plane-takeoff" class="tab-icon"></i><span class="tab-day">Día 6</span></button>
         <button class="tab-btn" data-tab="reservas"><i data-lucide="bookmark-check" class="tab-icon"></i><span class="tab-day">Reservas</span></button>
@@ -574,15 +574,15 @@
         </div>
         <div class="ov-card" onclick="goTab('day3')">
             <div class="ov-day">Lunes 22</div>
-            <h3>Lancha + Argentina</h3>
-            <p>6 calas en barco, Argentina vs Austria y cena Fontenille</p>
-            <div class="ov-highlights"><span class="ov-tag">Turqueta</span><span class="ov-tag">⚽ 19h</span><span class="ov-tag star">Fontenille</span></div>
+            <h3>Calas + Argentina</h3>
+            <p>Mitjana, Macarella, Argentina 19h y Fontenille</p>
+            <div class="ov-highlights"><span class="ov-tag">Mitjana</span><span class="ov-tag">⚽ 19h</span><span class="ov-tag star">Fontenille</span></div>
         </div>
         <div class="ov-card" onclick="goTab('day4')">
             <div class="ov-day">Martes 23</div>
-            <h3>Calas + Cova d'en Xoroi</h3>
-            <p>Las calas más bonitas y el sunset más icónico</p>
-            <div class="ov-highlights"><span class="ov-tag">Mitjana</span><span class="ov-tag">Macarella</span><span class="ov-tag star">Xoroi sunset</span></div>
+            <h3>Lancha + Xoroi</h3>
+            <p>6 calas en barco y el sunset más icónico de la isla</p>
+            <div class="ov-highlights"><span class="ov-tag">6 calas</span><span class="ov-tag star">Xoroi sunset</span></div>
         </div>
         <div class="ov-card" onclick="goTab('day5')">
             <div class="ov-day">Miércoles 24</div>
@@ -604,8 +604,8 @@
         <tbody>
             <tr><td><strong>Día 1</strong></td><td>Cales Fonts (casual)</td><td class="star-cell">Artrutx Sea Club — sunset</td></tr>
             <tr><td><strong>Día 2</strong></td><td>Picnic en Pregonda</td><td class="star-cell">Cap Roig — sunset</td></tr>
-            <tr><td><strong>Día 3</strong></td><td>Picnic en lancha</td><td class="star-cell">Fontenille Menorca</td></tr>
-            <tr><td><strong>Día 4</strong></td><td>Smoix, Cala Galdana</td><td>Cena casual</td></tr>
+            <tr><td><strong>Día 3</strong></td><td>Smoix, Cala Galdana</td><td class="star-cell">Fontenille Menorca</td></tr>
+            <tr><td><strong>Día 4</strong></td><td>Picnic en lancha</td><td>Cena casual</td></tr>
             <tr><td><strong>Día 5</strong></td><td>Es Grau</td><td class="star-cell">Es Cranc, Fornells — caldereta</td></tr>
         </tbody>
     </table>
@@ -683,23 +683,23 @@
             <div class="gantt-row">
                 <div class="gr-label"><span class="gr-day">Día 3</span><span class="gr-date">Lun 22</span></div>
                 <div class="gr-track">
-                    <div class="g-block g-travel" style="grid-column:5/6" onclick="goTab('day3')" title="Auto a Cala en Bosc">Auto</div>
-                    <div class="g-block g-boat" style="grid-column:6/22" onclick="goTab('day3')" title="Lancha: Turqueta → Talaier → Macarella → Trebalúger → Mitjana → Escorxada">Lancha — 6 calas</div>
-                    <div class="g-block g-travel" style="grid-column:22/25" onclick="goTab('day3')" title="Devolver lancha + auto">Devolver</div>
-                    <div class="g-block g-sunset g-star" style="grid-column:25/28" onclick="goTab('day3')" title="⚽ Argentina vs Austria — 19:00h">⚽ ARG</div>
-                    <div class="g-block g-food g-star" style="grid-column:28/32" onclick="goTab('day3')" title="Cena Fontenille Menorca">Fontenille</div>
+                    <div class="g-block g-travel" style="grid-column:7/8" onclick="goTab('day3')" title="Auto al sur">Auto</div>
+                    <div class="g-block g-beach" style="grid-column:8/14" onclick="goTab('day3')" title="Cala Mitjana + Mitjaneta">Mitjana</div>
+                    <div class="g-block g-food" style="grid-column:15/18" onclick="goTab('day3')" title="Almuerzo Smoix">Smoix</div>
+                    <div class="g-block g-beach" style="grid-column:18/23" onclick="goTab('day3')" title="Cala Macarella + Macarelleta">Macarella</div>
+                    <div class="g-block g-sunset g-star" style="grid-column:24/28" onclick="goTab('day3')" title="⚽ Argentina vs Austria — 19:00h">⚽ ARG</div>
+                    <div class="g-block g-food g-star" style="grid-column:29/32" onclick="goTab('day3')" title="Cena Fontenille Menorca">Fontenille</div>
                 </div>
             </div>
             <!-- Day 4 -->
             <div class="gantt-row">
                 <div class="gr-label"><span class="gr-day">Día 4</span><span class="gr-date">Mar 23</span></div>
                 <div class="gr-track">
-                    <div class="g-block g-travel" style="grid-column:7/8" onclick="goTab('day4')" title="Auto al sur">Auto</div>
-                    <div class="g-block g-beach" style="grid-column:8/14" onclick="goTab('day4')" title="Cala Mitjana + Mitjaneta">Mitjana</div>
-                    <div class="g-block g-food" style="grid-column:15/18" onclick="goTab('day4')" title="Almuerzo Smoix">Smoix</div>
-                    <div class="g-block g-beach" style="grid-column:18/23" onclick="goTab('day4')" title="Cala Macarella + Macarelleta">Macarella</div>
+                    <div class="g-block g-travel" style="grid-column:5/6" onclick="goTab('day4')" title="Auto a Cala en Bosc">Auto</div>
+                    <div class="g-block g-boat" style="grid-column:6/21" onclick="goTab('day4')" title="Lancha: Turqueta → Talaier → Macarella → Trebalúger → Mitjana → Escorxada">Lancha — 6 calas</div>
+                    <div class="g-block g-travel" style="grid-column:21/23" onclick="goTab('day4')" title="Devolver lancha + auto">Devolver</div>
                     <div class="g-block g-sunset g-star" style="grid-column:24/29" onclick="goTab('day4')" title="Cova d'en Xoroi — Sunset">Xoroi sunset</div>
-                    <div class="g-block g-food" style="grid-column:30/33" onclick="goTab('day4')" title="Cena casual">Cena casual</div>
+                    <div class="g-block g-food" style="grid-column:30/32" onclick="goTab('day4')" title="Cena casual">Cena</div>
                 </div>
             </div>
             <!-- Day 5 -->
@@ -873,8 +873,8 @@
     <div class="map-legend" id="mapLegend">
         <div class="ml-item" data-d="1" onmouseenter="hlDay(1)" onmouseleave="hlDay(0)" onclick="goTab('day1')"><div class="ml-dot"></div> Día 1 · Llegada</div>
         <div class="ml-item" data-d="2" onmouseenter="hlDay(2)" onmouseleave="hlDay(0)" onclick="goTab('day2')"><div class="ml-dot"></div> Día 2 · Pregonda + Cap Roig</div>
-        <div class="ml-item" data-d="3" onmouseenter="hlDay(3)" onmouseleave="hlDay(0)" onclick="goTab('day3')"><div class="ml-dot"></div> Día 3 · Lancha</div>
-        <div class="ml-item" data-d="4" onmouseenter="hlDay(4)" onmouseleave="hlDay(0)" onclick="goTab('day4')"><div class="ml-dot"></div> Día 4 · Calas + Xoroi</div>
+        <div class="ml-item" data-d="3" onmouseenter="hlDay(3)" onmouseleave="hlDay(0)" onclick="goTab('day3')"><div class="ml-dot"></div> Día 3 · Calas + Argentina</div>
+        <div class="ml-item" data-d="4" onmouseenter="hlDay(4)" onmouseleave="hlDay(0)" onclick="goTab('day4')"><div class="ml-dot"></div> Día 4 · Lancha + Xoroi</div>
         <div class="ml-item" data-d="5" onmouseenter="hlDay(5)" onmouseleave="hlDay(0)" onclick="goTab('day5')"><div class="ml-dot"></div> Día 5 · Caldereta</div>
     </div>
     <p style="text-align:center;font-size:0.72rem;color:var(--text-muted);margin-top:0.6rem">
@@ -1004,39 +1004,37 @@
 <!-- ===== DÍA 3 ===== -->
 <div class="panel" id="day3">
     <div class="day-head">
-        <div class="day-chip"><i data-lucide="sailboat" style="width:11px;height:11px"></i> Lunes 22 de Junio</div>
-        <h2>Lancha, Argentina y Fontenille</h2>
-        <p>6 calas en barco, Mundial a las 19h y cena gourmet en finca del s. XVIII</p>
+        <div class="day-chip"><i data-lucide="waves" style="width:11px;height:11px"></i> Lunes 22 de Junio</div>
+        <h2>Calas, Argentina y Fontenille</h2>
+        <p>Las calas más bonitas, el Mundial a las 19h y cena gourmet</p>
     </div>
     <div class="tl">
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">9:30</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="anchor"></i><h4>Recoger lancha — Cala en Bosc</h4></div>
-            <p>Lancha 4-5m para 2 personas. Contacto recomendado: <strong>Nautic Fun Menorca</strong>.</p>
-            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~150-350€ el día</div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">10:30 – 13:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="palm-tree"></i><h4>Cala Mitjana + Mitjaneta</h4></div>
+            <p>Agua turquesa irreal. Mitjaneta a 5 min caminando, más pequeña y exclusiva. Llevar snacks.</p>
             <div class="links-row">
-                <a href="https://www.google.com/maps/search/Cala+en+Bosc+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
-                <a href="https://wa.me/34670396396" target="_blank" class="link-pill link-reserve"><i data-lucide="phone"></i> Nautic Fun: +34 670 39 63 96</a>
-            </div>
-            <div class="tip-box"><i data-lucide="lightbulb" style="width:13px;height:13px"></i><span>Llevar nevera con comida, agua, crema solar y snorkel. Salir temprano = calas vacías.</span></div>
-            </div>
+                <a href="https://www.google.com/maps/search/Cala+Mitjana+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div></div>
         </div>
-        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">10:00 – 18:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="sailboat"></i><h4>Ruta en lancha — 6 calas</h4></div>
-            <p>Día entero navegando la costa sur por calas inaccesibles desde tierra.</p></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">14:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="utensils"></i><h4>Almuerzo en Smoix — Cala Galdana</h4></div>
+            <p>Cocina mediterránea con terraza. Buena relación calidad-precio.</p>
+            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~25-40€/pp</div>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Smoix+Cala+Galdana+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div></div>
         </div>
-    </div>
-    <div class="boat-card">
-        <h3><i data-lucide="navigation" style="width:18px;height:18px"></i> Ruta desde Cala en Bosc</h3>
-        <div class="boat-grid">
-            <div class="boat-stop"><div class="boat-num">1</div><div><h4>Cala en Turqueta</h4><p>Arena blanca, la joya.</p><a href="https://www.google.com/maps/search/Cala+en+Turqueta+Menorca" target="_blank">Ver mapa →</a></div></div>
-            <div class="boat-stop"><div class="boat-num">2</div><div><h4>Cala des Talaier</h4><p>Virgen, solo fácil en barco.</p><a href="https://www.google.com/maps/search/Cala+des+Talaier+Menorca" target="_blank">Ver mapa →</a></div></div>
-            <div class="boat-stop"><div class="boat-num">3</div><div><h4>Cala Macarella</h4><p>Verla desde el mar.</p><a href="https://www.google.com/maps/search/Cala+Macarella+Menorca" target="_blank">Ver mapa →</a></div></div>
-            <div class="boat-stop"><div class="boat-num">4</div><div><h4>Cala Trebalúger</h4><p>Salvaje, rodeada de bosque.</p><a href="https://www.google.com/maps/search/Cala+Trebaluger+Menorca" target="_blank">Ver mapa →</a></div></div>
-            <div class="boat-stop"><div class="boat-num">5</div><div><h4>Cala Mitjana</h4><p>Fondear desde el agua.</p><a href="https://www.google.com/maps/search/Cala+Mitjana+Menorca" target="_blank">Ver mapa →</a></div></div>
-            <div class="boat-stop"><div class="boat-num">6</div><div><h4>Cala Escorxada</h4><p>Solo en barco. Paraíso.</p><a href="https://www.google.com/maps/search/Cala+Escorxada+Menorca" target="_blank">Ver mapa →</a></div></div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">15:30 – 18:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="palm-tree"></i><h4>Cala Macarella + Macarelleta</h4></div>
+            <p>Las postales de Menorca. Pinos, acantilados, agua esmeralda. Macarelleta más íntima. Acceso a pie desde Galdana (~25 min).</p>
+            <div class="links-row">
+                <a href="https://www.google.com/maps/search/Cala+Macarella+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div></div>
         </div>
-    </div>
-    <div class="tl" style="margin-top:1rem;">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">18:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="car"></i><h4>Auto de vuelta al hotel</h4></div>
+            <p>~40 min de viaje para llegar a tiempo al partido.</p></div>
+        </div>
         <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">19:00 – 21:00</div>
             <div class="tl-card" style="border-left: 3px solid #75aadb">
             <div class="tl-card-head"><i data-lucide="tv"></i><h4>⚽ Argentina vs Austria — Mundial 2026</h4></div>
@@ -1063,32 +1061,42 @@
 <!-- ===== DÍA 4 ===== -->
 <div class="panel" id="day4">
     <div class="day-head">
-        <div class="day-chip"><i data-lucide="sunset" style="width:11px;height:11px"></i> Martes 23 de Junio</div>
-        <h2>Las calas más bonitas + Cova d'en Xoroi</h2>
-        <p>Mitjana, Macarella y el sunset más icónico de la isla</p>
+        <div class="day-chip"><i data-lucide="sailboat" style="width:11px;height:11px"></i> Martes 23 de Junio</div>
+        <h2>Día de lancha + Cova d'en Xoroi</h2>
+        <p>6 calas en barco y el sunset más icónico de la isla</p>
     </div>
     <div class="tl">
-        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">10:30 – 13:30</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="palm-tree"></i><h4>Cala Mitjana + Mitjaneta</h4></div>
-            <p>Agua turquesa irreal. Mitjaneta a 5 min caminando, más pequeña y exclusiva. Llevar snacks.</p>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">9:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="anchor"></i><h4>Recoger lancha — Cala en Bosc</h4></div>
+            <p>Lancha 4-5m para 2 personas. Contacto recomendado: <strong>Nautic Fun Menorca</strong>.</p>
+            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~150-350€ el día</div>
             <div class="links-row">
-                <a href="https://www.google.com/maps/search/Cala+Mitjana+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
-            </div></div>
+                <a href="https://www.google.com/maps/search/Cala+en+Bosc+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://wa.me/34670396396" target="_blank" class="link-pill link-reserve"><i data-lucide="phone"></i> Nautic Fun: +34 670 39 63 96</a>
+            </div>
+            <div class="tip-box"><i data-lucide="lightbulb" style="width:13px;height:13px"></i><span>Llevar nevera con comida, agua, crema solar y snorkel. Volver antes de las 17:00 para llegar a Xoroi.</span></div>
+            </div>
         </div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">14:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="utensils"></i><h4>Almuerzo en Smoix — Cala Galdana</h4></div>
-            <p>Cocina mediterránea con terraza. Buena relación calidad-precio.</p>
-            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~25-40€/pp</div>
-            <div class="links-row">
-                <a href="https://www.google.com/maps/search/Smoix+Cala+Galdana+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
-            </div></div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">10:00 – 17:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="sailboat"></i><h4>Ruta en lancha — 6 calas</h4></div>
+            <p>Día navegando la costa sur por calas inaccesibles desde tierra. Volver antes de las 17:00 para llegar a Xoroi.</p></div>
         </div>
-        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">15:30 – 18:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="palm-tree"></i><h4>Cala Macarella + Macarelleta</h4></div>
-            <p>Las postales de Menorca. Pinos, acantilados, agua esmeralda. Macarelleta más íntima. Acceso a pie desde Galdana (~25 min).</p>
-            <div class="links-row">
-                <a href="https://www.google.com/maps/search/Cala+Macarella+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
-            </div></div>
+    </div>
+    <div class="boat-card">
+        <h3><i data-lucide="navigation" style="width:18px;height:18px"></i> Ruta desde Cala en Bosc</h3>
+        <div class="boat-grid">
+            <div class="boat-stop"><div class="boat-num">1</div><div><h4>Cala en Turqueta</h4><p>Arena blanca, la joya.</p><a href="https://www.google.com/maps/search/Cala+en+Turqueta+Menorca" target="_blank">Ver mapa →</a></div></div>
+            <div class="boat-stop"><div class="boat-num">2</div><div><h4>Cala des Talaier</h4><p>Virgen, solo fácil en barco.</p><a href="https://www.google.com/maps/search/Cala+des+Talaier+Menorca" target="_blank">Ver mapa →</a></div></div>
+            <div class="boat-stop"><div class="boat-num">3</div><div><h4>Cala Macarella</h4><p>Verla desde el mar.</p><a href="https://www.google.com/maps/search/Cala+Macarella+Menorca" target="_blank">Ver mapa →</a></div></div>
+            <div class="boat-stop"><div class="boat-num">4</div><div><h4>Cala Trebalúger</h4><p>Salvaje, rodeada de bosque.</p><a href="https://www.google.com/maps/search/Cala+Trebaluger+Menorca" target="_blank">Ver mapa →</a></div></div>
+            <div class="boat-stop"><div class="boat-num">5</div><div><h4>Cala Mitjana</h4><p>Fondear desde el agua.</p><a href="https://www.google.com/maps/search/Cala+Mitjana+Menorca" target="_blank">Ver mapa →</a></div></div>
+            <div class="boat-stop"><div class="boat-num">6</div><div><h4>Cala Escorxada</h4><p>Solo en barco. Paraíso.</p><a href="https://www.google.com/maps/search/Cala+Escorxada+Menorca" target="_blank">Ver mapa →</a></div></div>
+        </div>
+    </div>
+    <div class="tl" style="margin-top:1rem;">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">17:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="car"></i><h4>Devolver lancha y auto al hotel</h4></div>
+            <p>Devolver la lancha en Cala en Bosc y conducir al hotel para cambiarse antes de Xoroi.</p></div>
         </div>
         <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">18:30 – 22:30</div>
             <div class="tl-card"><div class="tl-card-head"><i data-lucide="sunset"></i><h4>Cova d'en Xoroi — Sunset Session</h4></div>
@@ -1102,9 +1110,9 @@
             <div class="tip-box"><i data-lucide="shirt" style="width:13px;height:13px"></i><span>Dress code: no ropa de playa, no deportiva, no musculosas. Ir arreglados.</span></div>
             </div>
         </div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">21:30</div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">22:30</div>
             <div class="tl-card"><div class="tl-card-head"><i data-lucide="utensils"></i><h4>Cena casual</h4></div>
-            <p>Algo ligero de vuelta en Cales Fonts o cualquier sitio cerca del hotel.</p>
+            <p>Algo ligero en Cales Fonts o cualquier sitio cerca del hotel.</p>
             <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~20-30€/pp</div>
             </div>
         </div>
@@ -1263,7 +1271,7 @@
             <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sand-light);border-radius:var(--radius-sm)">
                 <i data-lucide="sailboat" style="width:16px;height:16px;color:var(--sea-mid);flex-shrink:0;margin-top:2px"></i>
                 <div style="font-size:0.85rem">
-                    <strong>Lancha de alquiler</strong> — Nautic Fun Menorca · Lun 22 junio (Día 3)<br>
+                    <strong>Lancha de alquiler</strong> — Nautic Fun Menorca · Mar 23 junio (Día 4)<br>
                     <span style="font-size:0.78rem;color:var(--text-muted)">Contacto para coordinar y reservar: +34 670 39 63 96</span><br>
                     <a href="https://wa.me/34670396396" target="_blank" class="link-pill link-web" style="margin-top:6px"><i data-lucide="phone"></i> WhatsApp</a>
                 </div>
@@ -1360,7 +1368,7 @@
             <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Artrutx Sea Club</strong> — Cena sunset ✅<br><span class="date">Sáb 20 junio · 20:15h</span> · Confirmado · <a href="https://maps.app.goo.gl/sTnv7hZXGExXgWQt7" target="_blank">Ver mapa</a></div></li>
             <li><i data-lucide="hotel" style="width:15px;height:15px"></i><div><strong>Hotel Hamilton (4n)</strong> — Barceló ✅<br><span class="date">Dom 21 - Jue 25 junio</span> · Localizador: 24876B70257316</div></li>
             <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Cap Roig</strong> — Terraza sunset ✅<br><span class="date">Dom 21 junio · 19:00h</span> · Juan Pablo Brea · <a href="tel:+34971188383">+34 971 188 383</a></div></li>
-            <li><i data-lucide="sailboat" style="width:15px;height:15px"></i><div><strong>Nautic Fun Menorca</strong> — Lancha día completo<br><span class="date">Lun 22 junio</span> · <a href="https://wa.me/34670396396" target="_blank">+34 670 39 63 96</a></div></li>
+            <li><i data-lucide="sailboat" style="width:15px;height:15px"></i><div><strong>Nautic Fun Menorca</strong> — Lancha día completo<br><span class="date">Mar 23 junio</span> · <a href="https://wa.me/34670396396" target="_blank">+34 670 39 63 96</a></div></li>
             <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Fontenille Menorca</strong> — Cena gourmet<br><span class="date">Lun 22 junio</span> · <a href="https://www.fontenille.com/menorca/" target="_blank">Reservar</a></div></li>
             <li><i data-lucide="sunset" style="width:15px;height:15px"></i><div><strong>Cova d'en Xoroi</strong> — Sunset session ✅<br><span class="date">Mar 23 junio · 18:30-22:30</span> · Localizador: CX2026011415 · <a href="https://www.covadenxoroi.com/en/tickets/datos/success/f96dd065eb35e631f80cb40293963c12f21f17ac8d9cf8726533a0ced2fa" target="_blank">Tickets</a></div></li>
             <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Es Cranc, Fornells</strong> — Caldereta de langosta<br><span class="date">Mié 24 junio</span> · <a href="https://www.escranc.com" target="_blank">Reservar</a></div></li>
