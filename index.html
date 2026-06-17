@@ -232,28 +232,6 @@
         }
         .tip-box i { flex-shrink: 0; margin-top: 1px; color: var(--sea-mid); }
 
-        /* ===== BOAT ROUTE ===== */
-        .boat-card {
-            background: linear-gradient(135deg, var(--sea-deep), var(--sea-mid));
-            border-radius: var(--radius-lg); padding: 1.5rem; color: #fff; margin: 1rem 0;
-        }
-        .boat-card h3 { display: flex; align-items: center; gap: 8px; font-size: 1.1rem; margin-bottom: 1rem; }
-        .boat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
-        .boat-stop {
-            display: flex; align-items: flex-start; gap: 10px;
-            padding: 10px 12px; background: rgba(255,255,255,0.1);
-            border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.08);
-        }
-        .boat-num {
-            width: 24px; height: 24px; border-radius: 50%; background: rgba(255,255,255,0.2);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
-        }
-        .boat-stop h4 { font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 600; }
-        .boat-stop p { font-size: 0.72rem; opacity: 0.8; line-height: 1.35; }
-        .boat-stop a { color: rgba(255,255,255,0.7); font-size: 0.7rem; }
-        .boat-stop a:hover { color: #fff; }
-
         /* ===== DAY FOOTER NAV ===== */
         .day-nav-footer {
             display: flex; justify-content: space-between; align-items: center;
@@ -416,7 +394,6 @@
         .g-block.g-beach { background: #d4f0f7; color: #1a5a6a; border: 1px solid #b0dfe9; }
         .g-block.g-food { background: #f5e6d0; color: #7a5a30; border: 1px solid #e5d2b5; }
         .g-block.g-sunset { background: #fde4d4; color: #993d1f; border: 1px solid #f0c8ad; }
-        .g-block.g-boat { background: #c8dff0; color: #1a3a5a; border: 1px solid #a0c4db; }
         .g-block.g-travel { background: #e8e5e0; color: #6a6560; border: 1px solid #d5d0c8; }
         .g-block.g-culture { background: #dde8d0; color: #3a5a20; border: 1px solid #c5d8b0; }
         .g-block.g-hotel { background: #f0e6d6; color: #8a7a60; border: 1px solid #ddd4c2; }
@@ -442,7 +419,6 @@
         .gl-dot.beach { background: #d4f0f7; border: 1px solid #b0dfe9; }
         .gl-dot.food { background: #f5e6d0; border: 1px solid #e5d2b5; }
         .gl-dot.sunset { background: #fde4d4; border: 1px solid #f0c8ad; }
-        .gl-dot.boat { background: #c8dff0; border: 1px solid #a0c4db; }
         .gl-dot.travel { background: #e8e5e0; border: 1px solid #d5d0c8; }
         .gl-dot.culture { background: #dde8d0; border: 1px solid #c5d8b0; }
         .gl-dot.drinks { background: #e8daf0; border: 1px solid #d4c0e0; }
@@ -461,9 +437,6 @@
         .map-svg .day-route {
             fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
             transition: opacity 0.35s ease, stroke-width 0.3s ease;
-        }
-        .map-svg .day-route.boat-route {
-            stroke-dasharray: 5 3; stroke-width: 1.5;
         }
         .map-svg .map-dot {
             transition: all 0.2s ease;
@@ -508,7 +481,6 @@
 
         @media (max-width: 640px) {
             .panels-container { padding: 1rem 0.75rem 2rem; }
-            .boat-grid { grid-template-columns: 1fr; }
             .feat-grid, .overview-grid { grid-template-columns: 1fr; }
             .prac-grid { grid-template-columns: 1fr 1fr; }
             .tab-btn { padding: 8px 10px; }
@@ -563,14 +535,14 @@
         <div class="ov-card" onclick="goTab('day1')">
             <div class="ov-day">Sábado 20</div>
             <h3>Llegada</h3>
-            <p>Vuelos desde Ibiza, Cales Fonts, Cala Rafalet</p>
-            <div class="ov-highlights"><span class="ov-tag">Cala Rafalet</span><span class="ov-tag">Cales Fonts</span></div>
+            <p>Vuelos desde Ibiza, Binibèquer Nou y cena en Son Ganxo</p>
+            <div class="ov-highlights"><span class="ov-tag">Binibèquer Nou</span><span class="ov-tag">Son Ganxo</span></div>
         </div>
         <div class="ov-card" onclick="goTab('day2')">
             <div class="ov-day">Domingo 21</div>
-            <h3>Pregonda + Cap Roig</h3>
-            <p>La playa marciana y sunset en primera línea del mar</p>
-            <div class="ov-highlights"><span class="ov-tag">Pregonda</span><span class="ov-tag star">Cap Roig</span></div>
+            <h3>Mesquida + Cap Roig</h3>
+            <p>Día completo en Sa Mesquida y sunset en terraza</p>
+            <div class="ov-highlights"><span class="ov-tag">Sa Mesquida</span><span class="ov-tag star">Cap Roig</span></div>
         </div>
         <div class="ov-card" onclick="goTab('day3')">
             <div class="ov-day">Lunes 22</div>
@@ -580,15 +552,15 @@
         </div>
         <div class="ov-card" onclick="goTab('day4')">
             <div class="ov-day">Martes 23</div>
-            <h3>Relax + Xoroi</h3>
-            <p>Binibèquer, pool y el sunset más icónico</p>
-            <div class="ov-highlights"><span class="ov-tag">Binibèquer</span><span class="ov-tag star">Xoroi sunset</span></div>
+            <h3>Binigaus + Xoroi</h3>
+            <p>Playa de pileta, Cala en Porter y el sunset más icónico</p>
+            <div class="ov-highlights"><span class="ov-tag">Binigaus</span><span class="ov-tag">Cala en Porter</span><span class="ov-tag star">Xoroi</span></div>
         </div>
         <div class="ov-card" onclick="goTab('day5')">
             <div class="ov-day">Miércoles 24</div>
-            <h3>Pilar + Ivette</h3>
-            <p>Cala salvaje, Es Tancats y cena de despedida</p>
-            <div class="ov-highlights"><span class="ov-tag">Cala Pilar</span><span class="ov-tag star">Ivette Beach Club</span></div>
+            <h3>Algaiarens + Ivette</h3>
+            <p>Playas del norte y cena de despedida</p>
+            <div class="ov-highlights"><span class="ov-tag">Es Tancats</span><span class="ov-tag">Des Bot</span><span class="ov-tag star">Ivette</span></div>
         </div>
         <div class="ov-card" onclick="goTab('day6')">
             <div class="ov-day">Jueves 25</div>
@@ -602,11 +574,11 @@
     <table class="s-table">
         <thead><tr><th>Día</th><th>Almuerzo</th><th>Cena</th></tr></thead>
         <tbody>
-            <tr><td><strong>Día 1</strong></td><td>Cales Fonts</td><td>Cales Fonts (casual)</td></tr>
-            <tr><td><strong>Día 2</strong></td><td>Picnic en Pregonda</td><td class="star-cell">Cap Roig — Terraza</td></tr>
+            <tr><td><strong>Día 1</strong></td><td>Picnic / libre</td><td class="star-cell">Son Ganxo</td></tr>
+            <tr><td><strong>Día 2</strong></td><td>Chiringuito / libre</td><td class="star-cell">Cap Roig — Terraza</td></tr>
             <tr><td><strong>Día 3</strong></td><td>Smoix o picnic</td><td class="star-cell">Artrutx Sea Club</td></tr>
-            <tr><td><strong>Día 4</strong></td><td>Binibeca chiringuito</td><td class="star-cell">Cova d'en Xoroi</td></tr>
-            <tr><td><strong>Día 5</strong></td><td>Picnic / chiringuito</td><td class="star-cell">Ivette Beach Club</td></tr>
+            <tr><td><strong>Día 4</strong></td><td>Es Bruc (Binigaus) o Cala en Porter</td><td class="star-cell">Cova d'en Xoroi</td></tr>
+            <tr><td><strong>Día 5</strong></td><td>Libre</td><td class="star-cell">Ivette Beach Club</td></tr>
         </tbody>
     </table>
 
@@ -615,12 +587,15 @@
         <thead><tr><th>Ruta</th><th>Tiempo</th></tr></thead>
         <tbody>
             <tr><td>Aeropuerto → Hotel</td><td>15 min</td></tr>
+            <tr><td>Hotel → Binibèquer Nou</td><td>5 min</td></tr>
+            <tr><td>Hotel → Sa Mesquida</td><td>15 min</td></tr>
             <tr><td>Hotel → Cala Mitjana</td><td>40 min</td></tr>
-            <tr><td>Hotel → Cova d'en Xoroi</td><td>25 min</td></tr>
             <tr><td>Hotel → Ciutadella</td><td>45 min</td></tr>
             <tr><td>Hotel → Cap Roig</td><td>15 min</td></tr>
-            <tr><td>Hotel → Cala Pregonda</td><td>55 min</td></tr>
-            <tr><td>Hotel → Cala Pilar</td><td>~40 min + 45 min caminata</td></tr>
+            <tr><td>Hotel → Binigaus</td><td>35 min</td></tr>
+            <tr><td>Hotel → Cala en Porter</td><td>25 min</td></tr>
+            <tr><td>Hotel → Cova d'en Xoroi</td><td>25 min</td></tr>
+            <tr><td>Hotel → Algaiarens</td><td>50 min</td></tr>
             <tr><td>Hotel → Binibèquer Vell</td><td>10 min</td></tr>
         </tbody>
     </table>
@@ -659,19 +634,17 @@
                 <div class="gr-track">
                     <div class="g-block g-travel" style="grid-column:1/4" onclick="goTab('day1')" title="Vuelos IBZ→PMI→MAH">Vuelos</div>
                     <div class="g-block g-travel" style="grid-column:4/6" onclick="goTab('day1')" title="Auto + Son Ganxo">Auto</div>
-                    <div class="g-block g-food" style="grid-column:6/10" onclick="goTab('day1')" title="Almuerzo Cales Fonts">Cales Fonts</div>
-                    <div class="g-block g-beach" style="grid-column:11/20" onclick="goTab('day1')" title="Cala Rafalet">Rafalet</div>
-                    <div class="g-block g-food" style="grid-column:27/31" onclick="goTab('day1')" title="Cena casual Cales Fonts">Cena casual</div>
+                    <div class="g-block g-beach" style="grid-column:9/20" onclick="goTab('day1')" title="Playa Binibèquer Nou">Binibèquer Nou</div>
+                    <div class="g-block g-food g-star" style="grid-column:27/31" onclick="goTab('day1')" title="Cena Son Ganxo 20:30">Son Ganxo</div>
                 </div>
             </div>
             <!-- Day 2 -->
             <div class="gantt-row">
                 <div class="gr-label"><span class="gr-day">Día 2</span><span class="gr-date">Dom 21</span></div>
                 <div class="gr-track">
-                    <div class="g-block g-travel" style="grid-column:5/8" onclick="goTab('day2')" title="Auto a Pregonda">Auto</div>
-                    <div class="g-block g-beach" style="grid-column:8/18" onclick="goTab('day2')" title="Cala Pregonda">Pregonda</div>
-                    <div class="g-block g-travel" style="grid-column:18/20" onclick="goTab('day2')" title="Auto a Sa Mesquida">Auto</div>
-                    <div class="g-block g-beach" style="grid-column:20/24" onclick="goTab('day2')" title="Sa Mesquida">Mesquida</div>
+                    <div class="g-block g-travel" style="grid-column:6/8" onclick="goTab('day2')" title="Auto a Sa Mesquida">Auto</div>
+                    <div class="g-block g-beach" style="grid-column:8/22" onclick="goTab('day2')" title="Sa Mesquida - día completo">Sa Mesquida</div>
+                    <div class="g-block g-hotel" style="grid-column:22/25" onclick="goTab('day2')" title="Check-in Hamilton">Hamilton</div>
                     <div class="g-block g-sunset g-star" style="grid-column:25/30" onclick="goTab('day2')" title="Cap Roig sunset dinner">Cap Roig ★</div>
                 </div>
             </div>
@@ -691,9 +664,10 @@
             <div class="gantt-row">
                 <div class="gr-label"><span class="gr-day">Día 4</span><span class="gr-date">Mar 23</span></div>
                 <div class="gr-track">
-                    <div class="g-block g-culture" style="grid-column:7/13" onclick="goTab('day4')" title="Binibèquer Vell + Cala Binibeca">Binibèquer</div>
-                    <div class="g-block g-beach" style="grid-column:13/18" onclick="goTab('day4')" title="Cala Binibeca o Pool Hamilton">Playa/Pool</div>
-                    <div class="g-block g-hotel" style="grid-column:18/23" onclick="goTab('day4')" title="Relax y prepararse para Xoroi">Relax</div>
+                    <div class="g-block g-travel" style="grid-column:6/8" onclick="goTab('day4')" title="Auto a Binigaus">Auto</div>
+                    <div class="g-block g-beach" style="grid-column:8/16" onclick="goTab('day4')" title="Platja de Binigaus">Binigaus</div>
+                    <div class="g-block g-travel" style="grid-column:16/17" onclick="goTab('day4')" title="Auto a Cala en Porter">Auto</div>
+                    <div class="g-block g-beach" style="grid-column:17/24" onclick="goTab('day4')" title="Cala en Porter">C. en Porter</div>
                     <div class="g-block g-sunset g-star" style="grid-column:24/32" onclick="goTab('day4')" title="Cova d'en Xoroi — Sunset + cena">Xoroi sunset</div>
                 </div>
             </div>
@@ -701,10 +675,11 @@
             <div class="gantt-row">
                 <div class="gr-label"><span class="gr-day">Día 5</span><span class="gr-date">Mié 24</span></div>
                 <div class="gr-track">
-                    <div class="g-block g-travel" style="grid-column:5/7" onclick="goTab('day5')" title="Auto a Cala Pilar">Auto</div>
-                    <div class="g-block g-beach" style="grid-column:7/15" onclick="goTab('day5')" title="Cala Pilar — 45 min hike">Cala Pilar</div>
-                    <div class="g-block g-beach" style="grid-column:15/22" onclick="goTab('day5')" title="Es Tancats">Es Tancats</div>
-                    <div class="g-block g-food g-star" style="grid-column:26/31" onclick="goTab('day5')" title="Ivette Beach Club — cena de despedida">Ivette</div>
+                    <div class="g-block g-travel" style="grid-column:5/7" onclick="goTab('day5')" title="Auto al norte">Auto</div>
+                    <div class="g-block g-beach" style="grid-column:7/12" onclick="goTab('day5')" title="Es Tancats">Es Tancats</div>
+                    <div class="g-block g-beach" style="grid-column:12/19" onclick="goTab('day5')" title="Algaiarens + Platja des Bot">Algaiarens</div>
+                    <div class="g-block g-travel" style="grid-column:19/21" onclick="goTab('day5')" title="Auto a Ivette">Auto</div>
+                    <div class="g-block g-food g-star" style="grid-column:25/31" onclick="goTab('day5')" title="Ivette Beach Club — cena 19:30">Ivette</div>
                 </div>
             </div>
             <!-- Day 6 -->
@@ -757,22 +732,22 @@
             <!-- Mahón harbor -->
             <path d="M 498,110 C 490,112 484,114 480,116 C 476,118 474,122 478,124 C 482,126 488,124 494,122 C 498,120 500,116 498,110 Z" fill="url(#seaGrad)" stroke="#cbb894" stroke-width="0.6"/>
 
-            <!-- ===== DAY 1 — #4a9bb0 ===== -->
+            <!-- ===== DAY 1 — #4a9bb0 (Airport → Hotel → Binibèquer Nou) ===== -->
             <g class="day-group d1">
                 <path class="day-route" stroke="#4a9bb0" opacity="0.55" d="M 448,96 Q 462,108 478,130"/>
-                <path class="day-route" stroke="#4a9bb0" opacity="0.55" d="M 478,130 Q 484,142 486,156"/>
-                <path class="day-route" stroke="#4a9bb0" opacity="0.55" d="M 486,156 Q 480,136 478,130"/>
+                <path class="day-route" stroke="#4a9bb0" opacity="0.55" d="M 478,130 Q 484,142 490,155"/>
+                <path class="day-route" stroke="#4a9bb0" opacity="0.55" d="M 490,155 Q 484,142 478,130"/>
                 <circle class="map-dot" cx="448" cy="96" r="3" fill="#4a9bb0" onclick="goTab('day1')"><title>Aeropuerto</title></circle>
-                <circle class="map-dot" cx="486" cy="156" r="3" fill="#4a9bb0" onclick="goTab('day1')"><title>Cala Rafalet</title></circle>
+                <circle class="map-dot" cx="490" cy="155" r="3" fill="#4a9bb0" onclick="goTab('day1')"><title>Binibèquer Nou</title></circle>
             </g>
 
-            <!-- ===== DAY 2 — #c4694a (Hotel → Pregonda → Sa Mesquida → Cap Roig → Hotel) ===== -->
+            <!-- ===== DAY 2 — #c4694a (Hotel → Sa Mesquida → Cap Roig → Hotel) ===== -->
             <g class="day-group d2">
-                <path class="day-route" stroke="#c4694a" opacity="0.55" d="M 478,130 Q 380,80 222,28"/>
-                <path class="day-route" stroke="#c4694a" opacity="0.55" d="M 222,28 Q 340,50 464,78"/>
+                <path class="day-route" stroke="#c4694a" opacity="0.55" d="M 478,130 Q 470,100 460,80"/>
+                <path class="day-route" stroke="#c4694a" opacity="0.55" d="M 460,80 Q 462,79 464,78"/>
                 <path class="day-route" stroke="#c4694a" opacity="0.55" d="M 464,78 Q 470,100 478,130"/>
-                <circle class="map-dot" cx="222" cy="28" r="3.5" fill="#c4694a" onclick="goTab('day2')"><title>Cala Pregonda</title></circle>
-                <circle class="map-dot" cx="464" cy="78" r="3" fill="#c4694a" onclick="goTab('day2')"><title>Sa Mesquida / Cap Roig ★</title></circle>
+                <circle class="map-dot" cx="460" cy="80" r="3.5" fill="#c4694a" onclick="goTab('day2')"><title>Sa Mesquida</title></circle>
+                <circle class="map-dot" cx="464" cy="78" r="3" fill="#c4694a" onclick="goTab('day2')"><title>Cap Roig ★</title></circle>
             </g>
 
             <!-- ===== DAY 3 — #1a5a8a (Hotel → Ciutadella → Mitjana → Macarella → Artrutx → Hotel) ===== -->
@@ -788,24 +763,26 @@
                 <circle class="map-dot" cx="68" cy="186" r="3.5" fill="#1a5a8a" onclick="goTab('day3')"><title>Artrutx ★</title></circle>
             </g>
 
-            <!-- ===== DAY 4 — #6b7c4e (Hotel → Binibèquer → back → Xoroi) ===== -->
+            <!-- ===== DAY 4 — #6b7c4e (Hotel → Binigaus → Cala en Porter/Xoroi) ===== -->
             <g class="day-group d4">
-                <path class="day-route" stroke="#6b7c4e" opacity="0.55" d="M 478,130 Q 486,140 490,150"/>
-                <path class="day-route" stroke="#6b7c4e" opacity="0.55" d="M 490,150 Q 480,148 478,130"/>
-                <path class="day-route" stroke="#6b7c4e" opacity="0.55" d="M 478,130 Q 420,150 340,178"/>
-                <circle class="map-dot" cx="490" cy="150" r="3" fill="#6b7c4e" onclick="goTab('day4')"><title>Binibèquer Vell</title></circle>
+                <path class="day-route" stroke="#6b7c4e" opacity="0.55" d="M 478,130 Q 400,165 300,198"/>
+                <path class="day-route" stroke="#6b7c4e" opacity="0.55" d="M 300,198 Q 318,190 340,180"/>
+                <path class="day-route" stroke="#6b7c4e" opacity="0.55" d="M 340,180 Q 340,179 340,178"/>
+                <path class="day-route" stroke="#6b7c4e" opacity="0.45" d="M 340,178 Q 400,155 478,130"/>
+                <circle class="map-dot" cx="300" cy="198" r="3.5" fill="#6b7c4e" onclick="goTab('day4')"><title>Binigaus</title></circle>
+                <circle class="map-dot" cx="340" cy="180" r="3" fill="#6b7c4e" onclick="goTab('day4')"><title>Cala en Porter</title></circle>
                 <circle class="map-dot" cx="340" cy="178" r="3.5" fill="#6b7c4e" onclick="goTab('day4')"><title>Cova d'en Xoroi ★</title></circle>
             </g>
 
-            <!-- ===== DAY 5 — #8b5a9a (Hotel → Cala Pilar → Es Tancats → Ivette → Hotel) ===== -->
+            <!-- ===== DAY 5 — #8b5a9a (Hotel → Es Tancats → Algaiarens → Ivette → Hotel) ===== -->
             <g class="day-group d5">
-                <path class="day-route" stroke="#8b5a9a" opacity="0.55" d="M 478,130 Q 320,80 140,38"/>
-                <path class="day-route" stroke="#8b5a9a" opacity="0.55" d="M 140,38 Q 120,100 100,168"/>
-                <path class="day-route" stroke="#8b5a9a" opacity="0.55" d="M 100,168 Q 98,170 95,172"/>
-                <path class="day-route" stroke="#8b5a9a" opacity="0.45" d="M 95,172 Q 280,160 478,130"/>
-                <circle class="map-dot" cx="140" cy="38" r="3.5" fill="#8b5a9a" onclick="goTab('day5')"><title>Cala Pilar</title></circle>
-                <circle class="map-dot" cx="100" cy="168" r="3" fill="#8b5a9a" onclick="goTab('day5')"><title>Es Tancats</title></circle>
-                <circle class="map-dot" cx="95" cy="172" r="3.5" fill="#8b5a9a" onclick="goTab('day5')"><title>Ivette Beach Club ★</title></circle>
+                <path class="day-route" stroke="#8b5a9a" opacity="0.55" d="M 478,130 Q 280,155 95,175"/>
+                <path class="day-route" stroke="#8b5a9a" opacity="0.55" d="M 95,175 Q 95,110 95,42"/>
+                <path class="day-route" stroke="#8b5a9a" opacity="0.55" d="M 95,42 Q 93,110 90,170"/>
+                <path class="day-route" stroke="#8b5a9a" opacity="0.45" d="M 90,170 Q 280,160 478,130"/>
+                <circle class="map-dot" cx="95" cy="175" r="3" fill="#8b5a9a" onclick="goTab('day5')"><title>Es Tancats</title></circle>
+                <circle class="map-dot" cx="95" cy="42" r="3.5" fill="#8b5a9a" onclick="goTab('day5')"><title>Algaiarens / Des Bot</title></circle>
+                <circle class="map-dot" cx="90" cy="170" r="3.5" fill="#8b5a9a" onclick="goTab('day5')"><title>Ivette Beach Club ★</title></circle>
             </g>
 
             <g class="perm-labels" style="font-family:'Inter',sans-serif; pointer-events:none">
@@ -816,13 +793,14 @@
                 <text x="182" y="203" style="font-size:6.5px;fill:#6a7a7e" text-anchor="middle">Macarella</text>
                 <text x="232" y="206" style="font-size:6px;fill:#6a7a7e" text-anchor="middle">Mitjana</text>
                 <text x="340" y="189" style="font-size:6.5px;fill:#6a7a7e" text-anchor="middle">Xoroi ★</text>
-                <text x="222" y="24" style="font-size:6.5px;fill:#6a7a7e" text-anchor="middle">Pregonda</text>
                 <text x="470" y="73" style="font-size:6.5px;fill:#6a7a7e" text-anchor="end">Cap Roig ★</text>
-                <text x="486" y="166" style="font-size:5.5px;fill:#8a9a9e" text-anchor="middle">Rafalet</text>
-                <text x="490" y="160" style="font-size:5.5px;fill:#8a9a9e" text-anchor="start"> Binibèquer</text>
+                <text x="490" y="166" style="font-size:5.5px;fill:#8a9a9e" text-anchor="middle">Binibèquer Nou</text>
                 <text x="68" y="196" style="font-size:6px;fill:#6a7a7e" text-anchor="middle">Artrutx ★</text>
-                <text x="140" y="34" style="font-size:6px;fill:#6a7a7e" text-anchor="middle">Cala Pilar</text>
-                <text x="95" y="183" style="font-size:6px;fill:#6a7a7e" text-anchor="middle">Ivette</text>
+                <text x="90" y="181" style="font-size:6px;fill:#6a7a7e" text-anchor="middle">Ivette</text>
+                <text x="300" y="208" style="font-size:6px;fill:#6a7a7e" text-anchor="middle">Binigaus</text>
+                <text x="340" y="172" style="font-size:5.5px;fill:#8a9a9e" text-anchor="middle">C. en Porter</text>
+                <text x="95" y="37" style="font-size:6px;fill:#6a7a7e" text-anchor="middle">Algaiarens</text>
+                <text x="460" y="75" style="font-size:5.5px;fill:#8a9a9e" text-anchor="start"> Sa Mesquida</text>
             </g>
 
             <!-- Hotel dot (always on top) -->
@@ -839,10 +817,10 @@
     </div>
     <div class="map-legend" id="mapLegend">
         <div class="ml-item" data-d="1" onmouseenter="hlDay(1)" onmouseleave="hlDay(0)" onclick="goTab('day1')"><div class="ml-dot"></div> Día 1 · Llegada</div>
-        <div class="ml-item" data-d="2" onmouseenter="hlDay(2)" onmouseleave="hlDay(0)" onclick="goTab('day2')"><div class="ml-dot"></div> Día 2 · Pregonda + Cap Roig</div>
+        <div class="ml-item" data-d="2" onmouseenter="hlDay(2)" onmouseleave="hlDay(0)" onclick="goTab('day2')"><div class="ml-dot"></div> Día 2 · Mesquida + Cap Roig</div>
         <div class="ml-item" data-d="3" onmouseenter="hlDay(3)" onmouseleave="hlDay(0)" onclick="goTab('day3')"><div class="ml-dot"></div> Día 3 · Ciutadella + Argentina</div>
-        <div class="ml-item" data-d="4" onmouseenter="hlDay(4)" onmouseleave="hlDay(0)" onclick="goTab('day4')"><div class="ml-dot"></div> Día 4 · Relax + Xoroi</div>
-        <div class="ml-item" data-d="5" onmouseenter="hlDay(5)" onmouseleave="hlDay(0)" onclick="goTab('day5')"><div class="ml-dot"></div> Día 5 · Pilar + Ivette</div>
+        <div class="ml-item" data-d="4" onmouseenter="hlDay(4)" onmouseleave="hlDay(0)" onclick="goTab('day4')"><div class="ml-dot"></div> Día 4 · Binigaus + Xoroi</div>
+        <div class="ml-item" data-d="5" onmouseenter="hlDay(5)" onmouseleave="hlDay(0)" onclick="goTab('day5')"><div class="ml-dot"></div> Día 5 · Algaiarens + Ivette</div>
     </div>
     <p style="text-align:center;font-size:0.72rem;color:var(--text-muted);margin-top:0.6rem">
         ★ = momentos estrella · Tocá los puntos para ir al día
@@ -876,30 +854,25 @@
             <p>Localizador: <strong>AM142329</strong></p></div>
         </div>
         <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">13:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="hotel"></i><h4>Check-in / Dejar equipaje (TBD)</h4></div>
-            <p>Check-in en el alojamiento de la primera noche (TBD) o dejar las valijas para pasear libres.</p></div>
-        </div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">14:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="utensils"></i><h4>Almuerzo en Cales Fonts</h4></div>
-            <p>Sa Parada o Es Cau en el puerto de Es Castell. Mariscos, tapas. A 5 min caminando del hotel.</p>
-            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~25-40€/pp</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="hotel"></i><h4>Check-in Son Ganxo</h4></div>
+            <p>Passeig de Sa Torre 1, C · Son Ganxo, Sant Lluís. Dejar equipaje, instalarse.</p>
             <div class="links-row">
-                <a href="https://www.google.com/maps/search/Cales+Fonts+Es+Castell+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://maps.app.goo.gl/7pMfAQvqE3pRV8YBA" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
             </div></div>
         </div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">16:00 – 18:30</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="waves"></i><h4>Cala Rafalet</h4></div>
-            <p>Cala pequeñita a 10 min en auto del hotel. Aguas cristalinas, poca gente.</p>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">15:00 – 19:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="waves"></i><h4>Playa Binibèquer Nou</h4></div>
+            <p>Playa amplia de arena dorada a 5 min del departamento. Agua cristalina y tranquila. Perfecta para el primer chapuzón.</p>
             <div class="links-row">
-                <a href="https://www.google.com/maps/search/Cala+Rafalet+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://maps.app.goo.gl/Up2dVRz65DBANrbVA" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
             </div></div>
         </div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">20:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="utensils"></i><h4>Cena casual en Cales Fonts</h4></div>
-            <p>Algo tranquilo en Sa Parada o Es Cau. Puerto de Es Castell, 5 min del depto. Mariscos, tapas, vino.</p>
-            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~25-40€/pp</div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">20:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="utensils"></i><h4>Cena en Son Ganxo</h4></div>
+            <p>Restaurante junto al departamento. Primera cena del viaje, tranquila y a pasitos de la cama.</p>
+            <p>Reserva a nombre de <strong>Juan Pablo Brea</strong> · 2 personas</p>
             <div class="links-row">
-                <a href="https://www.google.com/maps/search/Cales+Fonts+Es+Castell+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://maps.app.goo.gl/pLuLMNeShEHmEu7d8" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
             </div></div>
         </div>
         <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">22:00</div>
@@ -920,33 +893,20 @@
 <div class="panel" id="day2">
     <div class="day-head">
         <div class="day-chip"><i data-lucide="waves" style="width:11px;height:11px"></i> Domingo 21 de Junio</div>
-        <h2>Pregonda y Cap Roig</h2>
-        <p>La playa más especial de la isla y la mejor terraza para el atardecer</p>
+        <h2>Sa Mesquida y Cap Roig</h2>
+        <p>Día completo en la playa y el mejor sunset gastronómico</p>
     </div>
     <div class="tl">
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">9:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="car"></i><h4>Auto hacia Pregonda</h4></div>
-            <p>~55 min desde el hotel. Conducir hasta el parking de Binimel·là en la costa norte.</p></div>
-        </div>
-        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">10:00 – 14:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="mountain"></i><h4>Cala Pregonda</h4></div>
-            <p>Arena rojiza, rocas de arenisca, paisaje marciano. Caminar ~25 min desde parking Binimel·là. Llevar picnic — no hay chiringuito.</p>
-            <div class="links-row">
-                <a href="https://www.google.com/maps/search/Cala+Pregonda+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
-            </div>
-            <div class="tip-box"><i data-lucide="lightbulb" style="width:13px;height:13px"></i><span>La playa más especial de Menorca. Paisaje único.</span></div>
-            </div>
-        </div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">15:00 – 17:00</div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">10:00 – 16:00</div>
             <div class="tl-card"><div class="tl-card-head"><i data-lucide="waves"></i><h4>Playa de Sa Mesquida</h4></div>
-            <p>Baño relajado. Está pegada a Cap Roig.</p>
+            <p>Día completo en una de las mejores playas de la zona este. Arena dorada, aguas tranquilas. Llevar comida o comer en el chiringuito.</p>
             <div class="links-row">
                 <a href="https://www.google.com/maps/search/Sa+Mesquida+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
             </div></div>
         </div>
-        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">17:30</div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">17:00</div>
             <div class="tl-card"><div class="tl-card-head"><i data-lucide="hotel"></i><h4>Check-in Barceló Hamilton</h4></div>
-            <p>Adults Only. Dejar cosas, ducharse, prepararse para la cena.</p>
+            <p>Adults Only. Dejar cosas, ducharse, prepararse.</p>
             <div class="links-row">
                 <a href="https://maps.app.goo.gl/szTYdAaSXx2YxBN87" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
                 <a href="https://www.barcelo.com" target="_blank" class="link-pill link-web"><i data-lucide="globe"></i> Web</a>
@@ -954,8 +914,8 @@
         </div>
         <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">19:00 – 20:45</div>
             <div class="tl-card"><div class="tl-card-head"><i data-lucide="sunset"></i><h4>Cena en Cap Roig — Terraza</h4></div>
-            <p>Primera línea al mar. Arroces, pescado fresco. Sunset ~21:20. Reserva a nombre de Juan Pablo Brea.</p>
-            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~50-70€/pp</div>
+            <p>Primera línea al mar. Arroces, pescado fresco. Sunset ~21:20.</p>
+            <div class="price-tag"><i data-lucide="coins" style="width:11px;height:11px"></i> ~50-70€/pp · Reserva a nombre de Juan Pablo Brea</div>
             <div class="links-row">
                 <a href="https://maps.app.goo.gl/6TEQXzUwEtELG7ku8" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
                 <a href="tel:+34971188383" class="link-pill link-web"><i data-lucide="phone"></i> +34 971 188 383</a>
@@ -1045,29 +1005,33 @@
 <div class="panel" id="day4">
     <div class="day-head">
         <div class="day-chip"><i data-lucide="sunset" style="width:11px;height:11px"></i> Martes 23 de Junio</div>
-        <h2>Relax y Cova d'en Xoroi</h2>
-        <p>Mañana tranquila y el sunset más icónico de la isla</p>
+        <h2>Binigaus, Cala en Porter y Xoroi</h2>
+        <p>La playa "pileta", la cala bajo la cueva y el sunset más icónico</p>
     </div>
     <div class="tl">
-        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">10:00 – 12:30</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="building"></i><h4>Binibèquer Vell</h4></div>
-            <p>Pueblito de casitas blancas con flores. Tipo Santorini menorquín. Paseo tranquilo, fotos, café. A 10 min del hotel.</p>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">9:30 – 13:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="waves"></i><h4>Platja de Binigaus</h4></div>
+            <p>"Impresionante, una pileta" según la reco. Playa grande y virgen con chiringuito Es Bruc para almorzar. Costa sur.</p>
             <div class="links-row">
-                <a href="https://www.google.com/maps/search/Binibeca+Vell+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+                <a href="https://www.google.com/maps/search/Platja+de+Binigaus+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
             </div></div>
         </div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">12:30 – 15:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="waves"></i><h4>Cala Binibeca</h4></div>
-            <p>Cala impresionante con chiringuito, ideal para un baño y almuerzo relajado. A 10 min del hotel.</p>
-            <div class="links-row">
-                <a href="https://www.google.com/maps/search/Cala+Binibeca+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
-            </div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">13:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="utensils"></i><h4>Almuerzo en Es Bruc</h4></div>
+            <p>Chiringuito de playa en Binigaus.</p></div>
         </div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">15:00 – 17:30</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="droplets"></i><h4>Pool del Hamilton</h4></div>
-            <p>Tiempo libre: piscina del hotel con vistas al puerto de Mahón o descanso en la habitación. Prepararse para Xoroi.</p>
-            <div class="tip-box"><i data-lucide="shirt" style="width:13px;height:13px"></i><span>Dress code Xoroi: no ropa de playa, no deportiva, no musculosas. Ir arreglados.</span></div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">14:30 – 17:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="waves"></i><h4>Cala en Porter</h4></div>
+            <p>La playa que está justo debajo de Xoroi. Amplia, de arena, con servicios. Subís caminando a Xoroi a las 18:30.</p>
+            <div class="links-row">
+                <a href="https://maps.app.goo.gl/yymME9BzKWiBQkcw5" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
             </div>
+            <div class="tip-box"><i data-lucide="lightbulb" style="width:13px;height:13px"></i><span>Desde la playa podés subir directo a Xoroi. Llevar ropa para cambiarse.</span></div>
+            </div>
+        </div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">18:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="shirt"></i><h4>Prepararse para Xoroi</h4></div>
+            <p>Cambiarse (no ropa de playa, no deportiva, no musculosas).</p></div>
         </div>
         <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">18:30 – 22:30</div>
             <div class="tl-card"><div class="tl-card-head"><i data-lucide="sunset"></i><h4>Cova d'en Xoroi — Sunset Session</h4></div>
@@ -1096,37 +1060,40 @@
 <div class="panel" id="day5">
     <div class="day-head">
         <div class="day-chip"><i data-lucide="palm-tree" style="width:11px;height:11px"></i> Miércoles 24 de Junio</div>
-        <h2>Cala Pilar, Es Tancats e Ivette</h2>
-        <p>Último día completo — calas salvajes y cena de despedida</p>
+        <h2>Algaiarens, Es Tancats e Ivette</h2>
+        <p>Último día completo — playas del norte y cena de despedida</p>
     </div>
     <div class="tl">
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">9:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="car"></i><h4>Auto hacia Cala Pilar</h4></div>
-            <p>~40 min desde el hotel. Conducir hacia la costa norte. Parking y luego caminata de ~45 min por bosque de encinas.</p></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">9:30</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="car"></i><h4>Auto hacia Es Tancats</h4></div>
+            <p>~40 min desde el hotel.</p></div>
         </div>
-        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">10:00 – 14:00</div>
-            <div class="tl-card"><div class="tl-card-head"><i data-lucide="mountain"></i><h4>Cala Pilar</h4></div>
-            <p>Arena rojiza, acantilados arcillosos, agua azul oscuro. Contraste brutal con las calas del sur. Playa salvaje y virgen. Llevar agua y comida — no hay nada.</p>
-            <div class="links-row">
-                <a href="https://www.google.com/maps/search/?api=1&query=Cala+Pilar+Menorca" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
-            </div>
-            <div class="tip-box"><i data-lucide="boot" style="width:13px;height:13px"></i><span>45 min de caminata. Llevar calzado cómodo, agua y protección solar. Vale cada paso.</span></div>
-            </div>
-        </div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">15:00 – 17:30</div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">10:00 – 12:30</div>
             <div class="tl-card"><div class="tl-card-head"><i data-lucide="waves"></i><h4>Es Tancats</h4></div>
-            <p>Zona de playa/calas para la tarde.</p>
+            <p>Playa en la zona oeste/sur.</p>
             <div class="links-row">
                 <a href="https://maps.app.goo.gl/NL3TGkMShy2SDaWD7" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
             </div></div>
         </div>
-        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">20:00</div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">13:00 – 17:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="mountain"></i><h4>Algaiarens + Platja des Bot</h4></div>
+            <p>Parking Algaiarens, camino de la derecha y después más a la derecha aún para Des Bot. Costa norte salvaje. Recomendado por amigos.</p>
+            <div class="links-row">
+                <a href="https://maps.app.goo.gl/is44AQV7yomXCp4M6" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
+            </div></div>
+        </div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">18:00</div>
+            <div class="tl-card"><div class="tl-card-head"><i data-lucide="car"></i><h4>Auto hacia Ivette Beach Club</h4></div>
+            <p>Conducir hacia la zona sur para la última cena.</p></div>
+        </div>
+        <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-time">19:30</div>
             <div class="tl-card"><div class="tl-card-head"><i data-lucide="sunset"></i><h4>Cena de despedida — Ivette Beach Club</h4></div>
-            <p>El último atardecer del viaje. Beach club con terraza.</p>
+            <p>Última cena del viaje. Beach club con terraza.</p>
+            <p>Reserva confirmada · Mié 24 jun · 19:30h · 2 personas. Podés disfrutar hasta las 21:30h.</p>
             <div class="links-row">
                 <a href="https://maps.app.goo.gl/KzcoNMxujrfG6RNQ6" target="_blank" class="link-pill link-map"><i data-lucide="map-pin"></i> Maps</a>
             </div>
-            <div class="tip-box"><i data-lucide="heart" style="width:13px;height:13px"></i><span>Última cena del viaje. Disfrutar cada minuto.</span></div>
+            <div class="tip-box"><i data-lucide="heart" style="width:13px;height:13px"></i><span>Última cena del viaje. Mañana vuelo temprano.</span></div>
             </div>
         </div>
         <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">22:30</div>
@@ -1219,7 +1186,7 @@
                 <div style="font-size:0.85rem">
                     <strong>Auto de alquiler</strong> — Autos Menorca / OwnersCars · <strong>Fiat 500</strong> · <strong>276,41€</strong><br>
                     <span style="font-size:0.78rem;color:var(--text-muted)">Reserva: <strong style="color:var(--sea-deep)">AM142329</strong> · Carolina Graffigna</span><br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)">Vehículo: 160,66€ + Cobertura Total & Asistencia: 115,75€</span><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Vehículo: 160,66€ + Cobertura Total &amp; Asistencia: 115,75€</span><br>
                     <span style="font-size:0.78rem;color:var(--text-muted)"><strong>Recogida:</strong> Sáb 20 jun 12:00 · Aeropuerto (Meeting Point Parking Público, bus cortesía)</span><br>
                     <span style="font-size:0.78rem;color:var(--text-muted)"><strong>Devolución:</strong> Jue 25 jun 08:15 · Oficina Av. Europa nº9 (Polígono Mahón, bus al aeropuerto)</span><br>
                     <span style="font-size:0.72rem;color:var(--text-muted)">Tel: (+34) 620 027 354 · Reservas: 971 361 508</span>
@@ -1248,7 +1215,7 @@
                 <div style="font-size:0.85rem">
                     <strong>Barceló Hamilton Menorca</strong> — Adults Only (4 noches) · <strong>913,95€</strong><br>
                     <span style="font-size:0.78rem;color:var(--text-muted)">Reserva: <strong style="color:var(--sea-deep)">24876B70257316</strong> · Juan Pablo Brea</span><br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)">Habitación Superior · Bed & Breakfast (desayuno incluido) · 2 adultos</span><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Habitación Superior · Bed &amp; Breakfast (desayuno incluido) · 2 adultos</span><br>
                     <span style="font-size:0.78rem;color:var(--text-muted)"><strong>Check-in:</strong> Dom 21 jun desde 14:00 · <strong>Check-out:</strong> Jue 25 jun hasta 12:00</span><br>
                     <span style="font-size:0.72rem;color:var(--text-muted)">Tasa turística de 3.30€/persona/noche pagadera directamente en el hotel</span><br>
                     <span style="font-size:0.72rem;color:var(--text-muted)">Paseo Santa Agueda 6, Es Castell · Tel: +34 971 362 050</span><br>
@@ -1259,34 +1226,17 @@
         </div>
     </div>
 
-    <!-- Artrutx Sea Club -->
+    <!-- Son Ganxo Restaurant -->
     <div class="prac-block" style="border-left: 4px solid #c4694a;">
-        <h3><i data-lucide="utensils" style="width:20px;height:20px"></i> Artrutx Sea Club — Sunset Dinner</h3>
+        <h3><i data-lucide="utensils" style="width:20px;height:20px"></i> Son Ganxo — Cena</h3>
         <div style="display:grid;gap:10px;margin-top:0.5rem">
             <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sea-foam);border-radius:var(--radius-sm)">
-                <i data-lucide="sunset" style="width:16px;height:16px;color:#c4694a;flex-shrink:0;margin-top:2px"></i>
+                <i data-lucide="utensils" style="width:16px;height:16px;color:#c4694a;flex-shrink:0;margin-top:2px"></i>
                 <div style="font-size:0.85rem">
-                    <strong>Cena en Terraza</strong> — Lun 22 junio · <strong>~21:00h</strong> (post Argentina) · 2 personas ✅<br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)">Confirmado · Email: <strong>juanpablo@abndigital.com.ar</strong></span><br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)">Ubicación en el faro de Cap d'Artrutx (sunset point espectacular)</span><br>
-                    <a href="https://maps.app.goo.gl/sTnv7hZXGExXgWQt7" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cova d'en Xoroi -->
-    <div class="prac-block" style="border-left: 4px solid #e8a87c;">
-        <h3><i data-lucide="sunset" style="width:20px;height:20px"></i> Cova d'en Xoroi — Sunset Session</h3>
-        <div style="display:grid;gap:10px;margin-top:0.5rem">
-            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sea-foam);border-radius:var(--radius-sm)">
-                <i data-lucide="ticket" style="width:16px;height:16px;color:var(--terracotta);flex-shrink:0;margin-top:2px"></i>
-                <div style="font-size:0.85rem">
-                    <strong>Sunset Session</strong> — Mar 23 junio · 2 adultos · <strong>56€</strong><br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)">Orden de compra: <strong style="color:var(--sea-deep)">CX2026011415</strong></span><br>
-                    <span style="font-size:0.78rem;color:var(--text-muted)">Entrada: 18:30 – 19:15 · Salida: hasta 22:30</span><br>
-                    <span style="font-size:0.72rem;color:var(--text-muted)">Dress code: no se permite ropa de playa, deportiva ni camisetas sin mangas</span><br>
-                    <a href="https://www.covadenxoroi.com/en/tickets/datos/success/f96dd065eb35e631f80cb40293963c12f21f17ac8d9cf8726533a0ced2fa" target="_blank" class="link-pill link-reserve" style="margin-top:6px"><i data-lucide="ticket"></i> Ver tickets</a>
+                    <strong>Cena en Son Ganxo</strong> — Sáb 20 junio · <strong>20:30h</strong> · 2 personas ✅<br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Reserva a nombre de: <strong>Juan Pablo Brea</strong></span><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Restaurante junto al departamento</span><br>
+                    <a href="https://maps.app.goo.gl/pLuLMNeShEHmEu7d8" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a>
                 </div>
             </div>
         </div>
@@ -1309,15 +1259,64 @@
         </div>
     </div>
 
+    <!-- Artrutx Sea Club -->
+    <div class="prac-block" style="border-left: 4px solid #c4694a;">
+        <h3><i data-lucide="utensils" style="width:20px;height:20px"></i> Artrutx Sea Club — Sunset Dinner</h3>
+        <div style="display:grid;gap:10px;margin-top:0.5rem">
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sea-foam);border-radius:var(--radius-sm)">
+                <i data-lucide="sunset" style="width:16px;height:16px;color:#c4694a;flex-shrink:0;margin-top:2px"></i>
+                <div style="font-size:0.85rem">
+                    <strong>Cena en Terraza</strong> — Lun 22 junio · <strong>~21:00h</strong> (post Argentina) · 2 personas ✅<br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Confirmado · Email: <strong>juanpablo@abndigital.com.ar</strong></span><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Ubicación en el faro de Cap d'Artrutx (sunset point espectacular)</span><br>
+                    <a href="https://maps.app.goo.gl/sTnv7hZXGExXgWQt7" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ivette Beach Club -->
+    <div class="prac-block" style="border-left: 4px solid #c4694a;">
+        <h3><i data-lucide="utensils" style="width:20px;height:20px"></i> Ivette Beach Club — Cena de despedida</h3>
+        <div style="display:grid;gap:10px;margin-top:0.5rem">
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sea-foam);border-radius:var(--radius-sm)">
+                <i data-lucide="sunset" style="width:16px;height:16px;color:#c4694a;flex-shrink:0;margin-top:2px"></i>
+                <div style="font-size:0.85rem">
+                    <strong>Cena de despedida</strong> — Mié 24 junio · <strong>19:30h</strong> · 2 personas ✅<br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Estancia hasta las 21:30h</span><br>
+                    <a href="https://maps.app.goo.gl/KzcoNMxujrfG6RNQ6" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cova d'en Xoroi -->
+    <div class="prac-block" style="border-left: 4px solid #e8a87c;">
+        <h3><i data-lucide="sunset" style="width:20px;height:20px"></i> Cova d'en Xoroi — Sunset Session</h3>
+        <div style="display:grid;gap:10px;margin-top:0.5rem">
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--sea-foam);border-radius:var(--radius-sm)">
+                <i data-lucide="ticket" style="width:16px;height:16px;color:var(--terracotta);flex-shrink:0;margin-top:2px"></i>
+                <div style="font-size:0.85rem">
+                    <strong>Sunset Session</strong> — Mar 23 junio · 2 adultos · <strong>56€</strong><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Orden de compra: <strong style="color:var(--sea-deep)">CX2026011415</strong></span><br>
+                    <span style="font-size:0.78rem;color:var(--text-muted)">Entrada: 18:30 – 19:15 · Salida: hasta 22:30</span><br>
+                    <span style="font-size:0.72rem;color:var(--text-muted)">Dress code: no se permite ropa de playa, deportiva ni camisetas sin mangas</span><br>
+                    <a href="https://www.covadenxoroi.com/en/tickets/datos/success/f96dd065eb35e631f80cb40293963c12f21f17ac8d9cf8726533a0ced2fa" target="_blank" class="link-pill link-reserve" style="margin-top:6px"><i data-lucide="ticket"></i> Ver tickets</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="reserve-block">
         <h3><i data-lucide="bookmark-check" style="width:20px;height:20px"></i> Resumen de Reservas</h3>
         <ul class="res-list">
             <li><i data-lucide="plane" style="width:15px;height:15px"></i><div><strong>Vuelo Ida (IBZ→PMI→MAH)</strong> — Iberia ✅<br><span class="date">Sáb 20 junio · 09:40h</span> · Localizador: N6K0F · <a href="https://www.iberia.com/es/online-checkin/?language=en&market=ES&pnr=N6K0F&surname=Brea" target="_blank">Check-in</a></div></li>
             <li><i data-lucide="car" style="width:15px;height:15px"></i><div><strong>Alquiler de Auto</strong> — Autos Menorca ✅<br><span class="date">Sáb 20 - Jue 25 junio</span> · Localizador: AM142329</div></li>
+            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Son Ganxo</strong> — Cena ✅<br><span class="date">Sáb 20 junio · 20:30h</span> · Juan Pablo Brea · 2 personas · <a href="https://maps.app.goo.gl/pLuLMNeShEHmEu7d8" target="_blank">Ver mapa</a></div></li>
             <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Cap Roig</strong> — Terraza sunset ✅<br><span class="date">Dom 21 junio · 19:00h</span> · Juan Pablo Brea · <a href="tel:+34971188383">+34 971 188 383</a></div></li>
             <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Artrutx Sea Club</strong> — Cena post Argentina ✅<br><span class="date">Lun 22 junio · ~21:00h</span> · Confirmado · <a href="https://maps.app.goo.gl/sTnv7hZXGExXgWQt7" target="_blank">Ver mapa</a></div></li>
             <li><i data-lucide="sunset" style="width:15px;height:15px"></i><div><strong>Cova d'en Xoroi</strong> — Sunset session + cena ✅<br><span class="date">Mar 23 junio · 18:30-22:30</span> · Localizador: CX2026011415 · <a href="https://www.covadenxoroi.com/en/tickets/datos/success/f96dd065eb35e631f80cb40293963c12f21f17ac8d9cf8726533a0ced2fa" target="_blank">Tickets</a></div></li>
-            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Ivette Beach Club</strong> — Cena de despedida<br><span class="date">Mié 24 junio</span> · <a href="https://maps.app.goo.gl/KzcoNMxujrfG6RNQ6" target="_blank">Ver mapa</a></div></li>
+            <li><i data-lucide="utensils" style="width:15px;height:15px"></i><div><strong>Ivette Beach Club</strong> — Cena de despedida ✅<br><span class="date">Mié 24 junio · 19:30h</span> · 2 personas · Hasta 21:30h · <a href="https://maps.app.goo.gl/KzcoNMxujrfG6RNQ6" target="_blank">Ver mapa</a></div></li>
             <li><i data-lucide="hotel" style="width:15px;height:15px"></i><div><strong>Hotel Hamilton (4n)</strong> — Barceló ✅<br><span class="date">Dom 21 - Jue 25 junio</span> · Localizador: 24876B70257316</div></li>
             <li><i data-lucide="plane" style="width:15px;height:15px"></i><div><strong>Vuelo Vuelta (MAH→MAD)</strong> — Iberia ✅<br><span class="date">Jue 25 junio · 08:55h</span> · Localizador: P34S7 · <a href="https://www.iberia.com/es/online-checkin/?language=en&market=ES&pnr=P34S7&surname=Brea" target="_blank">Check-in</a></div></li>
         </ul>
@@ -1340,7 +1339,6 @@
     <div class="feat-grid">
         <div class="feat-card"><i data-lucide="soup" style="width:22px;height:22px"></i><h4>Caldereta de langosta</h4><p>EL plato de Menorca. Guiso marinero con langosta fresca. Imprescindible.</p></div>
         <div class="feat-card"><i data-lucide="glass-water" style="width:22px;height:22px"></i><h4>Gin Xoriguer</h4><p>Ginebra artesanal. Herencia británica del s. XVIII.</p></div>
-        <div class="feat-card"><i data-lucide="mountain" style="width:22px;height:22px"></i><h4>Cala Pregonda</h4><p>Arena roja, paisaje "marciano". Única.</p></div>
         <div class="feat-card"><i data-lucide="anchor" style="width:22px;height:22px"></i><h4>Calas solo en barco</h4><p>Escorxada y Trebalúger: paraísos vírgenes.</p></div>
         <div class="feat-card"><i data-lucide="building" style="width:22px;height:22px"></i><h4>Binibèquer Vell</h4><p>Pueblito blanco tipo Santorini a 10 min del hotel.</p></div>
         <div class="feat-card"><i data-lucide="glasses" style="width:22px;height:22px"></i><h4>Snorkel</h4><p>Llevar gafas y tubo. Fondos increíbles.</p></div>
@@ -1362,11 +1360,9 @@
     <h3 class="section-title"><i data-lucide="waves" style="width:20px;height:20px"></i> Playas alternativas (recos de amigos)</h3>
     <p style="font-size:0.8rem;color:var(--text-muted);margin:-0.5rem 0 0.75rem">Testeadas por gente que fue — las ★ son las que más recomiendan</p>
     <div class="feat-grid">
-        <div class="feat-card"><i data-lucide="star" style="width:22px;height:22px;color:var(--terracotta)"></i><h4>Platja de Binigaus ★</h4><p>"Impresionante, una pileta." Playa grande con chiringuito <strong>Es Bruc</strong> para almorzar ahí mismo. Costa sur.</p><a href="https://www.google.com/maps/search/?api=1&query=Platja+de+Binigaus+Menorca" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a></div>
         <div class="feat-card"><i data-lucide="star" style="width:22px;height:22px;color:var(--terracotta)"></i><h4>Son Saura ★</h4><p>"Divino. Estacionás y es al toque." Conecta 3 playitas, sin chiringuito. Costa sur, fácil acceso.</p><a href="https://www.google.com/maps/search/?api=1&query=Son+Saura+Menorca" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a></div>
         <div class="feat-card"><i data-lucide="waves" style="width:22px;height:22px"></i><h4>Cala Binibeca</h4><p>"Impresionante." Tiene chiringuito. Muy cerca del hotel Hamilton (~10 min). Ideal para un rato express.</p><a href="https://www.google.com/maps/search/?api=1&query=Cala+Binibeca+Menorca" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a></div>
         <div class="feat-card"><i data-lucide="waves" style="width:22px;height:22px"></i><h4>Cala Santandria</h4><p>"Muy chiquita, muy linda, tipo pileta." Cerca de Ciutadella. Restaurante Hotel Bahía al lado.</p><a href="https://www.google.com/maps/search/?api=1&query=Cala+Santandria+Menorca" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a></div>
-        <div class="feat-card"><i data-lucide="star" style="width:22px;height:22px;color:var(--terracotta)"></i><h4>Platja Des Bot ★</h4><p>Parking Algaiarens, camino de la derecha y después más a la derecha aún. Costa norte, vale la pena.</p><a href="https://www.google.com/maps/search/?api=1&query=Platja+Des+Bot+Menorca" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a></div>
         <div class="feat-card"><i data-lucide="waves" style="width:22px;height:22px"></i><h4>Cala Morell</h4><p>Piedras y esplanada en la costa norte. Agua cristalina con formaciones rocosas espectaculares.</p><a href="https://www.google.com/maps/search/?api=1&query=Cala+Morell+Menorca" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a></div>
     </div>
 
@@ -1379,6 +1375,7 @@
     <p style="font-size:0.8rem;color:var(--text-muted);margin:-0.5rem 0 0.75rem">Paraísos vírgenes que valen la caminata</p>
     <div class="feat-grid">
         <div class="feat-card"><i data-lucide="mountain" style="width:22px;height:22px"></i><h4>Cala Pilar</h4><p>Arena rojiza, acantilados arcillosos, agua azul oscuro. Contraste brutal. 45 min caminando por bosque de encinas. Costa norte.</p><a href="https://www.google.com/maps/search/?api=1&query=Cala+Pilar+Menorca" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a></div>
+        <div class="feat-card"><i data-lucide="mountain" style="width:22px;height:22px"></i><h4>Cala Pregonda</h4><p>Arena rojiza, rocas de arenisca, paisaje marciano. 25 min caminando desde parking Binimel·là. Llevar picnic — no hay chiringuito. Costa norte.</p><a href="https://www.google.com/maps/search/Cala+Pregonda+Menorca" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a></div>
         <div class="feat-card"><i data-lucide="lighthouse" style="width:22px;height:22px"></i><h4>Cala Presili + Faro Favàritx</h4><p>Arena fina, aguas bajitas y cristalinas. 20 min caminando. Dentro de la reserva s'Albufera des Grau.</p><a href="https://www.google.com/maps/search/?api=1&query=Cala+Presili+Menorca" target="_blank" class="link-pill link-map" style="margin-top:6px"><i data-lucide="map-pin"></i> Maps</a></div>
     </div>
 
